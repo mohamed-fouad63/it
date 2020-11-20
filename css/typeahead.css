@@ -1,0 +1,48 @@
+
+.typeahead, .tt-query, .tt-hint {
+
+    text-align: right;
+    font-size: 24px;
+    height: auto;
+    line-height: 30px;
+    outline: medium none;
+    padding: 3px 12px;
+
+
+}
+.typeahead {
+    height: 100%;
+}
+.typeahead:focus {
+border: 0.5px solid #0097CF;
+}
+.tt-query {
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+color: #999999;
+    width: 100%;
+}
+.tt-dropdown-menu {
+background-color: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.2);
+
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+margin-top: 12px;
+padding: 1px 0;
+width: 275px;
+    overflow: hidden;
+}
+.tt-suggestion {
+font-size: 24px;
+line-height: 24px;
+padding: 3px 20px;
+}
+.tt-suggestion.tt-is-under-cursor {
+background-color: #9D9E9E;
+color: #FFFFFF;
+}
+.tt-suggestion p {
+margin: 0;
+text-align: right;
+}
