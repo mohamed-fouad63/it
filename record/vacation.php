@@ -58,6 +58,7 @@ $session_username = $_SESSION['user_name'];
                             <th caption="عضو الدعم الفنى" class="th_date_in  "></th>
                             <th caption="اجازه اعتياديه" class="th_by  "></th>
                             <th caption="اجازه عارضه" class="th_office"></th>
+                            <th caption="ايام السبت" class="th_office"></th>
                             <th caption="بدل راحه" class="th_dvice  "></th>
                             <th caption="ماموريات" class="th_sn  "></th>
                             <th caption="اجازه مرضيه" class="th_sn  "></th>

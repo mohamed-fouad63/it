@@ -227,8 +227,7 @@ $query_id_it = mysqli_query($conn, "SELECT first_name, id FROM tbl_user where id
 		}
 
 		.year_form {
-			margin: auto;
-			width: max-content;
+			width:100%;
 		}
 
 		@media print {
@@ -272,9 +271,15 @@ $query_id_it = mysqli_query($conn, "SELECT first_name, id FROM tbl_user where id
 		</header>
 		<div class="side-it">
 			<div class="div_year">
-				<div class="year_form">
-					<input type="text" class="form-control" name="search_text" id="search_text" placeholder="ادخل العام">
-				</div>
+			<div class="w13">
+				<div class="panel panel-default year_form">
+					<div class="panel-heading">
+						<label class="panel-title" for="des">ادخل العام لعرض اجازاتك</label>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" name="search_text" id="search_text" placeholder="ادخل العام">
+					</div>
+			</div>
 			</div>
 			<div id="vacation_view">
 			</div>

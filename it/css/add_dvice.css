@@ -1,0 +1,38 @@
+body {
+    direction: rtl;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+  
+}
+.container {
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+      font-weight: bold;
+
+}
+tr:nth-child(2){
+    background: #3498db;
+    color: white;
+}
+tr:nth-child(3){
+       background: #333;
+    color: white;
+}
+th , td {
+    padding: 15px 30px;
+
+}
+a {
+    text-decoration: inherit;
+}

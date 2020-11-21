@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+    background: #ecf0f3;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+width: 350px;
+height: 500px;
+padding: 60px 35px ;
+border-radius: 10px;
+background: #ecf0f3;
+box-shadow: 5px 8px 20px #cbced1,
+            -3px 1px 20px #cbced1;
+
+}
+form {
+
+    height: 100%;
+    padding: 10px 15px;
+    box-shadow: inset -2px 3px 3px #cbced1,
+     inset 2px -2px 3px #cbced1;
+}
+.imgcontainer {
+    display: flex;
+    margin-top: 30px;
+}
+.imgcontainer img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow:
+    /* logo shadow */
+    0px 0px 2px #5f5f5f,
+    /* offset */
+    0px 0px 0px 5px #ecf0f3,
+    /* bottom right */
+    8px 8px 15px #a7aaaf,
+    /* top left */
+    -8px -8px 15px #fff;
+    ;
+    
+}
+.fields {
+}
+.username, .password {
+margin-bottom: 30px;
+
+}
+.fields h5 {
+    text-align: center;
+}
+.fields input[type=text], input[type=password] {
+    border: 0.5px solid #fff;
+    outline: none;
+    width: 100%;
+    height: 60px;
+    background: none;
+    color: #555;
+    text-align:center;
+
+    border-radius: 5px;
+    box-shadow: inset 8px 8px 13px -7px #cbced1,
+                inset -8px -8px 8px -7px #fff,
+                0px 0px 2px #5f5f5f;
+    }
+.submit {
+    margin: auto;
+    border-radius: 5px;
+}
+.signin {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 60px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    background: #24cfaa;
+    box-shadow: /* logo shadow */
+     0px 0px 2px #24cfaa,
+      /* offset 
+       0px 0px 0px 5px #24cfaa */
+       ;
+    }
+.signin:hover {
+    background: #2fdbb6;
+}
+.clearfix {
+    clear: both;
+    box-sizing: border-box;
+}
+.cancelbtn {
+
+}
+
+img.avatar {
+
+}
+
+span.psw {
+
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+span.psw {display: block;float: none;}
+.cancelbtn {width: 100%;}
+}

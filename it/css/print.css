@@ -1,0 +1,10 @@
+body {
+    height: auto;
+}
+header , .add_new , .btn-edit , button{
+    display: none;
+}
+.tableview-holder {
+    height: auto;
+        overflow-y: 0;
+    }
