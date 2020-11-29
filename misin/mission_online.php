@@ -88,9 +88,7 @@ $(document).ready(function() {
         $.ajax({
             url: "mission_online_fetch.php",
             method: "POST",
-            data: {
-
-            },
+            data: {},
             success: function(data) {
                 $('#result').html(data);
             }
