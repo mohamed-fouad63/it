@@ -24,17 +24,17 @@ if ($job == "hg") {
     <!-- [if lt IE 9]><script src="../js/html5shiv.min.js"></script><![endif]-->
 
     <style>
-        h2 {
-            margin-top: 0;
-        }
+    h2 {
+        margin-top: 0;
+    }
 
-        table tr {
-            transition: all .25s ease-in-out;
-        }
+    table tr {
+        transition: all .25s ease-in-out;
+    }
 
-        table tr:hover {
-            background-color: #ddd;
-        }
+    table tr:hover {
+        background-color: #ddd;
+    }
     </style>
 </head>
 
@@ -80,75 +80,75 @@ if ($job == "hg") {
     <!-- end Logout Modal -->
 </body>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        load_data();
+    load_data();
 
-        function load_data(query) {
-            $.ajax({
-                url: "mission_online_fetch.php",
-                method: "POST",
-                data: {
-                   
-                },
-                success: function(data) {
-                    $('#result').html(data);
-                }
-            });
-        }
+    function load_data(query) {
+        $.ajax({
+            url: "mission_online_fetch.php",
+            method: "POST",
+            data: {
 
-    });
+            },
+            success: function(data) {
+                $('#result').html(data);
+            }
+        });
+    }
+
+});
 </script>
 <script>
-    function misin_add() {
-        var table = document.getElementById("result"),
-            rIndex;
-        for (var i = 0; i < table.rows.length; i++) {
-            table.rows[i].onclick = function() {
-                rIndex = this.rowIndex;
-                var it_name = this.cells[0].innerHTML;
-                misin_day = this.cells[1].innerHTML;
-                misin_date = this.cells[2].innerHTML;
-                office_name = this.cells[3].innerHTML;
-                misin_type = this.cells[4].innerHTML;
-                start_time = this.cells[5].innerHTML;
-                end_time = this.cells[6].innerHTML;
-                id = this.cells[7].innerHTML;
-                counter = this.cells[8].innerHTML;
+function misin_add() {
+    var table = document.getElementById("result"),
+        rIndex;
+    for (var i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function() {
+            rIndex = this.rowIndex;
+            var it_name = this.cells[0].innerHTML;
+            misin_day = this.cells[1].innerHTML;
+            misin_date = this.cells[2].innerHTML;
+            office_name = this.cells[3].innerHTML;
+            misin_type = this.cells[4].innerHTML;
+            start_time = this.cells[5].innerHTML;
+            end_time = this.cells[6].innerHTML;
+            id = this.cells[7].innerHTML;
+            counter = this.cells[8].innerHTML;
+            $.ajax({
+                url: "mission_online_add.php",
+                method: "POST",
+                data: {
+                    it_name: it_name,
+                    misin_day: misin_day,
+                    misin_date: misin_date,
+                    office_name: office_name,
+                    misin_type: misin_type,
+                    start_time: start_time,
+                    end_time: end_time,
+                    id: id,
+                    counter: counter
+                },
+                success: function(data) {}
+            });
+            load_data();
+
+            function load_data(query) {
                 $.ajax({
-                    url: "mission_online_add.php",
+                    url: "mission_online_fetch.php",
                     method: "POST",
-                    data: {
-                        it_name: it_name,
-                        misin_day: misin_day,
-                        misin_date: misin_date,
-                        office_name: office_name,
-                        misin_type: misin_type,
-                        start_time: start_time,
-                        end_time: end_time,
-                        id: id,
-                        counter:counter
-                    },
-                    success: function(data) {}
+                    data: {},
+                    success: function(data) {
+                        $('#result').html(data);
+                    }
                 });
-                        load_data();
-                        function load_data(query) {
-                            $.ajax({
-                                url: "mission_online_fetch.php",
-                                method: "POST",
-                                data: {},
-                                success: function(data)
-                                {
-                                    $('#result').html(data);
-                                }
-                            });
-        }
-            };
-        }
-
-
-
+            }
+        };
     }
+
+
+
+}
 </script>
 
 </html>
