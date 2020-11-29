@@ -89,7 +89,7 @@ if ($job == "hg") {
                 url: "mission_online_fetch.php",
                 method: "POST",
                 data: {
-                    query: query
+                   
                 },
                 success: function(data) {
                     $('#result').html(data);
@@ -129,12 +129,24 @@ if ($job == "hg") {
                         id: id,
                         counter:counter
                     },
-                    success: function(data) {
-                        $('#result').html(data);
-                    }
+                    success: function(data) {}
                 });
+                        load_data();
+                        function load_data(query) {
+                            $.ajax({
+                                url: "mission_online_fetch.php",
+                                method: "POST",
+                                data: {},
+                                success: function(data)
+                                {
+                                    $('#result').html(data);
+                                }
+                            });
+        }
             };
         }
+
+
 
     }
 </script>
