@@ -34,7 +34,11 @@ $query_id_it = mysqli_query($conn, "SELECT first_name, id FROM tbl_user where id
 		.hiddenpanal {
 			display: none;
 		}
-
+		.befor_dayes_count {
+			position: absolute;
+			top: 10px;
+			left: 15%;
+		}
 		.table_dayes_before {
 			border-radius: .25rem;
 			border: none;
@@ -336,7 +340,7 @@ $query_id_it = mysqli_query($conn, "SELECT first_name, id FROM tbl_user where id
 	});
 
 	$.ajax({
-		url: "befor_dayes_count.php",
+		url: "befor_dayes_my_misin.php",
 		type: "POST",
 		data: {
 			"date_missin": date_missin

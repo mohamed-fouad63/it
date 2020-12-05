@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set('Africa/Cairo');
 include '../connection.php';
-$session_username = $_SESSION['user_name'];
+$key = $_POST['key'];
 ?>
 <table class="table_dayes_before" id="table_dayes_before">
     <thead class="thead" id="thead" onclick="myFunction(this)">
@@ -59,7 +59,7 @@ $session_username = $_SESSION['user_name'];
 
             if ($nameOfDay != 'الجمعه') {
 
-                $query_missin_daye = " SELECT counter  from misin_it where it_name = '$session_username' and misin_date = '$date'";
+                $query_missin_daye = " SELECT counter  from misin_it where it_name = '$key' and misin_date = '$date'";
 
                 $query_missin_daye_result = mysqli_query($conn, $query_missin_daye);
 

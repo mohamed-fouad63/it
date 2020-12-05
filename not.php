@@ -3,8 +3,7 @@
     <head>
         <style>
         body {
-position:relative;
-}
+position:relative;}
 h1 {
   position:absolute;
   top:90%;
@@ -14,7 +13,6 @@ h1 {
     </head>
     <body>
         <h1>
-            غير مصرح لك بدخو هذه لصفحه
-        </h1>
+            غير مصرح لك بدخو هذه لصفحه</h1>
     </body>
 </html>
