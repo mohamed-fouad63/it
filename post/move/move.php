@@ -23,7 +23,7 @@ $sql_insert_move_to = "INSERT INTO move_to (num,id,dvice_name,sn,office_name_fro
 }
 if($_move_like === "مؤقت"){
 $sql_move_custody_spare = "UPDATE dvice SET
-note_move_to ='منقول مؤقتا الى $_move_to',
+note_move_to ='$_move_to',
 note = ''
 WHERE num ='$_move_num' ";
 $sql_insert_move_to = "INSERT INTO move_to (num,id,dvice_name,sn,office_name_from,office_name_to,date,move_by,move_like,move_note,admin_move) VALUES ('$_move_num','$_id1','$_move_name','$_move_sn','$_move_from','$_move_to','$_move_date','$_move_parcel','$_move_like','$_move_note','$session_username') ";

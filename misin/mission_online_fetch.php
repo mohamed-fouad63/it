@@ -20,7 +20,10 @@ if ($result) {
             <td><?php echo $row_pc["end_time"] ?></td>
             <td><?php echo $row_pc["id"] ?></td>
             <td><?php echo $row_pc["counter"] ?></td>
-            <td><a class='btn  btn-outline-secondary' onclick="misin_add();"><i class='fas fa-plus'></i></a></td>
+            <td>
+                <a class='btn  btn-outline-secondary' onclick="misin_add();"><i class='fas fa-plus'></i></a>
+                <a class='btn  btn-outline-secondary' onclick="misin_remove();"><i class='fas fa-trash-alt'></i></a>
+            </td>
             <!--<td><button type="button" class="btn-edit" data-toggle="modal" data-target="#misin_view" onclick="misin_view()">
 <i class="fas fa-print"></i></button></td>-->
         </tr>
