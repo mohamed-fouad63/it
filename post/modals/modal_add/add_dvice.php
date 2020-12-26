@@ -1,6 +1,6 @@
 <div class="modal fade" id="add_dvice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <form method="POST" class="form-horizontal add_form" id="add_form" role="form">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg" id="drag_modal">
 <div class="modal-content">
 <div class="modal-header">
 <h4 class="modal-title"> اضافه عهده بمكتب / قسم </h4>

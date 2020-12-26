@@ -32,6 +32,7 @@ include '../connection.php';
     /* justify-content: center; */
     margin-top: 17%;
 }
+
 </style>
 </head> 
 <body>
