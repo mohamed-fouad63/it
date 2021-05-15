@@ -1,0 +1,10 @@
+
+@media print {
+
+body {
+    background-color: red;
+}
+.tableview-holder {
+    height: auto;
+        overflow-y: 0;
+    }}

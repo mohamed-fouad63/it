@@ -1,0 +1,193 @@
+
+* {
+  box-sizing: border-box;
+}
+:root {
+  --accent-color: #45494E;
+  --gradient-color: #FBFBFB;
+}
+
+body {
+    overflow: hidden;
+  background: #45494E;
+  font-family: "Varela Round", Nunito, Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+
+}
+.menu {
+  margin: 15px;
+}
+.menu > ol {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+}
+.menu > ol > .menu-item {
+  background: #3c3c3c;
+  
+  margin-bottom: 1px;
+  position: relative;
+  transition: 0.5s;
+}
+.menu > ol > .menu-item:nth-child(1) {
+  border-color: #FDA085;
+  --gradient-color: #F6D365;
+}
+.menu > ol > .menu-item:nth-child(2) {
+  border-color: #BFF098;
+  --gradient-color: #6FD6FF;
+}
+.menu > ol > .menu-item:nth-child(3) {
+  border-color: #EA8D8D;
+  --gradient-color: #A890FE;
+}
+.menu > ol > .menu-item:nth-child(4) {
+  border-color: #D8B5FF;
+  --gradient-color: #1EAE98;
+}
+.menu > ol > .menu-item:nth-child(5) {
+  border-color: #C6EA8D;
+  --gradient-color: #FE90AF;
+}
+.menu > ol > .menu-item:nth-child(6) {
+  border-color: #FDA085;
+  --gradient-color: #FE90AF;
+}
+.menu-item a {
+  color: #FBFBFB;
+  display: block;
+  padding: 15px 27px;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+}
+.item > a {
+color: black;
+    font-weight: bold;
+}
+.menu-item .fas , .far{
+  font-size: 0.75em;
+  line-height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-right: 10px;
+  transition: 0.5s;
+}
+
+.menu > ol > .menu-item:hover {
+  z-index: 100;
+}
+
+
+.menu > ol > li:hover:after {
+  background: linear-gradient(to right, var(--accent-color), var(--gradient-color));
+  max-width: 800px;
+    
+}
+.menu > ol > li:focus .sub-menu,
+.menu > ol > li:focus-within .sub-menu {
+  max-height: 500px;
+}
+.menu > ol > li:focus a:before,
+.menu > ol > li:focus-within a:before {
+  transform: rotate(-180deg);
+}
+.menu > ol > li:after {
+  background: #3c3c3c;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 0.5s;
+  max-width: 0;
+  overflow: hidden;
+}
+.menu > ol .sub-menu {
+  border-left: 1px solid #FBFBFB;
+    font-weight: bold;
+  margin-left: 22.5px;
+  list-style: none;
+  max-height: 0px;
+  overflow: hidden;
+  padding-left: 7.5px;
+  position: relative;
+  transition: 0.5s;
+  z-index: 1;
+}
+.menu > ol .sub-menu li {
+  font-size: 0.9em;
+}
+.menu > ol .sub-menu li:hover,
+.menu > ol .sub-menu li a:focus {
+  background: rgba(60, 60, 60, 0.3);
+    color: greenyellow;
+}
+
+
+  .menu > ol {
+    display: block;
+    max-width: none;
+    text-align: center;
+  }
+  .menu > ol > li {
+    border-top: 5px solid var(--accent-color);
+    border-left: 0;
+    display: inline-block;
+    margin-left: -5px;
+    vertical-align: top;
+   
+      font-weight: bold;
+  }
+  .menu > ol > li:hover:after
+  
+   {
+    background: linear-gradient(to bottom, var(--accent-color), var(--gradient-color));
+    border-radius: 3px;
+    top: -15px;
+    bottom: -15px;
+    left: -15px;
+    right: -15px;
+  }
+  .menu > ol > li:hover .sub-menu {
+    max-height: 750px;
+    /*   color: blueviolet; */
+  }
+  .menu > ol > li a:not(:last-child):before {}
+  .menu > ol > li:hover .fas {
+    transform: rotate(360deg);
+      color: black;
+  }
+  .menu > ol > li:hover .fa-address-book {
+    transform: rotate(360deg);
+      color: black;
+  }
+ .menu > ol > li:hover a  {}
+  .menu > ol .sub-menu {
+    border-left: 0;
+    margin: 15px -15px -15px;
+    padding-left: 0;
+  }
+@media (max-width:700px){
+   .menu {
+  margin: 0;
+}
+    .menu > ol {
+  list-style: none;
+  margin:  0;
+  padding: 0;
+
+}
+.menu > ol > .menu-item {
+
+ width: 100%;
+  transition: 0.5s;
+}
+    
+}
+

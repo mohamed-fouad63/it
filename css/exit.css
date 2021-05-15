@@ -1,0 +1,31 @@
+.nav_header{
+    background-color: antiquewhite;
+}
+.container {
+        width: 1000px;
+        margin: auto;
+        position: relative;
+        height: 50px;
+        margin: auto;
+    }
+    .nav_user {
+    position: absolute;
+    top: 30%;
+  
+}
+    .nav_jop {
+        position: absolute;
+    top: 30%;
+    right: 30%;
+}
+    .input_exit {
+   
+    padding: 12px 20px;
+    position: absolute;
+    box-sizing: border-box;
+    border: 3px solid #ffb307;
+    border-radius: 10%;
+    cursor: pointer;
+    top: 0px;
+    left: 1px;
+}
