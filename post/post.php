@@ -169,8 +169,8 @@ data:{query:query},
 success:function(data)
 {
 $('#dvice_name' ).html(data);
-$('#dvice_type' ).html("");
-$('#code_inventory' ).html("");
+// $('#dvice_type' ).html("");
+// $('#code_inventory' ).html("");
 }
 })
 });
