@@ -27,18 +27,25 @@ include '../connection.php';
 <script src="../js/typeahead.min.js"></script>
 <script src="../js/get_details.js"></script>
 <style>
-#wait {
-    position: relative;
-    text-align: center;
-    /* justify-content: center; */
-    margin-top: 17%;
-}
+        #wait {
+            position: relative;
+            text-align: center;
+            /* justify-content: center; */
+            margin-top: 17%;
+        }
         .add_new_dvice {
             position: fixed;
             top: 2%;
             z-index: 1030;
             left: 20%;
         }
+          .toast{
+      position: fixed;
+      top: 66px;
+      right: 18px;
+      opacity: 1;
+      display: none;
+}
 </style>
 </head> 
 <body>
@@ -59,6 +66,9 @@ include '../connection.php';
 </div>
 </nav>
 </header>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+
+</div>
 <div class="msg" dir="rtl">
 <h3 id="wait"></h3>
 </div>
@@ -174,6 +184,10 @@ type:"POST",
 data :$(".add_form").serialize(),
 success:function(data){
 $(".add_form")[0].reset();
+ 
+$(".toast").fadeIn();
+$(".toast").html(data);
+setTimeout(function(){$(".toast").fadeOut('slow')},2000);
 var key = $(".typeahead").val();
 $.ajax({
 url:"details.php",type:"POST",

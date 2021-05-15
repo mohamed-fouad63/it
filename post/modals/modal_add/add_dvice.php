@@ -11,6 +11,7 @@
 <div class="input-group">
 <div class="col-sm-4" >
 <select class="form-control dvice_name" name="dvice_name" id="dvice_name" required>
+    <option value=""></option>
 </select>
 </div>
 <label class="control-label col-sm-2" style="text-align:center;">اسم الجهاز</label>
@@ -30,8 +31,10 @@ $dvice_id = $row_query_dvice_id["id"];
 </div>
 <div class="input-group">
 <div class="col-sm-2" id="dvice_type">
+    <input type="text" class="form-control dvice_type" name = "dvice_type" readonly>
 </div>
 <div class="col-sm-2" id="code_inventory">
+    <input type="text" class="form-control code_inventory" name = "code_inventory" readonly>
 </div>
 <label class="control-label col-sm-2"></label>
 <div class="col-sm-4">
