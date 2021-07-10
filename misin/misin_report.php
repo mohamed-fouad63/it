@@ -484,7 +484,7 @@ if ($nameOfDay == "الجمعه") {
                     <div class="missintitle">خطاب انهاء الماموريه</div>
                     <div class="missinto">
                         <label>
-                            السيد الاستاذ / مدير عام الاداره العامة لمنطقة بريد جنوب الشرقية
+                            السيد الاستاذ / مدير عام منطقة بريد  
                         </label>
                     </div>
                     <div class="missintro">
@@ -517,7 +517,7 @@ if ($nameOfDay == "الجمعه") {
         <div class=" page">
             <div class="missinmsgto">
                 <div class="centering rotating">
-                    <h3>قسم الدعم الفنى بجنوب الشرقيه</h3>
+                    <h3>قسم الدعم الفنى  </h3>
                     <h3>الى</h3>
                 </div>
             </div>

@@ -57,7 +57,6 @@ table tr:hover{background-color: #ddd;}
     <th caption="صادر بالطرد" ></th>
     <th caption="تاريخ التصدير"  ></th>
     <th caption="موقفه" ></th>
-    <th style="display:none">count_in_it</th><th style="display:none">num</th>
 </tr>
     </thead>
     <tbody id="result"></tbody>

@@ -9,7 +9,7 @@ $query_repeat_sn=mysqli_query($conn, "SELECT sn, COUNT(sn) FROM dvice WHERE sn !
 ");
 $rowcount_repeat_sn=mysqli_num_rows($query_repeat_sn);
 // بدون نوع جهاز
-$query_none_id=mysqli_query($conn, "SELECT id,dvice_name,office_name,COUNT(id) FROM dvice WHERE id = '' or dvice_type = '' GROUP BY dvice_name,office_name");
+$query_none_id=mysqli_query($conn, "SELECT id,dvice_name,office_name,COUNT(id) FROM dvice WHERE dvice_type = '' GROUP BY dvice_name,office_name");
 $rowcount_none_id=mysqli_num_rows($query_none_id);
 // مكتب به سريال مكرر
 $query_repeat_sn_one_office=mysqli_query($conn, "SELECT sn,office_name, COUNT(sn) FROM dvice WHERE sn != '' GROUP BY sn,office_name HAVING COUNT(sn) > 1

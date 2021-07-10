@@ -305,7 +305,8 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
                                     <option value="اجازه رسميه">اجازه رسميه</option>
                                     <option value="اجازه استثنائيه">اجازه استثنائيه</option>
                                     <option value="اجازه مرضيه">اجازه مرضيه</option>
-                                    <option value="ماموريه القاهره">ماموريه القاهره</option>
+                                    <option value="ماموريه القاهره">ماموريه القاهره</option>\
+                                    <option value="لجنه جرد">لجنه جرد</option>
                                     <?php
 
                                     $sql10 = "SELECT office_name FROM all1 ORDER BY office_name ASC";

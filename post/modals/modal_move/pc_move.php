@@ -26,8 +26,6 @@
 <select class="form-control " name="_move_to" required>
     <option></option>
     <?php
-    include '../../../connection.phpconnection.php';
-    
     $sql10 = "SELECT office_name FROM all1 ORDER BY office_name ASC";
     $result10 = $conn->query($sql10);
     while($row10 = $result10->fetch_assoc()) {?>

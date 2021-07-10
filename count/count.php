@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 include '../setup/session/no_session.php';
 include '../connection.php';
 // حساب عدد الاجهزه
@@ -80,6 +82,10 @@ $rowcount_post_pos=mysqli_num_rows($query_post_pos);
 $query_3600_pos=mysqli_query($conn, "select * from dvice where
 dvice_name = 'BITEL IC3600'");
 $rowcount_3600_pos=mysqli_num_rows($query_3600_pos);
+// عدد pos bitel 3600
+$query_v200_pos=mysqli_query($conn, "select * from dvice where
+dvice_name = 'VERIFONE V200T'");
+$rowcount_v200_pos=mysqli_num_rows($query_v200_pos);
 // عدد مكاتب البريد
 $query_maktab_bareed=mysqli_query($conn, "select * from all1 where office_type= 'مكتب بريد'");
 $rowcount_maktab_bareed=mysqli_num_rows($query_maktab_bareed);
@@ -369,6 +375,16 @@ $rowcount_ll_3g=mysqli_num_rows($queryll_3g);
                                             <label>عدد ماكينات BITEL IC3600</label>
                                             <span class="badge"><?php echo $rowcount_3600_pos?></span>
                                             <a href="count_3600_pos.php" class="details">
+                                                <i class="fas fa-clipboard-list"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="item" id="setting">
+                                        <div class="btn">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <label>عدد ماكينات v200</label>
+                                            <span class="badge"><?php echo $rowcount_v200_pos?></span>
+                                            <a href="count_v200t_pos.php" class="details">
                                                 <i class="fas fa-clipboard-list"></i>
                                             </a>
                                         </div>

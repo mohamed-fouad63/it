@@ -7,7 +7,7 @@ $dvice_id = $_POST['dvice_id'];
 $sn = $_POST['sn'];
 $dvice_type = $_POST['dvice_type'];
 $code_inventory = $_POST['code_inventory'];
-if(!empty($dvice_name) &  !empty($dvice_id) )
+if(!empty($dvice_name) &  !empty($dvice_id) &  !empty($office_name_dvice) &  !empty($dvice_type) )
 {
 $sql_insert_dvice = "INSERT INTO `dvice`(`num`, `id`, `office_name`, `dvice_name`, `sn`, `dvice_type`,`code_inventory`) VALUES 
 ('','$dvice_id','$office_name_dvice','$dvice_name','$sn','$dvice_type','$code_inventory')";

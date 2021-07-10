@@ -27,12 +27,13 @@ $rowcount_post_pos=mysqli_num_rows($query_post_pos);
                 <tr class="">
                     <th>اسم المكتب</th>
                     <th>نوع الماكينه</th>
+                    <th>السريال</th>
                     <th>IP</th>
                  </tr>
 <?php
                 while($row=mysqli_fetch_assoc($query_post_pos)){
     echo "<tr><td>".
-        $row['office_name']."</td><td>".$row['dvice_name']."</td><td>".$row['ip']."</td</tr>";
+        $row['office_name']."</td><td>".$row['dvice_name']."</td><td>".$row['sn']."</td><td>".$row['ip']."</td</tr>";
 } ?> 
             </table>
         </div>

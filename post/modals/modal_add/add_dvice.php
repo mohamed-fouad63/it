@@ -19,7 +19,8 @@
 <select class="form-control action_dvice_id" name="dvice_id" id="dvice_id" required>
 <option value=""></option>
 <?php
-$query_dvice_id = mysqli_query($conn, "SELECT id FROM dvice_type GROUP BY id HAVING COUNT(*) >= 1  ");
+$conn1=mysqli_connect("localhost","root","12345678","post");
+$query_dvice_id = mysqli_query($conn1, "SELECT id FROM dvice_type GROUP BY id HAVING COUNT(*) >= 1  ");
 while($row_query_dvice_id=mysqli_fetch_assoc($query_dvice_id)){
 $dvice_id = $row_query_dvice_id["id"];
 ?>

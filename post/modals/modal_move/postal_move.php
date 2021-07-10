@@ -24,7 +24,6 @@
 <select class="form-control " name="_move_to"  required>
     <option></option>
     <?php 
-    $conn=mysqli_connect("localhost","root","12345678","post");
     $sql11 = "SELECT office_name FROM all1 ORDER BY office_name ASC";
     $result11 = $conn->query($sql11);
     while($row11 = $result11->fetch_assoc()) {?>

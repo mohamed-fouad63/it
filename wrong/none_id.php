@@ -6,8 +6,7 @@ $session_role = $_SESSION['role'];
 $job = $_SESSION['job'];
 //if ( $session_role != "admin"){ header('location: not.php');}
 include '../connection.php';
-$query_none_id=mysqli_query($conn, "SELECT id,dvice_name,office_name,COUNT(id) FROM dvice WHERE id like '' GROUP BY dvice_name,office_name
-");
+$query_none_id=mysqli_query($conn, "SELECT id,dvice_name,office_name FROM dvice WHERE dvice_type = '' ");
 
  ?>
 <!DOCTYPE html>
@@ -19,6 +18,7 @@ $query_none_id=mysqli_query($conn, "SELECT id,dvice_name,office_name,COUNT(id) F
     </style> 
         </head>
 <body dir="rtl">
+     <a href="repair_none_id.php" class="btn">اصلاح الاخطاء</a>
     <div class="middle">
         <div class="menu">
             <table class="">
