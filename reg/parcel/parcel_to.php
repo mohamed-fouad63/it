@@ -119,8 +119,8 @@ include '../../connection.php';
                 <div class="dis-grid ">
                     <span id="p556" class="mos" onclick="getid(this)">طابعه سامسونج </span>
                     <span id="p556" class="mos" onclick="getid(this)">ماكينه pos BITEL</span>
-                    <span id="p400" class="mos" onclick=""></span>
-                    <span id="p3500" class="mos" onclick=""></span>
+                    <span id="p400" class="mos" onclick="getid(this)">باور صبلاى يخص جهاز حاسب الى</span>
+                    <span id="p3500" class="mos" onclick="getid(this)">مازر بورد يخص جهاز حاسب الى</span>
                 </div>
             </div>
 

@@ -17,7 +17,7 @@ $pos_all_query = $pdo->prepare($query_all_dvice);
 $pos_all_query->execute(['pos']);
 
 $query_dvice = 'SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice
-WHERE id = :id GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC ';
+WHERE id = :id GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC LIMIT 10 ';
 
 $pc_query = $pdo->prepare($query_dvice);
 $pc_query->execute(['pc']);
@@ -48,42 +48,18 @@ $money_safe_query->execute(['خزينه']);
 $section_query = $pdo->prepare($query_office);
 $section_query->execute(['قسم']);
 
-/*$query_users = 'select id ,SUBSTRING_INDEX(first_name," ",4) as first_name,job from tbl_user where job= :job';
+$query_users = 'select id ,SUBSTRING_INDEX(first_name," ",4) as first_name,job from tbl_user where job= :job';
 
 $it_users_query = $pdo->prepare($query_users);
 $it_users_query->execute(['اخصائى تشغيل نظم']);
 
 $hg_users_query = $pdo->prepare($query_users);
 $hg_users_query->execute(['رئيس مجموعه']);
-*/
-$query_repeat_serials = 'SELECT a.sn,a.office_name,a.dvice_name FROM dvice a
-JOIN ( SELECT sn, COUNT(sn) FROM dvice WHERE sn !="" GROUP BY sn HAVING count(sn) > 1
-) b ON a.sn = b.sn ORDER BY a.sn';
-
-$repeat_serials = $pdo->prepare($query_repeat_serials);
-$repeat_serials->execute();
-
-$query_none_dvice_type = 'SELECT id,dvice_name,office_name FROM dvice WHERE dvice_type = ""';
-$none_dvice_type = $pdo->prepare($query_none_dvice_type);
-$none_dvice_type->execute();
-
-$query_none_office_type = 'select * from all1 where office_type = ""';
-$none_office_type = $pdo->prepare($query_none_office_type);
-$none_office_type->execute();
-
-$query_check_monitor_name = 'SELECT dvice.dvice_name FROM dvice
-INNER JOIN post.dvice_type ON
- post.dvice_type.id = dvice.id
- AND post.dvice_type.dvice_name_new <> dvice.dvice_name
- AND post.dvice_type.dvice_name = dvice.dvice_name
- AND dvice.id = "monitor" ';
-$check_monitor_name = $pdo->prepare($query_check_monitor_name);
-$check_monitor_name->execute();
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en" dir="rtl" class='scroller'>
+<html lang="en" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -91,7 +67,6 @@ $check_monitor_name->execute();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dash board</title>
 <link rel="stylesheet" href="css/web-fonts-with-css/css/all.css">
-<link rel="stylesheet" href="css/scrollbar.css">
 <style>
         :root {
             /* start light mode */
@@ -122,8 +97,9 @@ $check_monitor_name->execute();
             --icon-dark-hover: #3A3B3C;
             --font-dark-color: #E4E6EB;
             /* end dark mode */
+
             --header_height: 60px;
-            --aside_width:200px;
+            --menu_nav: 12%;
             --green-color: #1e9258;
             --gray-color: #8a8a8a;
         }
@@ -165,20 +141,24 @@ $check_monitor_name->execute();
             font-family: "Font Awesome 5 Free";
             content: "\f084";
         }
-
+        .grid_header_aside_main {
+            display: grid;
+            gap: 10px;
+            grid-template-columns:15% auto;
+            grid-template-rows: var(--header_height) auto;
+        }
 
         .header {
+            height: var(--header_height);
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: var(--header_height);
-            width: calc( 100% - var(--aside_width) );
-            background-color: var(--body-light-bg);
             padding: 0 30px;
-            user-select: none;
+             user-select: none;
         }
         .user_login{
         z-index: 1;
@@ -204,7 +184,7 @@ $check_monitor_name->execute();
         top: 10px;
         background-color: var(--body-light-bg);;
         }
-        .user_setting span {
+                .user_setting span {
             margin: 0 5px;
         }
         .user_setting:hover {
@@ -216,13 +196,12 @@ $check_monitor_name->execute();
             display: inherit;
         }
         aside {
-            margin: 0;
-            padding: 0;
-            width: var(--aside_width);
-            position: fixed;
-            height: 100%;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            height: calc(98vh - var(--header_height));
             padding-right: 20px;
-            top: 0;
         }
 aside:before{
     /* content: "\f053";
@@ -259,6 +238,7 @@ legend {
             list-style: none;
             padding: 10px 5px;
             cursor: pointer;
+            width: 156px;
             height: 40px;
             display: block;
         }
@@ -340,21 +320,21 @@ legend {
         }
 
         main {
-            margin: var(--header_height) var(--aside_width) 0 0;
-            padding: 1px 16px;
-            height: 1000px;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
         }
 
-.flex_row{
-display: flex;
-    text-align: center;
-    margin-bottom: 10px;
-    /* justify-content: space-around; */
-    flex-direction: column;
-}
+        .grid_dash {
+            display: grid;
+            grid-template-columns: 95%;
+            grid-template-rows: max-content;
+            justify-content: center;
+        }
+
         .flex_4,
-        .flex_5
-        {
+        .flex_5 {
             display: flex;
             text-align: center;
             margin-bottom: 10px;
@@ -387,7 +367,7 @@ display: flex;
             font-size: 35px;
 
         }
-        .flex_2 {
+                .flex_2 {
         display: flex;
         align-items: center;
             }
@@ -399,7 +379,18 @@ display: flex;
         .flex_3>span {
             flex-basis: 30%;
         }
+        .users_group {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 6;
+            height: max-content;
+            /* border: 1px solid red; */
+            padding: 5px 5px;
+        }
 
+        .users_group:hover{ 
+        }
         .user {
             border: 1px solid #b2b2b2;
             border-radius: 0 50px 50px 0;
@@ -414,6 +405,16 @@ display: flex;
         .user_it h3,
         .user_hg h3 {
             margin-bottom: 5px;
+        }
+
+        .hg_users {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: auto;
+            background-color: var(--bg_white);
+            height: max-content;
+
         }
 
         ul {
@@ -443,7 +444,11 @@ display: flex;
         .monitor_type,
         .printer_type,
         .pos_type {
+            margin: auto;
             direction: ltr;
+            width: 90%;
+            border-collapse: collapse;
+
         }
 
         .pc_name,
@@ -468,30 +473,8 @@ display: flex;
 .details{
         color: var(--font-light-color);
 }
-      fieldset:not(:first-of-type){
-          margin-top:10px
-    }
-    .sync {
-    color: red;
-    font-size: 30px;
-    margin-right: 10px;
-    }
-    .sync + ._table {
-        content: "m";
-        position: relative;
-    }
-    .sync + ._table:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-    }
-    ._table {
+        ._table {
             display: table;
-            margin: auto;
-            width :90%;
             border-collapse: unset;
             border-spacing: 0px 2px;
         }
@@ -503,13 +486,7 @@ display: flex;
         ._table div span {
             display: table-cell;
         }
-.wrong_data{
-    border-bottom: 2px solid var(--gray-color);
-    text-align: right;
-}
-.wrong_data_count{
-    background-color: var(--gray-color);
-}
+
         ._border_dark {
             border-radius: 8px;
             box-shadow: 0 3px 8px var(--newtab-inner-box-shadow-color-nte), 0 0 2px var(--newtab-tile-shadow-secondary);
@@ -583,7 +560,7 @@ display: flex;
         }
 
         body.dark-mode .header {
-           background-color: var(--body-dark-bg);
+           
         }
 
         body.dark-mode ._drop_list:hover,
@@ -632,13 +609,20 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
   body {
     background-color: red;
   }
+          .grid_header_aside_main {
+            display: grid;
+            gap: 10px;
+            grid-template-columns:auto;
+            grid-template-rows: var(--header_height) auto;
+        }
         .flex_4, .flex_5 {
     flex-wrap: wrap;
 }
 aside{
     display: none;
 }
-
+main {
+    grid-column-start: -2;}
 .flex_4>div {
     flex-basis: 50%;
     padding: 13px 0;
@@ -648,25 +632,12 @@ aside{
 }
 
 }
-.display_table:hover + span {
-    display:inline
-}
-
-.nested {
-  display: none;
- 
-}
-
-.active {
-  display: block;
-   transition: display 5s;
-}
     </style>
 </head>
 
 <body id="theme">
     <div class="container">
-    <div>
+    <div class="grid_header_aside_main">
         <div class="header">
              <div></div>
                 <div class="brand">
@@ -852,9 +823,25 @@ aside{
                     </li>
                 </ul>
             <?php } ?>
+            <?php if ($_SESSION['link_count_wrong'] == 1) { ?>
+                <ul class="_drop">
+                    <li class="_drop_end">
+                        <a href="#0" class="_drop_link">
+                            <span class="_drop_icon"><i class="fas fa-database"></i></span>
+                            <span class="_drop_text">متابعه القاعده</span>
+                        </a>
+                        <ul class="_drop_list">
+                            <?php if ($_SESSION['wrong'] == 1) { ?>
+                            <li><a class="_drop_item" href="wrong/wrong.php">اخطاء</a></li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <?php } ?>
         </aside>
         <main>
-            <div>
+            <div class="grid_dash">
 <fieldset>
     <legend>احصائيات</legend>
                 <div class="flex_4 count_dvice">
@@ -866,9 +853,7 @@ aside{
                             <?php
                             while($pc = $pc_query->fetch()){
                             echo '<div>
-                                <span class="pc_name">
-                                <a href="count/count_dvice.php?dvice_name='.$pc['dvice_name'].'&dvice_type= الجهاز" target="_blank" rel="noopener noreferrer" class="details">'.$pc['dvice_name'].'</a>
-                                </span>
+                                <span class="pc_name">'.$pc['dvice_name'].'</span>
                                 <span class="pc_count">'.$pc['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -878,22 +863,12 @@ aside{
                     <div class="monitor">
                         <h3>الشاشات</h3>
                         <span><?php echo $monitor_all_query->rowCount(); ?></span>
-                        <?php
-                            if($check_monitor_name->rowCount() >= 1){
-                                echo '
-                                <a href="updater/update_monitor_name.php" class="sync">
-                                    <i class="fas fa-sync"></i>
-                                </a>
-                                ';}
-                        ?>
                         <div class="_table monitor_type">
                             <!--  -->
                             <?php
                             while($monitor = $monitor_query->fetch()){
                             echo '<div>
-                                <span class="monitor_name">
-                               <a href="count/count_dvice.php?dvice_name='.$monitor['dvice_name'].'&dvice_type= الشاشه" target="_blank" rel="noopener noreferrer" class="details">'.$monitor['dvice_name'].'</a> 
-                                </span>
+                                <span class="monitor_name">'.$monitor['dvice_name'].'</span>
                                 <span class="monitor_count">'.$monitor['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -909,9 +884,7 @@ aside{
                             <?php
                             while($printer = $printer_query->fetch()){
                             echo '<div>
-                                <span class="printer_name">
-                               <a href="count/count_dvice.php?dvice_name='.$printer['dvice_name'].'&dvice_type= الطابعه" target="_blank" rel="noopener noreferrer" class="details">'.$printer['dvice_name'].'</a> 
-                                </span>
+                                <span class="printer_name">'.$printer['dvice_name'].'</span>
                                 <span class="printer_count">'.$printer['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -928,7 +901,7 @@ aside{
                             while($pos = $pos_query->fetch()){
                             echo '<div>
                                 <span class="pos_name">
-                                <a href="count/count_dvice.php?dvice_name='.$pos['dvice_name'].'&dvice_type= الماكينه" target="_blank" rel="noopener noreferrer" class="details">'.$pos['dvice_name'].'</a>
+                                <a href="count/count_pos.php?pos='.$pos['dvice_name'].'" target="_blank" rel="noopener noreferrer" class="details">'.$pos['dvice_name'].'</a>
                                 </span>
                                 <span class="pos_count">'.$pos['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -958,35 +931,6 @@ aside{
                     <div class="money_office">
                         <h3>اقسام المنطقه</h3>
                         <span><?php echo $section_query->rowCount(); ?></span>
-                    </div>
-                </div>
-   </fieldset>
-   <fieldset>
-       <legend>متابعه القاعده</legend>
-<div class="flex_row">
-                    <div class="wrongs_data">
-                        <div class="_table">
-                            <!--  -->
-                            <div>
-                                <span class="wrong_data">
-                                    <a href="wrong/repeat_sn_office.php" target="_blank" rel="noopener noreferrer" class="details">رقم سريال مكرر</a>
-                                </span>
-                                <span class="wrong_data_count"><?php echo $repeat_serials->rowCount() ; ?></span>
-                        </div>
-                                <div>
-                                    <span class="wrong_data">
-                                         <a href="wrong/none_type_office.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع مكتب</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php echo $none_office_type->rowCount() ; ?></span>
-                                </div>
-                                <div>
-                                    <span class="wrong_data">
-                                    <a href="wrong/none_id.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع جهاز</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php echo $none_dvice_type->rowCount(); ?></span>
-                                </div>
-                        </div>
-                    </span>
                     </div>
                 </div>
    </fieldset>
@@ -1132,20 +1076,6 @@ theme = document.getElementById('theme').classList.value; // get classname
 setCookie('theme_mode', theme, '365');
 }
         </script>
-<script>
-var toggler = document.getElementsByClassName("box");
-var i;
-
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    
-    this.classList.toggle("check-box");
-      
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-  });
-}
-</script>
-        
 </body>
 
 </html>

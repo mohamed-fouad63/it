@@ -67,7 +67,6 @@ from misin_it where it_name like '%{$key}%' and misin_date like '%{$day}%' ORDER
         $rowcount_count = mysqli_num_rows($query_missin_daye_result);
 
         if ($rowcount_count == 0 and $nameOfDay != 'السبت') { ?>
-
             <tr style="color:red;">
                 <td></td>
                 <td><?php echo $nameOfDay; ?></td>

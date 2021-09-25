@@ -1,0 +1,45 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track 
+::-webkit-scrollbar-track {
+}
+*/
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bg-dark-light);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* mvv34 */
+}
+/* the buttons on the scrollbar (arrows pointing upwards and downwards) */
+::-webkit-scrollbar-button:after {
+}
+/* the track (progress bar) NOT covered by the handle */
+::-webkit-scrollbar-track-piece {
+}
+aside .right-side::-webkit-scrollbar-track-piece {
+}
+/* the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet*/
+::-webkit-scrollbar-corner {
+}
+/* the draggable resizing handle that appears at the bottom corner of some 
+::-webkit-resizer {
+}
+*/
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: var(--body-light-bg) var(--body-light-bg);
+  scrollbar-width: thin;
+}
+
+.scroller.dark-mode {
+  overflow-y: scroll;
+  scrollbar-color: red green;
+  scrollbar-width: thin;
+}

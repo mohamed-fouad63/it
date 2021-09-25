@@ -24,7 +24,7 @@ $key = $_POST['key'];
 
 
         // Start date
-        $date = '2020-01-01';
+        $date = '2021-07-01';
         // End date
         $end_date = $misin_date . '-31';
 

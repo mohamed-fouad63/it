@@ -84,12 +84,13 @@ if ($_SESSION) {
         $username_login = $_POST['username_login'];
         $db = $_POST['db'];
       $conn=@mysqli_connect("localhost","root","12345678",$db) or die("لا يوجد قاعده بيانات لهذه المنطقه");
-           $login_query = mysqli_query($conn, "SELECT * FROM tbl_user WHERE id = '$username_login' ");
+           $login_query = mysqli_query($conn, "SELECT *  FROM tbl_user WHERE id = '$username_login' ");
 
         while ($row = mysqli_fetch_assoc($login_query)) {
             if ($password == $row["password"]) {
                     $_SESSION['db'] = $row["db"];
-                    $_SESSION['user_name'] = $row["first_name"];
+                    $_SESSION['user_name'] =  $row["first_name"];
+                    /*$_SESSION['user_name'] = implode(' ', array_slice(explode(' ', $row["first_name"]), 0, 3)) ;*/
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['job'] = $row['job'];

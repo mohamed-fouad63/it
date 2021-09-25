@@ -62,8 +62,9 @@ if ($job == "hg") {
                             <th caption="خطه \ بلاغ" class=""></th>
                             <th caption="من الساعه" class=""></th>
                             <th caption=" حتى الساعه" class=""></th>
-                            <th caption="رقم ملف" class=""></th>
-                            <th caption="" class=""></th>
+                            <th caption="رقم ملف" class=""  style="display:none;"></th>
+                            <th caption="" class="" style="display:none;"></th>
+                            <th caption="ما تم عمله" class=""></th>
                             <th caption="اجراء" class=""></th>
                         </tr>
                     </thead>
@@ -166,7 +167,7 @@ function misin_remove() {
             id = this.cells[7].innerHTML,
             counter = this.cells[8].innerHTML;
             $.ajax({
-                url: "mission_online_add.php",
+                url: "mission_online_remove.php",
                 method: "POST",
                 data: {
                     it_name: it_name,

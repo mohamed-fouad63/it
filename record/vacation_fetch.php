@@ -4,7 +4,7 @@ include '../connection.php';
 //if(isset($_POST["query"]))
  $search = $_POST["query"];
 
-$query_it_name = mysqli_query($conn, "SELECT it_name FROM misin_it GROUP BY it_name HAVING COUNT(*) >= 1");
+$query_it_name = mysqli_query($conn, "SELECT it_name FROM misin_it GROUP BY id HAVING COUNT(*) >= 1");
 
 while($row_it_name=mysqli_fetch_assoc($query_it_name)){
     $it_name = $row_it_name["it_name"];

@@ -60,7 +60,7 @@ foreach ($alldays as $day) {
 
         $query_missin_daye = " SELECT
         counter , misin_day,misin_date,id,it_name,office_name,misin_type,start_time,end_time
-        from misin_it where it_name = '$session_username' and misin_date like '%{$day}%' ORDER  BY start_time";
+        from misin_it where id = '$session_id' and misin_date like '%{$day}%' ORDER  BY start_time";
 
         $query_missin_daye_result = mysqli_query($conn, $query_missin_daye);
 

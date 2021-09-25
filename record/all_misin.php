@@ -53,6 +53,7 @@ $session_username = $_SESSION['user_name'];
     <th caption="نوع الماموريه" class=""></th>
     <th caption="من الساعه" class=""></th>
     <th caption="حتى الساعه" class=""></th>
+    <th caption="ما تم عمله" class=""></th>
 </tr>
     </thead>
     <tbody id="result"></tbody>

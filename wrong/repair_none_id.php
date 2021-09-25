@@ -5,7 +5,7 @@ include '../connection.php';
 $update_dvice_type = mysqli_query($conn,"UPDATE dvice
 INNER JOIN post.dvice_type ON dvice.dvice_name = post.dvice_type.dvice_name
 SET dvice.dvice_type =  post.dvice_type.dvice_type
-WHERE post.dvice_type.dvice_name = dvice.dvice_name
+WHERE  dvice.dvice_name = post.dvice_type.dvice_name
 " ) ;
 
 ?>

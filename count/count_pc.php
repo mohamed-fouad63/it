@@ -6,7 +6,7 @@ $session_role = $_SESSION['role'];
 
 
 include '../connection.php';
-$query1=mysqli_query($conn, "SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice WHERE id like 'pc' GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC LIMIT 10 ");
+$query1=mysqli_query($conn, "SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice WHERE id like 'pc' GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC ");
 $rowcount1=mysqli_num_rows($query1);
  ?>
 <html>

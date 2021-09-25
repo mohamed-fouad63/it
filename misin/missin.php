@@ -478,6 +478,7 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
             case "بدل راحه":
             case "اجازه رسميه":
             case "اجازه مرضيه":
+            case "اجازه استثنائيه":
                 $("#misin_type").prop("selectedIndex", -1);
                 document.getElementById("start_time").value = '';
                 document.getElementById("end_time").value = '';

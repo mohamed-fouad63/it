@@ -54,8 +54,12 @@ $query2 = mysqli_query($conn, "select * from dvice where office_name LIKE '$offi
 $rowcount2 = mysqli_num_rows($query2);
 $query3 = mysqli_query($conn, "select * from dvice where office_name LIKE '$office_name' AND id like 'PRINTER'");
 $rowcount3 = mysqli_num_rows($query3);
-$query4 = mysqli_query($conn, "select * from dvice where office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '% VX 510%' OR
-office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '%BITEL%'");
+$query4 = mysqli_query($conn, "select * from dvice where office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '% VX 510%'
+OR
+office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '%BITEL%'
+OR
+office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '%VERIFONE V200T%'
+");
 $rowcount4 = mysqli_num_rows($query4);
 $query5 = mysqli_query($conn, "select * from dvice where office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '% VX 520%' OR
 office_name LIKE '$office_name' AND id like 'pos' AND dvice_name like '%vx 675%'");
@@ -113,7 +117,17 @@ if ($nameOfDay == "الجمعه") {
                 margin-bottom: 0;
                 margin-top: 0;
             }
+            fieldset {
+    margin: -10px;
+}
         </style>
+            <script type="text/javascript">
+    var replaceDigits = function () {
+      var map = ["&#x0660;", "&#x0661;", "&#x0662", "&#x0663", "&#x0664;", "&#x0665", "&#x0666", "&#x0667", "&#x0668", "&#x0669"]
+      document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0] });
+    }
+    window.onload = replaceDigits;
+  </script>
     </head>
 
     <body dir="rtl">
@@ -249,7 +263,8 @@ if ($nameOfDay == "الجمعه") {
                             <th>المصريه لاتصالات</th>
                             <th>منظومه الطوابع</th>
                             <th>البريد الالكترونى</th>
-                            <th>باك اوفيس</th>
+                            <th>مصر الرقميه</th>
+                            
                         </tr>
                         <tr>
                             <td><?php if (isset($_POST['shm'])) {
@@ -287,21 +302,26 @@ if ($nameOfDay == "الجمعه") {
                                 } else {
                                     echo "<i class='fas fa-times'></i>";
                                 } ?></td>
-                            <td><?php if (isset($_POST['bo'])) {
+                            <td><?php if (isset($_POST['des'])) {
                                     echo "<i class='fas fa-check'></i>";
                                 } else {
                                     echo "<i class='fas fa-times'></i>";
                                 } ?></td>
                         </tr>
                         <tr>
+                            <th>باك اوفيس</th>
                             <th>فرونت اوفيس</th>
                             <th>الخدمات الحكوميه</th>
                             <th>الاحوال المدنيه</th>
                             <th>موقع المنشورات</th>
                             <th>الحوالات الخارجيه</th>
-                            <th>دفتر الاستثمار</th>
                         </tr>
                         <tr>
+                            <td><?php if (isset($_POST['bo'])) {
+                                    echo "<i class='fas fa-check'></i>";
+                                } else {
+                                    echo "<i class='fas fa-times'></i>";
+                                } ?></td>
                             <td><?php if (isset($_POST['fo'])) {
                                     echo "<i class='fas fa-check'></i>";
                                 } else {
@@ -323,11 +343,6 @@ if ($nameOfDay == "الجمعه") {
                                     echo "<i class='fas fa-times'></i>";
                                 } ?></td>
                             <td><?php if (isset($_POST['hkh'])) {
-                                    echo "<i class='fas fa-check'></i>";
-                                } else {
-                                    echo "<i class='fas fa-times'></i>";
-                                } ?></td>
-                            <td><?php if (isset($_POST['des'])) {
                                     echo "<i class='fas fa-check'></i>";
                                 } else {
                                     echo "<i class='fas fa-times'></i>";
@@ -400,11 +415,11 @@ if ($nameOfDay == "الجمعه") {
                         <td colspan=""><?php echo $does; ?></td>
                     </tr>
                 </table>
-                <div>
-                    <label style="float:right;">وكيل المكتب</label>
-                    <label>ختم المكتب</label>
-                    <label style="float:left;">اخصائى تشغيل نظم</label>
-                </div>
+                    <div class="">
+                        <label style="float:right;">اخصائى تشغيل نظم</label>
+                        <label style="text-align: center;">ختم المكتب</label>
+                        <label style="float:left;">وكيل المكتب</label>
+                    </div>
             <?php } ?>
             <!--
                 <div class="modal-footer">
@@ -443,9 +458,9 @@ if ($nameOfDay == "الجمعه") {
                         </div>
                     </div>
                     <div class="">
-                        <label style="float:right;">وكيل المكتب</label>
+                        <label style="float:right;">اخصائى تشغيل نظم</label>
                         <label style="text-align: center;">ختم المكتب</label>
-                        <label style="float:left;">اخصائى تشغيل نظم</label>
+                        <label style="float:left;">وكيل المكتب</label>
                     </div>
                 </div>
                 <div class="missinletter">
@@ -475,9 +490,9 @@ if ($nameOfDay == "الجمعه") {
                         </div>
                     </div>
                     <div class="">
-                        <label style="float:right;">وكيل المكتب</label>
+                        <label style="float:right;">اخصائى تشغيل نظم</label>
                         <label style="text-align: center;">ختم المكتب</label>
-                        <label style="float:left;">اخصائى تشغيل نظم</label>
+                        <label style="float:left;">وكيل المكتب</label>
                     </div>
                 </div>
                 <div class="missinletter">
@@ -507,9 +522,9 @@ if ($nameOfDay == "الجمعه") {
                         </div>
                     </div>
                     <div class="">
-                        <label style="float:right;">وكيل المكتب</label>
+                        <label style="float:right;">اخصائى تشغيل نظم</label>
                         <label style="text-align: center;">ختم المكتب</label>
-                        <label style="float:left;">اخصائى تشغيل نظم</label>
+                        <label style="float:left;">وكيل المكتب</label>
                     </div>
                 </div>
             </div>
@@ -517,7 +532,7 @@ if ($nameOfDay == "الجمعه") {
         <div class=" page">
             <div class="missinmsgto">
                 <div class="centering rotating">
-                    <h3>قسم الدعم الفنى  </h3>
+                    <h3>قسم الدعم الفنى </h3>
                     <h3>الى</h3>
                 </div>
             </div>
@@ -565,28 +580,6 @@ pc_domain,
 num_pc_domain,
 domain_name,
 note_not_domain,
-shm,
-mn,
-hf,
-th,
-et,
-tw,
-mail,
-bo,
-fo,
-khh,
-am,
-mnsh,
-hkh,
-des,
-toner,
-dram,
-keyboard,
-mouse,
-barscan,
-pc,
-monitor,
-printer,
 does
 )
 VALUES (
@@ -620,28 +613,6 @@ VALUES (
 '$num_pc_domain',
 '$domain_name',
 '$note_not_domain',
-'$shm',
-'$mn',
-'$hf',
-'$th',
-'$et',
-'$tw',
-'$email',
-'$bo',
-'$fo',
-'$khh',
-'$am',
-'$mnsh',
-'$hkh',
-'$des',
-'$toner',
-'$dram',
-'$keyboard',
-'$mouse',
-'$barscan',
-'$pc',
-'$monitor',
-'$printer',
 '$does'
 )";
 

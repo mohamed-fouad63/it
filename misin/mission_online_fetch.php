@@ -4,7 +4,7 @@ $session_id = $_SESSION['id'];
 include '../connection.php';
 
 $query_all_in_it1 = "
-SELECT it_name,id,misin_day,misin_date,office_name,misin_type,start_time,end_time,counter from misin_it_online  ORDER  BY misin_date ASC
+SELECT it_name,id,misin_day,misin_date,office_name,misin_type,start_time,end_time,counter,does from misin_it_online  ORDER  BY misin_date ASC
 ";
 $result = mysqli_query($conn, $query_all_in_it1);
 if ($result) {
@@ -18,8 +18,9 @@ if ($result) {
             <td><?php echo $row_pc["misin_type"] ?> </td>
             <td><?php echo $row_pc["start_time"] ?></td>
             <td><?php echo $row_pc["end_time"] ?></td>
-            <td><?php echo $row_pc["id"] ?></td>
-            <td><?php echo $row_pc["counter"] ?></td>
+            <td style="display:none;"><?php echo $row_pc["id"] ?></td>
+            <td style="display:none;"><?php echo $row_pc["counter"] ?></td>
+            <td style="width:25%"><?php echo $row_pc["does"] ?></td>
             <td>
                 <a class='btn  btn-outline-secondary' onclick="misin_add();"><i class='fas fa-plus'></i></a>
                 <a class='btn  btn-outline-secondary' onclick="misin_remove();"><i class='fas fa-trash-alt'></i></a>

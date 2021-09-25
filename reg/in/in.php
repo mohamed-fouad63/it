@@ -110,6 +110,9 @@ include '../../connection.php';
                 <div class="dis-grid col-sm-2">
                     <span class="mos" onclick="getid(this)">طلب حباره 3750 </span>
                     <span class="mos" onclick="getid(this)">طلب حباره hp 506 </span>
+                    <span class="mos" onclick="getid(this)">طلب كيبورد  </span>
+                    <span class="mos" onclick="getid(this)">طلب  ماوس </span>
+                    <span class="mos" onclick="getid(this)">طلب كيبورد + ماوس </span>
                 </div>
             </div>
             <div class="form-group row">

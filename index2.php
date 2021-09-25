@@ -17,7 +17,7 @@ $pos_all_query = $pdo->prepare($query_all_dvice);
 $pos_all_query->execute(['pos']);
 
 $query_dvice = 'SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice
-WHERE id = :id GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC ';
+WHERE id = :id GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC LIMIT 10 ';
 
 $pc_query = $pdo->prepare($query_dvice);
 $pc_query->execute(['pc']);
@@ -48,42 +48,18 @@ $money_safe_query->execute(['خزينه']);
 $section_query = $pdo->prepare($query_office);
 $section_query->execute(['قسم']);
 
-/*$query_users = 'select id ,SUBSTRING_INDEX(first_name," ",4) as first_name,job from tbl_user where job= :job';
+$query_users = 'select id ,SUBSTRING_INDEX(first_name," ",4) as first_name,job from tbl_user where job= :job';
 
 $it_users_query = $pdo->prepare($query_users);
 $it_users_query->execute(['اخصائى تشغيل نظم']);
 
 $hg_users_query = $pdo->prepare($query_users);
 $hg_users_query->execute(['رئيس مجموعه']);
-*/
-$query_repeat_serials = 'SELECT a.sn,a.office_name,a.dvice_name FROM dvice a
-JOIN ( SELECT sn, COUNT(sn) FROM dvice WHERE sn !="" GROUP BY sn HAVING count(sn) > 1
-) b ON a.sn = b.sn ORDER BY a.sn';
-
-$repeat_serials = $pdo->prepare($query_repeat_serials);
-$repeat_serials->execute();
-
-$query_none_dvice_type = 'SELECT id,dvice_name,office_name FROM dvice WHERE dvice_type = ""';
-$none_dvice_type = $pdo->prepare($query_none_dvice_type);
-$none_dvice_type->execute();
-
-$query_none_office_type = 'select * from all1 where office_type = ""';
-$none_office_type = $pdo->prepare($query_none_office_type);
-$none_office_type->execute();
-
-$query_check_monitor_name = 'SELECT dvice.dvice_name FROM dvice
-INNER JOIN post.dvice_type ON
- post.dvice_type.id = dvice.id
- AND post.dvice_type.dvice_name_new <> dvice.dvice_name
- AND post.dvice_type.dvice_name = dvice.dvice_name
- AND dvice.id = "monitor" ';
-$check_monitor_name = $pdo->prepare($query_check_monitor_name);
-$check_monitor_name->execute();
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en" dir="rtl" class='scroller'>
+<html lang="en" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -91,7 +67,6 @@ $check_monitor_name->execute();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dash board</title>
 <link rel="stylesheet" href="css/web-fonts-with-css/css/all.css">
-<link rel="stylesheet" href="css/scrollbar.css">
 <style>
         :root {
             /* start light mode */
@@ -122,8 +97,9 @@ $check_monitor_name->execute();
             --icon-dark-hover: #3A3B3C;
             --font-dark-color: #E4E6EB;
             /* end dark mode */
+
             --header_height: 60px;
-            --aside_width:200px;
+            --menu_nav: 12%;
             --green-color: #1e9258;
             --gray-color: #8a8a8a;
         }
@@ -165,50 +141,52 @@ $check_monitor_name->execute();
             font-family: "Font Awesome 5 Free";
             content: "\f084";
         }
-
+        .grid_header_aside_main {
+            display: grid;
+            gap: 10px;
+            grid-template-columns:15% auto;
+            grid-template-rows: var(--header_height) auto;
+        }
 
         .header {
+            height: var(--header_height);
+            background-color: var(--header-light-bg);
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: var(--header_height);
-            width: calc( 100% - var(--aside_width) );
-            background-color: var(--body-light-bg);
             padding: 0 30px;
-            user-select: none;
+             user-select: none;
         }
         .user_login{
         z-index: 1;
-        background-color: var(--body-light-bg);
-        width: 160px;
+        background-color: white;
+        width: 161px;
         line-height: 50px;
         text-align: center;
-        border-bottom: 1px solid;
+        border: 1px solid;
         cursor: pointer;
         }
 
         .user_login:hover + .user_setting {
-        top: 50px;
+        margin-right: -5px;
         }
         .user_setting {
-        transition: top 1s;
-        border: 1px solid;
-        padding: 5px;
-        border-radius: 0px 0px 5px 5px;
-        border-bottom: 5px solid;
-        position: absolute;
-        width: 160px;
-        top: 10px;
-        background-color: var(--body-light-bg);;
+            margin-right: -94px;
+            transition: margin-right 1s;
+            border: 1px solid;
+            padding: 10px;
+            border-radius: 5px 1px 1px 5px;
+            border-left: 5px solid;
         }
-        .user_setting span {
+                .user_setting span {
             margin: 0 5px;
         }
         .user_setting:hover {
-           top: 50px;
+            margin-right: -5px;
         }
         .brand{
             height: 50px;
@@ -216,13 +194,12 @@ $check_monitor_name->execute();
             display: inherit;
         }
         aside {
-            margin: 0;
-            padding: 0;
-            width: var(--aside_width);
-            position: fixed;
-            height: 100%;
-            padding-right: 20px;
-            top: 0;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            height: calc(98vh - var(--header_height));
+            padding-right: 30px;
         }
 aside:before{
     /* content: "\f053";
@@ -234,102 +211,92 @@ aside:before{
     height: 30px;
     width: 30px; */
 }
-
+        .drop-group {
+            height: max-content;
+        }
  input {
      padding:5px;
      
  }
-legend {
-    margin: 0 30px;
-    padding: 10px 10px;
-    border: 1px solid;
-
-}
-
-                a {
-            text-decoration: none;
-        }
-
-        ._drop_group {
-            position: relative;
-            top: 35px;
-        }
-
-        ._drop {
+        .drop-group .drop-list {
+            margin-top: 5px;
+            margin-bottom: 5px;
             list-style: none;
-            padding: 10px 5px;
+            padding: 10px 7px;
             cursor: pointer;
-            height: 40px;
-            display: block;
+            display: inline-block;
+            width: 100%;
         }
 
-        ._drop:hover {
-            background-color: var(--hover-light-bg);
+        .list-unstyled {
+            list-style: none;
         }
 
-        ._drop_up,
-        ._drop_end,
-        ._drop_down,
-        ._drop_start {
-            position: relative;
-        }
-
-        ._drop_end {
+        .dropend {
             right: 0px;
             transition: right 1s;
         }
 
+        .dropup,
+        .dropend,
+        .dropdown,
+        .dropstart {
+            position: relative;
+        }
 
-        ._drop_link {
+
+        .drop-list:hover .dropdown-menu {
+            display: block;
+        }
+
+        .drop-group .drop-link {
+            padding: 0 1rem;
             text-decoration: none;
             color: var(--font-color);
             transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
         }
 
-        ._drop_link ._drop_icon {}
-
-        ._drop_link ._drop_text {
-            margin-right: 0.5rem;
-        }
-
-        ._drop_list {
-            position: absolute;
+        .dropdown-menu {
             min-width: max-content;
+            position: absolute;
             z-index: 1000;
             display: none;
+            padding: 5px 0px;
             font-size: 1rem;
             color: #212529;
             text-align: right;
             background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 0.25rem;
             border: none;
-            top: -10px;
-            right: 150px;
+        }
+
+        .dropend .dropdown-menu {
+            top: -9px;
+            right: 130px;
             background-color: var(--hover-light-bg);
         }
 
-        ._drop_list ._drop_item {
-            display: flex;
-            align-items:center;
-            padding: 0.25rem 1rem;
-            color: var(--font-light-color);
+        .dropend .dropdown-menu li {
             position: relative;
             right: 0px;
             transition: right 1s;
-            height: 40px;
         }
 
-        ._drop_list ._drop_item:hover {
+        .dropdown-item {
+            display: block;
+            padding: 0.25rem 1rem;
+            text-decoration: none;
+        }
+
+        .dropdown-menu .dropdown-item {
+            color: var(--font-light-color);
+        }
+
+        .dropend .dropdown-menu li:hover {
             position: relative;
             right: 5px;
         }
-
-        ._drop:hover ._drop_list {
-            display: block;
-        }
-
-
-
 
         *,
         *::before,
@@ -340,21 +307,21 @@ legend {
         }
 
         main {
-            margin: var(--header_height) var(--aside_width) 0 0;
-            padding: 1px 16px;
-            height: 1000px;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
         }
 
-.flex_row{
-display: flex;
-    text-align: center;
-    margin-bottom: 10px;
-    /* justify-content: space-around; */
-    flex-direction: column;
-}
+        .grid_dash {
+            display: grid;
+            grid-template-columns: 95%;
+            grid-template-rows: max-content;
+            justify-content: center;
+        }
+
         .flex_4,
-        .flex_5
-        {
+        .flex_5 {
             display: flex;
             text-align: center;
             margin-bottom: 10px;
@@ -399,7 +366,18 @@ display: flex;
         .flex_3>span {
             flex-basis: 30%;
         }
+        .users_group {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 6;
+            height: max-content;
+            /* border: 1px solid red; */
+            padding: 5px 5px;
+        }
 
+        .users_group:hover{ 
+        }
         .user {
             border: 1px solid #b2b2b2;
             border-radius: 0 50px 50px 0;
@@ -416,6 +394,16 @@ display: flex;
             margin-bottom: 5px;
         }
 
+        .hg_users {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: auto;
+            background-color: var(--bg_white);
+            height: max-content;
+
+        }
+
         ul {
             list-style: none;
             display: flex;
@@ -426,7 +414,7 @@ display: flex;
 
         }
 
-        ._drop_list:hover,
+        .drop-list:hover,
         .user:hover {
             background-color: var(--hover-light-bg);
         }
@@ -443,7 +431,11 @@ display: flex;
         .monitor_type,
         .printer_type,
         .pos_type {
+            margin: auto;
             direction: ltr;
+            width: 90%;
+            border-collapse: collapse;
+
         }
 
         .pc_name,
@@ -465,33 +457,9 @@ display: flex;
             background-color: var(--gray-color);
             padding: 2px;
         }
-.details{
-        color: var(--font-light-color);
-}
-      fieldset:not(:first-of-type){
-          margin-top:10px
-    }
-    .sync {
-    color: red;
-    font-size: 30px;
-    margin-right: 10px;
-    }
-    .sync + ._table {
-        content: "m";
-        position: relative;
-    }
-    .sync + ._table:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-    }
-    ._table {
+
+        ._table {
             display: table;
-            margin: auto;
-            width :90%;
             border-collapse: unset;
             border-spacing: 0px 2px;
         }
@@ -503,13 +471,7 @@ display: flex;
         ._table div span {
             display: table-cell;
         }
-.wrong_data{
-    border-bottom: 2px solid var(--gray-color);
-    text-align: right;
-}
-.wrong_data_count{
-    background-color: var(--gray-color);
-}
+
         ._border_dark {
             border-radius: 8px;
             box-shadow: 0 3px 8px var(--newtab-inner-box-shadow-color-nte), 0 0 2px var(--newtab-tile-shadow-secondary);
@@ -575,22 +537,17 @@ display: flex;
         /*start dark mode css */
 
         body.dark-mode ,
-        body.dark-mode .user_login ,
-        body.dark-mode .user_setting
-         {
+        body.dark-mode .user_login  {
             background-color: var(--body-dark-bg);
             color: var(--font-dark-color)
         }
 
         body.dark-mode .header {
-           background-color: var(--body-dark-bg);
+            background-color: var(--header-dark-bg);
         }
 
-        body.dark-mode ._drop_list:hover,
+        body.dark-mode .drop-list:hover,
         body.dark-mode .user:hover {
-            background-color: var(--hover-dark-bg);
-        }
-        body.dark-mode ._drop:hover {
             background-color: var(--hover-dark-bg);
         }
 
@@ -599,15 +556,16 @@ display: flex;
             background-color: var(--form-dark-bg);
         }
 
-        body.dark-mode ._drop_list {
+        body.dark-mode .dropdown-menu {
             background-color: var(--hover-dark-bg);
             border: none;
         }
 
-        body.dark-mode ._drop_list ._drop_item,body.dark-mode .details
+        body.dark-mode .dropdown-menu .dropdown-item
          {
             color: var(--font-dark-color);
         }
+
         body.dark-mode #mode::before {
             font-family: "Font Awesome 5 Free";
             content: "\f185";
@@ -624,21 +582,28 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
         body.dark-mode .user_hg>ul {
             border-right: 2px solid var(--font-dark-color);
         }
- body.dark-mode .modal .modal-content{
-        color: var(--font-light-color);
-} 
+ body.dark-mode .modal .modal-content {
+    color: var(--font-light-color);
+}
         /*end dark mode css */
         @media only screen and (max-width: 600px) {
   body {
     background-color: red;
   }
+          .grid_header_aside_main {
+            display: grid;
+            gap: 10px;
+            grid-template-columns:auto;
+            grid-template-rows: var(--header_height) auto;
+        }
         .flex_4, .flex_5 {
     flex-wrap: wrap;
 }
 aside{
     display: none;
 }
-
+main {
+    grid-column-start: -2;}
 .flex_4>div {
     flex-basis: 50%;
     padding: 13px 0;
@@ -646,37 +611,16 @@ aside{
     flex-shrink: 0;
     background-color: var(--form-light-bg);
 }
-
-}
-.display_table:hover + span {
-    display:inline
-}
-
-.nested {
-  display: none;
- 
-}
-
-.active {
-  display: block;
-   transition: display 5s;
 }
     </style>
 </head>
 
 <body id="theme">
     <div class="container">
-    <div>
+    <div class="grid_header_aside_main">
         <div class="header">
-             <div></div>
-                <div class="brand">
-                <img src="img/it1.svg" alt="الصفحه الرئيسيه">
-            </div>
-           
-        </div>
-        <aside class="sidbar_right">
             <div class="flex_2">
-            <span class="user_login ellipsis">
+            <span class="user_login">
                 <div>
                     <span class="user_name"><?php echo $_SESSION['user_name'] ;?></span>
                 </div>
@@ -687,176 +631,213 @@ aside{
                     <a class="modal-button" href="#pass_modal" id="change_pass"></a>
                     <a id='mode' onclick="themeToggle()"></a>
                 </div>
-            </span>
+        </span>
             </div>
-            <div class="_drop_group">
+                <div class="brand">
+                <img src="img/it1.svg" alt="الصفحه الرئيسيه">
+            </div>
+
+        </div>
+        <aside class="sidbar_right">
             <?php if ($_SESSION['link_dvice'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                             <span class="_drop_icon"><i class="fas fa-laptop"></i></span>
-                             <span class="_drop_text">الاجهزه</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-laptop"></i></span>
+                        <a class="drop-link" href="#" data-toggle="dropdown">
+                            الاجهزه
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['all_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/all_dvices.php">اجهزه المكاتب</a></li>
+                            <li><a class="dropdown-item" href="record/all_dvices.php">اجهزه المكاتب</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['post'] == 1) { ?>
-                            <li><a class="_drop_item" href="post/post.php">اجهزه مكتب</a></li>
+                            <li><a class="dropdown-item" href="post/post.php">اجهزه مكتب</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['in_it'] == 1) { ?>
-                            <li><a class="_drop_item" href="in_it/in_it.php">اجهزه بالدعم الفنى</a></li>
+                            <li><a class="dropdown-item" href="in_it/in_it.php">اجهزه بالدعم الفنى</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['in_tts'] == 1) { ?>
-                            <li><a class="_drop_item" href="in_tts/in_tts.php">اجهزه بقطاع الدعم الفنى</a></li>
+                            <li><a class="dropdown-item" href="in_tts/in_tts.php">اجهزه بقطاع الدعم الفنى</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['replace_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/replace_dvices.php">اجهزه تم تغيير مكوناتها</a>
+                            <li><a class="dropdown-item" href="record/replace_dvices.php">اجهزه تم تغيير مكوناتها</a>
                             </li><?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
             <?php } ?>
             <?php if ($_SESSION['link_misin'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-suitcase"></i></span>
-                            <span class="_drop_text">الماموريات</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-suitcase"></i></span>
+                        <a href="#" class="drop-link" data-toggle="dropdown">
+                            الماموريات
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['my_misin'] == 1) { ?>
-                            <li><a class="_drop_item" href="misin/my_misin.php">مامورياتى</a></li>
+                            <li><a class="dropdown-item" href="misin/my_misin.php">مامورياتى</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['misins'] == 1) { ?>
-                            <li><a class="_drop_item" href="misin/missin.php">الماموريات</a></li>
+                            <li><a class="dropdown-item" href="misin/missin.php">الماموريات</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['misins'] == 1) { ?>
-                            <li><a class="_drop_item" href="misin/misin_online.php">ماموريات تحت الانتظار</a></li>
+                            <li><a class="dropdown-item" href="misin/misin_online.php">ماموريات تحت الانتظار</a></li>
                             <?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
             <?php } ?>
             <?php if ($_SESSION['link_reg'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span><i class="fas fa-envelope"></i></span>
-                            <span class="_drop_text">المراسلات</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-envelope"></i></span>
+                        <a class="drop-link" href="#" data-toggle="dropdown">
+                            المراسلات
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['reg_to'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/to/to.php">تسجيل الصادر</a></li>
+                            <li><a class="dropdown-item" href="reg/to/to.php">تسجيل الصادر</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['to_filter'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/to/to_filter.php">استعلام الصادر</a></li>
+                            <li><a class="dropdown-item" href="reg/to/to_filter.php">استعلام الصادر</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['reg_in'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/in/in.php">تسجيل الوارد</a></li>
+                            <li><a class="dropdown-item" href="reg/in/in.php">تسجيل الوارد</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['in_filter'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/in/in_filter.php">استعلام الوارد</a></li>
+                            <li><a class="dropdown-item" href="reg/in/in_filter.php">استعلام الوارد</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['reg_parcel_to'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/parcel/parcel_to.php">تسجيل الطرود الصادره</a></li>
+                            <li><a class="dropdown-item" href="reg/parcel/parcel_to.php">تسجيل الطرود الصادره</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['parcel_to_filter'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/parcel/parcel_to_filter.php">استعلام الطرود الصادره</a></li>
+                            <li><a class="dropdown-item" href="reg/parcel/parcel_to_filter.php">استعلام الطرود الصادره</a></li>
                             <?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
             <?php } ?>
             <?php if ($_SESSION['link_record'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-book-open"></i></span>
-                            <span class="_drop_text">السجلات</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-book-open"></i></span>
+                        <a class="drop-link" href="#" data-toggle="dropdown">
+                            السجلات
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['Incoming'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/Incoming.php"> سجل الصيانه</a></li>
+                            <li><a class="dropdown-item" href="record/Incoming.php"> سجل الصيانه</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['move_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/move.php">سجل المنقول</a></li>
+                            <li><a class="dropdown-item" href="record/move.php">سجل المنقول</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['deleted_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/deleted.php">سجل التكهين</a></li>
+                            <li><a class="dropdown-item" href="record/deleted.php">سجل التكهين</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['all_misin'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/all_misin.php"> سجل التحركات</a></li>
+                            <li><a class="dropdown-item" href="record/all_misin.php"> سجل التحركات</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['all_misin'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/vacation.php"> سجل الاجازات و الراحات</a></li>
+                            <li><a class="dropdown-item" href="record/vacation.php"> سجل الاجازات و الراحات</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['notice'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/notice.php"> سجل البلاغات</a></li>
+                            <li><a class="dropdown-item" href="record/notice.php"> سجل البلاغات</a></li>
                             <?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
             <?php } ?>
             <?php if ($_SESSION['link_user'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span><i class="fas fas fa-user-tie"></i></span>
-                            <span class="_drop_text">المستخدمين</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fas fa-user-tie"></i></span>
+                        <a class="drop-link  " href="#" data-toggle="dropdown">
+                            المستخدمين
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['users'] == 1) { ?>
-                            <li><a class="_drop_item" href="users/user_auth.php">صلاحيات المستخدمين</a></li>
+                            <li><a class="dropdown-item" href="users/user_auth.php">صلاحيات المستخدمين</a></li>
                             <?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
             <?php } ?>
             <?php if ($_SESSION['link_office_group'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-broadcast-tower"></i></span>
-                            <span class= "_drop_text">المكاتب</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-broadcast-tower"></i></span>
+                        <a class="drop-link  " href="#" data-toggle="dropdown">
+                            المكاتب
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['edit_office'] == 1) { ?>
-                            <li><a class="_drop_item" href="office_group/update/edit_office.php"> تعديل مكتب / قسم</a></li>
+                            <li><a class="dropdown-item" href="office_group/update/edit_office.php"> تعديل مكتب / قسم</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['add_office'] == 1) { ?>
-                            <li><a class="_drop_item" href="office_group/add/add_office.php"> اضافه مكتب / قسم</a></li>
+                            <li><a class="dropdown-item" href="office_group/add/add_office.php"> اضافه مكتب / قسم</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['office_group'] == 1) { ?>
-                            <li><a class="_drop_item" href="office_group/group/office_group.php">مجموعات بريديه</a></li>
+                            <li><a class="dropdown-item" href="office_group/group/office_group.php">مجموعات بريديه</a></li>
                             <?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
             <?php } ?>
             <?php if ($_SESSION['link_network'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-building"></i></span>
-                            <span class="_drop_text">شبكات</span>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-building"></i></span>
+                        <a class="drop-link" href="#" data-toggle="dropdown">
+                            شبكات
                         </a>
-                        <ul class="_drop_list">
+                        <ul class="dropdown-menu">
                             <?php if ($_SESSION['sims'] == 1) { ?>
-                            <li><a class="_drop_item" href="network/sims.php">الشرائح المتوفره</a></li>
+                            <li><a class="item dropdown-item" href="network/sims.php">الشرائح المتوفره</a></li>
                             <?php } ?>
                             <?php if ($_SESSION['replace_sims'] == 1) { ?>
-                            <li><a class="_drop_item" href="network/replace_sims.php">سجل تغيير شرائح</a></li>
+                            <li><a class="item dropdown-item" href="network/replace_sims.php">سجل تغيير شرائح</a></li>
                             <?php } ?>
                         </ul>
                     </li>
                 </ul>
+            </div>
+            <?php } ?>
+            <?php if ($_SESSION['link_count_wrong'] == 1) { ?>
+            <div class="drop-group">
+                <ul class="list-unstyled drop-list">
+                    <li class="dropend">
+                        <span><i class="fas fa-database"></i></span>
+                        <a class="drop-link  " href="#" data-toggle="dropdown">
+                            متابعه القاعده
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php if ($_SESSION['counts'] == 1) { ?>
+                            <li><a class="dropdown-item" href="count/count.php">احصائيات</a></li>
+                            <?php } ?>
+                            <?php if ($_SESSION['wrong'] == 1) { ?>
+                            <li><a class="dropdown-item" href="wrong/wrong.php">اخطاء</a></li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             <?php } ?>
         </aside>
         <main>
-            <div>
-<fieldset>
-    <legend>احصائيات</legend>
+            <div class="grid_dash">
                 <div class="flex_4 count_dvice">
                     <div class="pc">
                         <h3>الاجهزه</h3>
@@ -866,9 +847,7 @@ aside{
                             <?php
                             while($pc = $pc_query->fetch()){
                             echo '<div>
-                                <span class="pc_name">
-                                <a href="count/count_dvice.php?dvice_name='.$pc['dvice_name'].'&dvice_type= الجهاز" target="_blank" rel="noopener noreferrer" class="details">'.$pc['dvice_name'].'</a>
-                                </span>
+                                <span class="pc_name">'.$pc['dvice_name'].'</span>
                                 <span class="pc_count">'.$pc['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -878,22 +857,12 @@ aside{
                     <div class="monitor">
                         <h3>الشاشات</h3>
                         <span><?php echo $monitor_all_query->rowCount(); ?></span>
-                        <?php
-                            if($check_monitor_name->rowCount() >= 1){
-                                echo '
-                                <a href="updater/update_monitor_name.php" class="sync">
-                                    <i class="fas fa-sync"></i>
-                                </a>
-                                ';}
-                        ?>
                         <div class="_table monitor_type">
                             <!--  -->
                             <?php
                             while($monitor = $monitor_query->fetch()){
                             echo '<div>
-                                <span class="monitor_name">
-                               <a href="count/count_dvice.php?dvice_name='.$monitor['dvice_name'].'&dvice_type= الشاشه" target="_blank" rel="noopener noreferrer" class="details">'.$monitor['dvice_name'].'</a> 
-                                </span>
+                                <span class="monitor_name">'.$monitor['dvice_name'].'</span>
                                 <span class="monitor_count">'.$monitor['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -909,9 +878,7 @@ aside{
                             <?php
                             while($printer = $printer_query->fetch()){
                             echo '<div>
-                                <span class="printer_name">
-                               <a href="count/count_dvice.php?dvice_name='.$printer['dvice_name'].'&dvice_type= الطابعه" target="_blank" rel="noopener noreferrer" class="details">'.$printer['dvice_name'].'</a> 
-                                </span>
+                                <span class="printer_name">'.$printer['dvice_name'].'</span>
                                 <span class="printer_count">'.$printer['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -927,9 +894,7 @@ aside{
                             <?php
                             while($pos = $pos_query->fetch()){
                             echo '<div>
-                                <span class="pos_name">
-                                <a href="count/count_dvice.php?dvice_name='.$pos['dvice_name'].'&dvice_type= الماكينه" target="_blank" rel="noopener noreferrer" class="details">'.$pos['dvice_name'].'</a>
-                                </span>
+                                <span class="pos_name">'.$pos['dvice_name'].'</span>
                                 <span class="pos_count">'.$pos['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
@@ -960,36 +925,7 @@ aside{
                         <span><?php echo $section_query->rowCount(); ?></span>
                     </div>
                 </div>
-   </fieldset>
-   <fieldset>
-       <legend>متابعه القاعده</legend>
-<div class="flex_row">
-                    <div class="wrongs_data">
-                        <div class="_table">
-                            <!--  -->
-                            <div>
-                                <span class="wrong_data">
-                                    <a href="wrong/repeat_sn_office.php" target="_blank" rel="noopener noreferrer" class="details">رقم سريال مكرر</a>
-                                </span>
-                                <span class="wrong_data_count"><?php echo $repeat_serials->rowCount() ; ?></span>
-                        </div>
-                                <div>
-                                    <span class="wrong_data">
-                                         <a href="wrong/none_type_office.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع مكتب</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php echo $none_office_type->rowCount() ; ?></span>
-                                </div>
-                                <div>
-                                    <span class="wrong_data">
-                                    <a href="wrong/none_id.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع جهاز</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php echo $none_dvice_type->rowCount(); ?></span>
-                                </div>
-                        </div>
-                    </span>
-                    </div>
-                </div>
-   </fieldset>
+
             </div>
         </main>
     </div>
@@ -1093,7 +1029,7 @@ window.onclick = function(event) {
     }
 }
         </script>
-        <script>
+               <script>
  var element = document.body;
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
@@ -1124,28 +1060,14 @@ function checkCookie() {
     element.classList.add('dark-mode');
   } 
 }
-window.onload = checkCookie();
 
 function themeToggle(){
      element.classList.toggle("dark-mode");
 theme = document.getElementById('theme').classList.value; // get classname
 setCookie('theme_mode', theme, '365');
 }
+window.onload = checkCookie();
         </script>
-<script>
-var toggler = document.getElementsByClassName("box");
-var i;
-
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    
-    this.classList.toggle("check-box");
-      
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-  });
-}
-</script>
-        
 </body>
 
 </html>

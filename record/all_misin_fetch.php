@@ -8,10 +8,17 @@ $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  $query_all_misin = "
  SELECT
-  * FROM misin_it 
+ it_name,
+  misin_day,
+  misin_date,
+  office_name,
+  misin_type,
+  start_time,
+  end_time,
+  does
+ FROM misin_it 
   WHERE
  
-
   it_name LIKE '%$search%' OR
   office_name LIKE '%$search%' OR
   misin_type LIKE '%$search%' OR
@@ -25,7 +32,16 @@ $search = mysqli_real_escape_string($conn, $_POST["query"]);
 else
 {
  $query_all_misin = "
-  SELECT * FROM misin_it  ORDER  BY misin_date DESC";
+  SELECT 
+   it_name,
+  misin_day,
+  misin_date,
+  office_name,
+  misin_type,
+  start_time,
+  end_time,
+  does
+  FROM misin_it  ORDER  BY misin_date DESC";
 }
 $result = mysqli_query($conn, $query_all_misin);
 if($result)
@@ -40,6 +56,7 @@ while($row_pc=mysqli_fetch_assoc($result)){
 <td ><?php echo $row_pc["misin_type"] ?></td>
 <td ><?php echo $row_pc["start_time"] ?></td>
 <td ><?php echo $row_pc["end_time"];?></td>
+<td style ="width:25%;"><?php echo $row_pc["does"];?></td>
 </tr>
 <?php }}
 else

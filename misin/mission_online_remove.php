@@ -2,7 +2,7 @@
 session_start();
 include '../connection.php';
 
-$id = $_POST['id'];
+$counter = $_POST['counter'];
 
 $sql_delet_missin_online = " DELETE FROM misin_it_online WHERE counter = $counter ";
 

@@ -354,7 +354,7 @@ while($row_pc=mysqli_fetch_assoc($result)){
                                                     <label for="mi2<?php echo $row_pc["id"]; ?>">الماموريات</label>
                                                 </a></li>
 
-                                            <li><a href="#" <?php if($row_pc['edit_misin'] == 1){echo "class='yes'";}else{ echo "class='no'";} ?>>
+                                            <!-- <li><a href="#" <?php if($row_pc['edit_misin'] == 1){echo "class='yes'";}else{ echo "class='no'";} ?>>
                                                     <input type="checkbox" <?php if($row_pc['edit_misin'] == 1){echo "checked";} ?> id="mi3<?php echo $row_pc["id"]; ?>" name="edit_misin" value='1'>
                                                     <label for="mi3<?php echo $row_pc["id"]; ?>">تعديل الماموريات</label>
                                                 </a></li>
@@ -362,7 +362,7 @@ while($row_pc=mysqli_fetch_assoc($result)){
                                             <li><a href="#" <?php if($row_pc['misin_pos'] == 1){echo "class='yes'";}else{ echo "class='no'";} ?>>
                                                     <input type="checkbox" <?php if($row_pc['misin_pos'] == 1){echo "checked";} ?> id="mi4<?php echo $row_pc["id"]; ?>" name="misin_pos" value='1'>
                                                     <label for="mi4<?php echo $row_pc["id"]; ?>">ماموريه pos الهيئه</label>
-                                                </a></li>
+                                                </a></li> -->
 
                                         </ol>
                                     </li> <!-- الماموريات -->
