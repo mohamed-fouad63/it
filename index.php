@@ -97,7 +97,7 @@ $check_monitor_name->execute();
             /* start light mode */
             --body-light-bg: #F2F2F7;
             --header-light-bg: #FFFFFF;
-            --form-light-bg: #FFFFFF;
+            --light_div: #FFFFFF;
             --input-light-bg: #F0F2F5;
             --hover-light-bg: #E4E6E9;
             --scroll-light-bg: #BCC0C4;
@@ -345,48 +345,66 @@ legend {
             height: 1000px;
         }
 
-.flex_row{
-display: flex;
-    text-align: center;
+        /* start main css */
+._light_div{
+    background-color: var(--light_div);
+} 
+._flex_row {  /* To create one row */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     margin-bottom: 10px;
-    /* justify-content: space-around; */
-    flex-direction: column;
+    text-align: center;
 }
-        .flex_4,
-        .flex_5
-        {
-            display: flex;
-            text-align: center;
-            margin-bottom: 10px;
-            justify-content: space-around;
-        }
 
-        .flex_4>div {
-            flex-basis: 24%;
-            padding: 13px 0;
-            border-radius: 10px;
-            flex-shrink: 0;
-            background-color: var(--form-light-bg);
-        }
+._flex_col { /* To create one columne */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+._flex_row_4{
+    flex-basis: 24%;
+    background-color: var(--light_div);
+}
+._flex_row_5{
+    flex-basis: 19%;
+    background-color: var(--light_div);
+}
 
-        .flex_5>div {
-            flex-basis: 19%;
-            padding: 13px 0;
-            border-radius: 10px;
-            flex-shrink: 0;
-            background-color: var(--form-light-bg);
-        }
+._p_y1{
+    padding: 1rem 0;
+}
+._p_y_t1{
+    padding: 1rem 0 0 0;
+}
+._p_y_b1{
+    padding: 0 0 1rem 0;
+}
+._p_x1{
+    padding: 0 1rem;
+}
+._m_x05 {
+    margin: 0 0.5rem;
+}
+._m_y1{
+    margin: 1rem 0;
+}
+._m_x1{
+    margin: 0 1rem;
+}
+._count{
+font-size: 2rem;
+}
+ /* end main css */
 
-        .flex_4>div>h3 {
-            margin-top: 0;
-            height: 25px;
-            height: 25px;
-        }
 
-        .flex_4>div>span {
-            font-size: 35px;
 
-        }
+
+  
+
+ 
+
+
         .flex_2 {
         display: flex;
         align-items: center;
@@ -644,7 +662,7 @@ aside{
     padding: 13px 0;
     border-radius: 10px;
     flex-shrink: 0;
-    background-color: var(--form-light-bg);
+    background-color: var(--light_div);
 }
 
 }
@@ -857,10 +875,10 @@ aside{
             <div>
 <fieldset>
     <legend>احصائيات</legend>
-                <div class="flex_4 count_dvice">
-                    <div class="pc">
+                <div class="_flex_row">
+                    <div class="_flex_row_4 _p_y1">
                         <h3>الاجهزه</h3>
-                        <span><?php echo $pc_all_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $pc_all_query->rowCount(); ?></span>
                         <div class="_table pc_type">
                             <!--  -->
                             <?php
@@ -875,9 +893,9 @@ aside{
                             ?>
                         </div>
                     </div>
-                    <div class="monitor">
+                    <div class="_flex_row_4 _p_y1">
                         <h3>الشاشات</h3>
-                        <span><?php echo $monitor_all_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $monitor_all_query->rowCount(); ?></span>
                         <?php
                             if($check_monitor_name->rowCount() >= 1){
                                 echo '
@@ -901,9 +919,9 @@ aside{
                             <!--  -->
                         </div>
                     </div>
-                    <div class="printer">
+                    <div class="_flex_row_4 _p_y1">
                         <h3>الطابعات</h3>
-                        <span><?php echo $printer_all_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $printer_all_query->rowCount(); ?></span>
                         <div class="_table printer_type">
                             <!--  -->
                             <?php
@@ -919,9 +937,9 @@ aside{
                             <!--  -->
                         </div>
                     </div>
-                    <div class="pos">
+                    <div class="_flex_row_4 _p_y1">
                         <h3>نقاط البيع</h3>
-                        <span><?php echo $pos_all_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $pos_all_query->rowCount(); ?></span>
                         <div class="_table pos_type">
                             <!--  -->
                             <?php
@@ -938,34 +956,34 @@ aside{
                         </div>
                     </div>
                 </div>
-                <div class="flex_5 count_office">
-                    <div class="pos_office">
+                <div class="_flex_row">
+                    <div class="_flex_row_5 _p_y1">
                         <h3>مكاتب بريد</h3>
-                        <span><?php echo $post_office_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $post_office_query->rowCount(); ?></span>
                     </div>
-                    <div class="services_center">
+                    <div class="_flex_row_5 _p_y1">
                         <h3>مراكز خدمات</h3>
-                         <span><?php echo $center_serv_query->rowCount(); ?></span>
+                         <span class="_count"><?php echo $center_serv_query->rowCount(); ?></span>
                     </div>
-                    <div class="provider">
+                    <div class="_flex_row_5 _p_y1">
                         <h3>مناطق توزيع</h3>
-                       <span><?php echo $delivery_query->rowCount(); ?></span>
+                       <span class="_count"><?php echo $delivery_query->rowCount(); ?></span>
                     </div>
-                    <div class="money_office">
+                    <div class="_flex_row_5 _p_y1">
                         <h3>خزينه</h3>
-                        <span><?php echo $money_safe_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $money_safe_query->rowCount(); ?></span>
                     </div>
-                    <div class="money_office">
+                    <div class="_flex_row_5 _p_y1">
                         <h3>اقسام المنطقه</h3>
-                        <span><?php echo $section_query->rowCount(); ?></span>
+                        <span class="_count"><?php echo $section_query->rowCount(); ?></span>
                     </div>
                 </div>
    </fieldset>
    <fieldset>
        <legend>متابعه القاعده</legend>
-<div class="flex_row">
-                    <div class="wrongs_data">
-                        <div class="_table">
+<div class="_flex_col">
+                    <div class="_m_x05 _light_div">
+                        <div class="_table _p_y1">
                             <!--  -->
                             <div>
                                 <span class="wrong_data">
