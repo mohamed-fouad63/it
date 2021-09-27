@@ -2,6 +2,9 @@
 session_start();
 include 'setup/session/no_session.php';
 include 'connection.php';
+
+/* start counters sql*/
+
 $query_all_dvice = 'SELECT id FROM dvice WHERE id = :id';
 
 $pc_all_query = $pdo->prepare($query_all_dvice);
@@ -16,20 +19,19 @@ $printer_all_query->execute(['printer']);
 $pos_all_query = $pdo->prepare($query_all_dvice);
 $pos_all_query->execute(['pos']);
 
-$query_dvice = 'SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice
-WHERE id = :id GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC ';
+$query_postal_dvice = 'SELECT id FROM dvice WHERE id = "postal" AND dvice_type = :dvice_type';
 
-$pc_query = $pdo->prepare($query_dvice);
-$pc_query->execute(['pc']);
+$scanner_postal_query = $pdo->prepare($query_postal_dvice);
+$scanner_postal_query->execute(['قارىء باركود']);
 
-$monitor_query = $pdo->prepare($query_dvice);
-$monitor_query->execute(['monitor']);
+$printer_postal_query = $pdo->prepare($query_postal_dvice);
+$printer_postal_query->execute(['طابعه باركود']);
 
-$printer_query = $pdo->prepare($query_dvice);
-$printer_query->execute(['printer']);
+$weight_postal_query = $pdo->prepare($query_postal_dvice);
+$weight_postal_query->execute(['ميزان الكتروني']);
 
-$pos_query = $pdo->prepare($query_dvice);
-$pos_query->execute(['pos']);
+$display_postal_query = $pdo->prepare($query_postal_dvice);
+$display_postal_query->execute(['شاشه عرض عملاء']);
 
 $query_office = 'select office_name from all1 where office_type= :office_type';
 
@@ -47,6 +49,40 @@ $money_safe_query->execute(['خزينه']);
 
 $section_query = $pdo->prepare($query_office);
 $section_query->execute(['قسم']);
+/* end counters sql */
+/* start display types sql*/
+
+$query_dvice = 'SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice
+WHERE id = :id GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC ';
+
+$pc_query = $pdo->prepare($query_dvice);
+$pc_query->execute(['pc']);
+
+$monitor_query = $pdo->prepare($query_dvice);
+$monitor_query->execute(['monitor']);
+
+$printer_query = $pdo->prepare($query_dvice);
+$printer_query->execute(['printer']);
+
+$pos_query = $pdo->prepare($query_dvice);
+$pos_query->execute(['pos']);
+
+$query_dvice_postal = 'SELECT id,dvice_name,COUNT(dvice_name)  FROM dvice
+WHERE id = "postal" AND dvice_type = :dvice_type GROUP BY dvice_name ORDER BY COUNT(dvice_name) DESC ';
+
+$scanner_postal_dvice = $pdo->prepare($query_dvice_postal);
+$scanner_postal_dvice->execute(['قارىء باركود']);
+
+$printer_postal_dvice = $pdo->prepare($query_dvice_postal);
+$printer_postal_dvice->execute(['طابعه باركود']);
+
+$weight_postal_dvice = $pdo->prepare($query_dvice_postal);
+$weight_postal_dvice->execute(['ميزان الكتروني']);
+
+$display_postal_dvice = $pdo->prepare($query_dvice_postal);
+$display_postal_dvice->execute(['شاشه عرض عملاء']);
+
+/* start display types sql*/
 
 /*$query_users = 'select id ,SUBSTRING_INDEX(first_name," ",4) as first_name,job from tbl_user where job= :job';
 
@@ -949,6 +985,79 @@ aside{
                                 <a href="count/count_dvice.php?dvice_name='.$pos['dvice_name'].'&dvice_type= الماكينه" target="_blank" rel="noopener noreferrer" class="details">'.$pos['dvice_name'].'</a>
                                 </span>
                                 <span class="pos_count">'.$pos['COUNT(dvice_name)'].'</span>
+                            </div>';
+                            }
+                            ?>
+                            <!--  -->
+                        </div>
+                    </div>
+                </div>
+                <div class="_flex_row">
+                    <div class="_flex_row_4 _p_y1">
+                        <h3>قارئ باركود</h3>
+                        <span class="_count"><?php echo $scanner_postal_query->rowCount(); ?></span>
+                        <div class="_table pc_type">
+                            <!--  -->
+                            <?php
+                            while($scanner_postal = $scanner_postal_dvice->fetch()){
+                            echo '<div>
+                                <span class="pc_name">
+                                <a href="count/count_dvice.php?dvice_name='.$scanner_postal['dvice_name'].'&dvice_type= قارئ باركود" target="_blank" rel="noopener noreferrer" class="details">'.$scanner_postal['dvice_name'].'</a>
+                                </span>
+                                <span class="pc_count">'.$scanner_postal['COUNT(dvice_name)'].'</span>
+                            </div>';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="_flex_row_4 _p_y1">
+                        <h3>طابعه باركود</h3>
+                        <span class="_count"><?php echo $printer_postal_query->rowCount(); ?></span>
+                        <div class="_table monitor_type">
+                            <!--  -->
+                            <?php
+                            while($printer_postal = $printer_postal_dvice->fetch()){
+                            echo '<div>
+                                <span class="monitor_name">
+                               <a href="count/count_dvice.php?dvice_name='.$printer_postal['dvice_name'].'&dvice_type= طابعه الباركود" target="_blank" rel="noopener noreferrer" class="details">'.$printer_postal['dvice_name'].'</a> 
+                                </span>
+                                <span class="monitor_count">'.$printer_postal['COUNT(dvice_name)'].'</span>
+                            </div>';
+                            }
+                            ?>
+                            <!--  -->
+                        </div>
+                    </div>
+                    <div class="_flex_row_4 _p_y1">
+                        <h3>ميزان اليكترونى</h3>
+                        <span class="_count"><?php echo $weight_postal_query->rowCount(); ?></span>
+                        <div class="_table printer_type">
+                            <!--  -->
+                            <?php
+                            while($weight_postal = $weight_postal_dvice->fetch()){
+                            echo '<div>
+                                <span class="printer_name">
+                               <a href="count/count_dvice.php?dvice_name='.$weight_postal['dvice_name'].'&dvice_type= الميزان الاليكترونى" target="_blank" rel="noopener noreferrer" class="details">'.$weight_postal['dvice_name'].'</a> 
+                                </span>
+                                <span class="printer_count">'.$weight_postal['COUNT(dvice_name)'].'</span>
+                            </div>';
+                            }
+                            ?>
+                            <!--  -->
+                        </div>
+                    </div>
+                    <div class="_flex_row_4 _p_y1">
+                        <h3>شاشه عميل</h3>
+                        <span class="_count"><?php echo $display_postal_query->rowCount(); ?></span>
+                        <div class="_table pos_type">
+                            <!--  -->
+                            <?php
+                            while($display_postal = $display_postal_dvice->fetch()){
+                            echo '<div>
+                                <span class="pos_name">
+                                <a href="count/count_dvice.php?dvice_name='.$display_postal['dvice_name'].'&dvice_type= شاشه العميل" target="_blank" rel="noopener noreferrer" class="details">'.$display_postal['dvice_name'].'</a>
+                                </span>
+                                <span class="pos_count">'.$display_postal['COUNT(dvice_name)'].'</span>
                             </div>';
                             }
                             ?>
