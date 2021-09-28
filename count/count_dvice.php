@@ -1,14 +1,15 @@
 <?php
 session_start();
-//include '../../setup/session/no_session.php';
+include '../setup/session/no_session.php';
 $session_username = $_SESSION['user_name'];
 $session_role = $_SESSION['role'];
 $job = $_SESSION['job'];
 $dvice_name = $_GET['dvice_name'];
 $dvice_type = $_GET['dvice_type'];
+$get_ip = $_GET['ip'];
 //if ( $session_role != "admin"){ header('location: not.php');}
 include '../connection.php';
-$query_dvice_name=mysqli_query($conn, "select office_name,dvice_name,ip,sn from dvice where 
+$query_dvice_name=mysqli_query($conn, "select office_name,dvice_name,ip,sn,note from dvice where 
 dvice_name = '$dvice_name'");
 $rowcount_dvice_name=mysqli_num_rows($query_dvice_name);
 
@@ -30,13 +31,36 @@ $rowcount_dvice_name=mysqli_num_rows($query_dvice_name);
                     <th>اسم المكتب</th>
                     <th>نوع <?php echo  $dvice_type ; ?></th>
                     <th>السريال</th>
-                    <th>IP</th>
+                    <?php
+                        if ($get_ip == 'yes') { echo "
+                           <th>IP</th>
+                            ";
+                        }
+                    ?>
+                    
+                    <th>موقفه</th>
                  </tr>
-<?php
+            <?php
                 while($row=mysqli_fetch_assoc($query_dvice_name)){
-    echo "<tr><td>".
-        $row['office_name']."</td><td>".$row['dvice_name']."</td><td>".$row['sn']."</td><td>".$row['ip']."</td</tr>";
-} ?> 
+                   $office_name = $row['office_name'];
+                   $dvice_name = $row['dvice_name'];
+                   $sn = $row['sn'];
+                   $ip = $row['ip'];
+                   $note = $row['note']; ?>
+                    <tr>
+                    <td><?php echo $office_name ; ?></td>
+                    <td><?php echo $dvice_name ; ?></td>
+                    <td><?php echo $sn ; ?></td>
+                    <?php
+                        if ($get_ip == 'yes') { echo "
+                            <td>$ip</td>
+                            ";
+                        }
+                    ?>
+                    
+                    <td><?php echo $note ; ?></td>
+                    </tr>
+    <?php } ?> 
             </table>
         </div>
     </div>

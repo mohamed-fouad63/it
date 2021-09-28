@@ -10,6 +10,7 @@ $misin_type = $_POST['misin_type'];
 $start_time = $_POST['start_time'];
 $end_time = $_POST['end_time'];
 $counter = $_POST['counter'];
+$does = $_POST['does'];
 
 $sql_insert_in_misin = "INSERT INTO misin_it (
 misin_day,
@@ -19,7 +20,9 @@ it_name,
 office_name,
 misin_type,
 start_time,
-end_time
+end_time,
+does
+
 )
 VALUES (
 '$misin_day',
@@ -29,7 +32,8 @@ VALUES (
 '$office_name',
 '$misin_type',
 '$start_time',
-'$end_time'
+'$end_time',
+'$does'
 )";
 
 $sql_delet_missin_online = " DELETE FROM misin_it_online WHERE counter = $counter ";

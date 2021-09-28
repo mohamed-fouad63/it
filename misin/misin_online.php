@@ -115,6 +115,7 @@ function misin_add() {
             end_time = this.cells[6].innerHTML,
             id = this.cells[7].innerHTML,
             counter = this.cells[8].innerHTML;
+            does = this.cells[9].innerHTML;
             $.ajax({
                 url: "mission_online_add.php",
                 method: "POST",
@@ -127,7 +128,8 @@ function misin_add() {
                     start_time: start_time,
                     end_time: end_time,
                     id: id,
-                    counter: counter
+                    counter: counter,
+                    does
                 },
                 success: function(data) {
                     function load_data() {

@@ -143,7 +143,7 @@ $check_monitor_name->execute();
             --icon-light-hover: #D8DADF;
             --font-light-color: #050505;
             /* end light mode */
-            --danger: #DC143C;
+            --cancel: #DC143C;
             --ok: blue;
             /* start dark mode */
             --body-dark-bg: #18191A;
@@ -172,9 +172,7 @@ $check_monitor_name->execute();
             background-color: var(--body-light-bg);
             color: var(--font-light-color);
         }
-        .container{
-           
-        }
+
         #mode::before {
             font-family: "Font Awesome 5 Free";
             content: "\f186";
@@ -260,16 +258,7 @@ $check_monitor_name->execute();
             padding-right: 20px;
             top: 0;
         }
-aside:before{
-    /* content: "\f053";
-    font-family: 'FONT AWESOME 5 FREE';
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
-    height: 30px;
-    width: 30px; */
-}
+
 
  input {
      padding:5px;
@@ -318,11 +307,9 @@ legend {
 
         ._drop_link {
             text-decoration: none;
-            color: var(--font-color);
+            color: var(--font-light-color);
             transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
         }
-
-        ._drop_link ._drop_icon {}
 
         ._drop_link ._drop_text {
             margin-right: 0.5rem;
@@ -388,7 +375,7 @@ legend {
 ._flex_row {  /* To create one row */
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -400,11 +387,9 @@ legend {
 }
 ._flex_row_4{
     flex-basis: 24%;
-    background-color: var(--light_div);
 }
 ._flex_row_5{
     flex-basis: 19%;
-    background-color: var(--light_div);
 }
 
 ._p_y1{
@@ -418,6 +403,9 @@ legend {
 }
 ._p_x1{
     padding: 0 1rem;
+}
+._p_x05{
+    padding: 0 0.5rem;
 }
 ._m_x05 {
     margin: 0 0.5rem;
@@ -592,9 +580,7 @@ font-size: 2rem;
             overflow: hidden;
             outline: 0;
         }
-.modal-dialog{
 
-}
         /* Modal Content */
 .modal-content {
     position: absolute;
@@ -609,7 +595,7 @@ font-size: 2rem;
     margin-top: 10px;
 }
 .fa-times:before{
-    color:var(--danger);
+    color:var(--cancel);
 }
 .fa-check {
     color :var(--ok)
@@ -640,6 +626,9 @@ font-size: 2rem;
            background-color: var(--body-dark-bg);
         }
 
+        body.dark-mode ._light_div {
+            background-color: var(--form-dark-bg);
+        }            
         body.dark-mode ._drop_list:hover,
         body.dark-mode .user:hover {
             background-color: var(--hover-dark-bg);
@@ -648,16 +637,14 @@ font-size: 2rem;
             background-color: var(--hover-dark-bg);
         }
 
-        body.dark-mode .flex_4>div,
-        body.dark-mode .flex_5>div {
-            background-color: var(--form-dark-bg);
-        }
 
         body.dark-mode ._drop_list {
             background-color: var(--hover-dark-bg);
             border: none;
         }
-
+        body.dark-mode ._drop_link {
+            color: var(--font-dark-color);
+        }
         body.dark-mode ._drop_list ._drop_item,body.dark-mode .details
          {
             color: var(--font-dark-color);
@@ -682,39 +669,8 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
         color: var(--font-light-color);
 } 
         /*end dark mode css */
-        @media only screen and (max-width: 600px) {
-  body {
-    background-color: red;
-  }
-        .flex_4, .flex_5 {
-    flex-wrap: wrap;
-}
-aside{
-    display: none;
-}
+        @media only screen and (max-width: 600px) {}
 
-.flex_4>div {
-    flex-basis: 50%;
-    padding: 13px 0;
-    border-radius: 10px;
-    flex-shrink: 0;
-    background-color: var(--light_div);
-}
-
-}
-.display_table:hover + span {
-    display:inline
-}
-
-.nested {
-  display: none;
- 
-}
-
-.active {
-  display: block;
-   transition: display 5s;
-}
     </style>
 </head>
 
@@ -909,10 +865,10 @@ aside{
         </aside>
         <main>
             <div>
-<fieldset>
+<fieldset class="_p_x05">
     <legend>احصائيات</legend>
                 <div class="_flex_row">
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>الاجهزه</h3>
                         <span class="_count"><?php echo $pc_all_query->rowCount(); ?></span>
                         <div class="_table pc_type">
@@ -921,7 +877,7 @@ aside{
                             while($pc = $pc_query->fetch()){
                             echo '<div>
                                 <span class="pc_name">
-                                <a href="count/count_dvice.php?dvice_name='.$pc['dvice_name'].'&dvice_type= الجهاز" target="_blank" rel="noopener noreferrer" class="details">'.$pc['dvice_name'].'</a>
+                                <a href="count/count_dvice.php?dvice_name='.$pc['dvice_name'].'&dvice_type= الجهاز&ip=yes" target="_blank" rel="noopener noreferrer" class="details">'.$pc['dvice_name'].'</a>
                                 </span>
                                 <span class="pc_count">'.$pc['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -929,7 +885,7 @@ aside{
                             ?>
                         </div>
                     </div>
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>الشاشات</h3>
                         <span class="_count"><?php echo $monitor_all_query->rowCount(); ?></span>
                         <?php
@@ -946,7 +902,7 @@ aside{
                             while($monitor = $monitor_query->fetch()){
                             echo '<div>
                                 <span class="monitor_name">
-                               <a href="count/count_dvice.php?dvice_name='.$monitor['dvice_name'].'&dvice_type= الشاشه" target="_blank" rel="noopener noreferrer" class="details">'.$monitor['dvice_name'].'</a> 
+                               <a href="count/count_dvice.php?dvice_name='.$monitor['dvice_name'].'&dvice_type= الشاشه&ip=no" target="_blank" rel="noopener noreferrer" class="details">'.$monitor['dvice_name'].'</a> 
                                 </span>
                                 <span class="monitor_count">'.$monitor['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -955,7 +911,7 @@ aside{
                             <!--  -->
                         </div>
                     </div>
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>الطابعات</h3>
                         <span class="_count"><?php echo $printer_all_query->rowCount(); ?></span>
                         <div class="_table printer_type">
@@ -964,7 +920,7 @@ aside{
                             while($printer = $printer_query->fetch()){
                             echo '<div>
                                 <span class="printer_name">
-                               <a href="count/count_dvice.php?dvice_name='.$printer['dvice_name'].'&dvice_type= الطابعه" target="_blank" rel="noopener noreferrer" class="details">'.$printer['dvice_name'].'</a> 
+                               <a href="count/count_dvice.php?dvice_name='.$printer['dvice_name'].'&dvice_type= الطابعه&ip=yes" target="_blank" rel="noopener noreferrer" class="details">'.$printer['dvice_name'].'</a> 
                                 </span>
                                 <span class="printer_count">'.$printer['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -973,7 +929,7 @@ aside{
                             <!--  -->
                         </div>
                     </div>
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>نقاط البيع</h3>
                         <span class="_count"><?php echo $pos_all_query->rowCount(); ?></span>
                         <div class="_table pos_type">
@@ -982,7 +938,7 @@ aside{
                             while($pos = $pos_query->fetch()){
                             echo '<div>
                                 <span class="pos_name">
-                                <a href="count/count_dvice.php?dvice_name='.$pos['dvice_name'].'&dvice_type= الماكينه" target="_blank" rel="noopener noreferrer" class="details">'.$pos['dvice_name'].'</a>
+                                <a href="count/count_dvice.php?dvice_name='.$pos['dvice_name'].'&dvice_type= الماكينه&ip=yes" target="_blank" rel="noopener noreferrer" class="details">'.$pos['dvice_name'].'</a>
                                 </span>
                                 <span class="pos_count">'.$pos['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -993,7 +949,7 @@ aside{
                     </div>
                 </div>
                 <div class="_flex_row">
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>قارئ باركود</h3>
                         <span class="_count"><?php echo $scanner_postal_query->rowCount(); ?></span>
                         <div class="_table pc_type">
@@ -1002,7 +958,7 @@ aside{
                             while($scanner_postal = $scanner_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="pc_name">
-                                <a href="count/count_dvice.php?dvice_name='.$scanner_postal['dvice_name'].'&dvice_type= قارئ باركود" target="_blank" rel="noopener noreferrer" class="details">'.$scanner_postal['dvice_name'].'</a>
+                                <a href="count/count_dvice.php?dvice_name='.$scanner_postal['dvice_name'].'&dvice_type= قارئ باركود&ip=no" target="_blank" rel="noopener noreferrer" class="details">'.$scanner_postal['dvice_name'].'</a>
                                 </span>
                                 <span class="pc_count">'.$scanner_postal['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -1010,7 +966,7 @@ aside{
                             ?>
                         </div>
                     </div>
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>طابعه باركود</h3>
                         <span class="_count"><?php echo $printer_postal_query->rowCount(); ?></span>
                         <div class="_table monitor_type">
@@ -1019,7 +975,7 @@ aside{
                             while($printer_postal = $printer_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="monitor_name">
-                               <a href="count/count_dvice.php?dvice_name='.$printer_postal['dvice_name'].'&dvice_type= طابعه الباركود" target="_blank" rel="noopener noreferrer" class="details">'.$printer_postal['dvice_name'].'</a> 
+                               <a href="count/count_dvice.php?dvice_name='.$printer_postal['dvice_name'].'&dvice_type= طابعه الباركود&ip=no" target="_blank" rel="noopener noreferrer" class="details">'.$printer_postal['dvice_name'].'</a> 
                                 </span>
                                 <span class="monitor_count">'.$printer_postal['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -1028,7 +984,7 @@ aside{
                             <!--  -->
                         </div>
                     </div>
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>ميزان اليكترونى</h3>
                         <span class="_count"><?php echo $weight_postal_query->rowCount(); ?></span>
                         <div class="_table printer_type">
@@ -1037,7 +993,7 @@ aside{
                             while($weight_postal = $weight_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="printer_name">
-                               <a href="count/count_dvice.php?dvice_name='.$weight_postal['dvice_name'].'&dvice_type= الميزان الاليكترونى" target="_blank" rel="noopener noreferrer" class="details">'.$weight_postal['dvice_name'].'</a> 
+                               <a href="count/count_dvice.php?dvice_name='.$weight_postal['dvice_name'].'&dvice_type= الميزان الاليكترونى&ip=no" target="_blank" rel="noopener noreferrer" class="details">'.$weight_postal['dvice_name'].'</a> 
                                 </span>
                                 <span class="printer_count">'.$weight_postal['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -1046,7 +1002,7 @@ aside{
                             <!--  -->
                         </div>
                     </div>
-                    <div class="_flex_row_4 _p_y1">
+                    <div class="_flex_row_4 _light_div _p_y1">
                         <h3>شاشه عميل</h3>
                         <span class="_count"><?php echo $display_postal_query->rowCount(); ?></span>
                         <div class="_table pos_type">
@@ -1055,7 +1011,7 @@ aside{
                             while($display_postal = $display_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="pos_name">
-                                <a href="count/count_dvice.php?dvice_name='.$display_postal['dvice_name'].'&dvice_type= شاشه العميل" target="_blank" rel="noopener noreferrer" class="details">'.$display_postal['dvice_name'].'</a>
+                                <a href="count/count_dvice.php?dvice_name='.$display_postal['dvice_name'].'&dvice_type= شاشه العميل&ip=no" target="_blank" rel="noopener noreferrer" class="details">'.$display_postal['dvice_name'].'</a>
                                 </span>
                                 <span class="pos_count">'.$display_postal['COUNT(dvice_name)'].'</span>
                             </div>';
@@ -1066,32 +1022,32 @@ aside{
                     </div>
                 </div>
                 <div class="_flex_row">
-                    <div class="_flex_row_5 _p_y1">
+                    <div class="_flex_row_5 _light_div _p_y1">
                         <h3>مكاتب بريد</h3>
                         <span class="_count"><?php echo $post_office_query->rowCount(); ?></span>
                     </div>
-                    <div class="_flex_row_5 _p_y1">
+                    <div class="_flex_row_5 _light_div _p_y1">
                         <h3>مراكز خدمات</h3>
                          <span class="_count"><?php echo $center_serv_query->rowCount(); ?></span>
                     </div>
-                    <div class="_flex_row_5 _p_y1">
+                    <div class="_flex_row_5 _light_div _p_y1">
                         <h3>مناطق توزيع</h3>
                        <span class="_count"><?php echo $delivery_query->rowCount(); ?></span>
                     </div>
-                    <div class="_flex_row_5 _p_y1">
+                    <div class="_flex_row_5 _light_div _p_y1">
                         <h3>خزينه</h3>
                         <span class="_count"><?php echo $money_safe_query->rowCount(); ?></span>
                     </div>
-                    <div class="_flex_row_5 _p_y1">
+                    <div class="_flex_row_5 _light_div _p_y1">
                         <h3>اقسام المنطقه</h3>
                         <span class="_count"><?php echo $section_query->rowCount(); ?></span>
                     </div>
                 </div>
    </fieldset>
-   <fieldset>
+   <fieldset class="_p_x05">
        <legend>متابعه القاعده</legend>
 <div class="_flex_col">
-                    <div class="_m_x05 _light_div">
+                    <div class="_light_div">
                         <div class="_table _p_y1">
                             <!--  -->
                             <div>
