@@ -1,6 +1,6 @@
 <?php if ($rowcount5 > 0){ ?>
 <fieldset>
-<legend><i class="fas fa-network-wired"></i><span class="count"><?php echo $rowcount5; ?></span>
+<legend><i class="fas fa-network-wired"></i><span class="count"><?php echo $rowcount5; ?></span>اجهزه شبكه
 </legend>
 <table id="network_table" class="table">
 <thead>

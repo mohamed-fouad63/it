@@ -263,7 +263,7 @@ if ($nameOfDay == "الجمعه") {
                             <th>المصريه لاتصالات</th>
                             <th>منظومه الطوابع</th>
                             <th>البريد الالكترونى</th>
-                            <th>مصر الرقميه</th>
+                            
                             
                         </tr>
                         <tr>
@@ -302,17 +302,14 @@ if ($nameOfDay == "الجمعه") {
                                 } else {
                                     echo "<i class='fas fa-times'></i>";
                                 } ?></td>
-                            <td><?php if (isset($_POST['des'])) {
-                                    echo "<i class='fas fa-check'></i>";
-                                } else {
-                                    echo "<i class='fas fa-times'></i>";
-                                } ?></td>
+                            
                         </tr>
                         <tr>
                             <th>باك اوفيس</th>
                             <th>فرونت اوفيس</th>
                             <th>الخدمات الحكوميه</th>
                             <th>الاحوال المدنيه</th>
+                            <th>مصر الرقميه</th>
                             <th>موقع المنشورات</th>
                             <th>الحوالات الخارجيه</th>
                         </tr>
@@ -333,6 +330,11 @@ if ($nameOfDay == "الجمعه") {
                                     echo "<i class='fas fa-times'></i>";
                                 } ?></td>
                             <td><?php if (isset($_POST['am'])) {
+                                    echo "<i class='fas fa-check'></i>";
+                                } else {
+                                    echo "<i class='fas fa-times'></i>";
+                                } ?></td>
+                                <td><?php if (isset($_POST['des'])) {
                                     echo "<i class='fas fa-check'></i>";
                                 } else {
                                     echo "<i class='fas fa-times'></i>";

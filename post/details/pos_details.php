@@ -1,6 +1,6 @@
 <?php if ($rowcount4 > 0){ ?>
 <fieldset>
-    <legend><i class="fas fa-money-bill-alt"></i><span class="count"><?php echo $rowcount4; ?></span>
+    <legend><i class="fas fa-money-bill-alt"></i><span class="count"><?php echo $rowcount4; ?></span>نقاط بيع
     </legend>
     <table id="pos_table" class="table">
         <thead>

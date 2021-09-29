@@ -5,7 +5,7 @@
     <legend>
         <i class="fas fa-desktop"></i>
         <span class="count"><?php echo $rowcount2; ?>
-        </span>
+        </span>شاشات
     </legend>
     <table id="monitor_table" class="table">
         <thead>

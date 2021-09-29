@@ -3,7 +3,7 @@
     <legend>
         <i class="fas fa-mobile-alt"></i>
         <span class="count"><?php echo $rowcount1; ?>
-        </span>
+        </span>اجهزه
     </legend>
     <table id="pc_table" class="table">
         <thead>

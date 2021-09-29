@@ -1,6 +1,6 @@
 <?php if ($rowcount6 > 0){ ?>
 <fieldset>
-    <legend><i class="fas fa-envelope-open-text"></i><span class="count"><?php echo $rowcount6; ?></span>
+    <legend><i class="fas fa-envelope-open-text"></i><span class="count"><?php echo $rowcount6; ?></span>اجهزه بوستال
     </legend>
     <table id="postal_table" class="table">
         <thead>

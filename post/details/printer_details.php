@@ -1,6 +1,6 @@
 <?php if ($rowcount3 > 0){ ?>
 <fieldset>
-    <legend><i class="fas fa-print"></i><span class="count"><?php echo $rowcount3; ?></span>
+    <legend><i class="fas fa-print"></i><span class="count"><?php echo $rowcount3; ?></span>طابعات ليزر
     </legend>
     <table id="printer_table" class="table">
         <thead>
