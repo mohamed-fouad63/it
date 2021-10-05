@@ -143,7 +143,7 @@ while($row_pc=mysqli_fetch_assoc($result)){
                                                 </a>
                                             </li>
                                         </ol>
-                                        <!-- متابعه القاعده -->
+                                        <!-- متابعه القاعده 
                                         <a href="#" <?php if ($row_pc['link_count_wrong'] == 1){ echo "class='yes'";}else{ echo "class='no'";} ?>>
                                             <input type="checkbox" <?php if($row_pc['link_count_wrong'] == 1){echo "checked";} ?> id="mk<?php echo $row_pc["id"]; ?>" name="link_count_wrong" value='1'>
                                             <label for="mk<?php echo $row_pc["id"]; ?>">متابعه القاعده</label>
@@ -161,7 +161,7 @@ while($row_pc=mysqli_fetch_assoc($result)){
                                                     <label for="mk2<?php echo $row_pc["id"]; ?>">اخطاء</label>
                                                 </a>
                                             </li>
-                                        </ol>
+                                        </ol> -->
                                     </li>
 
                                     <!-- المكاتب و المجموعات -->

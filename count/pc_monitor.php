@@ -33,12 +33,16 @@ $query_all_office=mysqli_query($conn, "SELECT office_name FROM dvice GROUP BY of
 <?php
                 while($row=mysqli_fetch_assoc($query_all_office)){
 $office = $row['office_name'];
-$querypc=mysqli_query($conn, "select * from dvice where office_name LIKE '$office' AND id like 'pc'");
+$querypc=mysqli_query($conn, "select * from dvice where office_name LIKE '$office' AND id like 'pc' AND note not like 'تم تكهينها'");
 $rowcountpc=mysqli_num_rows($querypc);
-$querymo=mysqli_query($conn, "select * from dvice where office_name LIKE '$office' AND id like 'MONITOR'");
+$querymo=mysqli_query($conn, "select * from dvice where office_name LIKE '$office' AND id like 'MONITOR' AND note not like 'تم تكهينها'");
 $rowcountmo=mysqli_num_rows($querymo);
                     
     if ($rowcountpc != $rowcountmo ){
+        
+
+        
+        
     echo "<tr><td>".
         $office."</td><td>".$rowcountpc."</td><td>".$rowcountmo."</td</tr>";
 } }?> 

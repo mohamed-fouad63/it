@@ -89,8 +89,8 @@ if ($_SESSION) {
         while ($row = mysqli_fetch_assoc($login_query)) {
             if ($password == $row["password"]) {
                     $_SESSION['db'] = $row["db"];
-                    $_SESSION['user_name'] =  $row["first_name"];
-                    /*$_SESSION['user_name'] = implode(' ', array_slice(explode(' ', $row["first_name"]), 0, 3)) ;*/
+                    /*$_SESSION['user_name'] =  $row["first_name"];*/
+                    $_SESSION['user_name'] = implode(' ', array_slice(explode(' ', $row["first_name"]), 0, 3)) ;
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['job'] = $row['job'];

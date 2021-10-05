@@ -215,13 +215,14 @@ $check_monitor_name->execute();
             user-select: none;
         }
         .user_login{
-        z-index: 1;
         background-color: var(--body-light-bg);
         width: 160px;
         line-height: 50px;
         text-align: center;
         border-bottom: 1px solid;
         cursor: pointer;
+        position: absolute;
+        z-index: 2;
         }
 
         .user_login:hover + .user_setting {
@@ -250,8 +251,6 @@ $check_monitor_name->execute();
             display: inherit;
         }
         aside {
-            margin: 0;
-            padding: 0;
             width: var(--aside_width);
             position: fixed;
             height: 100%;
@@ -259,6 +258,15 @@ $check_monitor_name->execute();
             top: 0;
         }
 
+        ._user_profile{
+            position: relative;
+        }
+        .minmized{
+            text-align:center
+        }
+aside.min ,main.min,.header.min{
+    --aside_width:43px;
+}
 
  input {
      padding:5px;
@@ -277,7 +285,7 @@ legend {
 
         ._drop_group {
             position: relative;
-            top: 35px;
+            top: 80px;
         }
 
         ._drop {
@@ -318,21 +326,15 @@ legend {
         ._drop_list {
             position: absolute;
             min-width: max-content;
-            z-index: 1000;
             display: none;
-            font-size: 1rem;
-            color: #212529;
-            text-align: right;
-            background-clip: padding-box;
-            border-radius: 0.25rem;
-            border: none;
             top: -10px;
             right: 150px;
             background-color: var(--hover-light-bg);
-        }
+}
+
 
         ._drop_list ._drop_item {
-            display: flex;
+            display:flex;
             align-items:center;
             padding: 0.25rem 1rem;
             color: var(--font-light-color);
@@ -376,7 +378,6 @@ legend {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -413,6 +414,12 @@ legend {
 ._m_y1{
     margin: 1rem 0;
 }
+ ._m1{
+     margin: 1rem;
+ }
+._m_y_b1{
+    margin:  0 0 1rem 0;
+}
 ._m_x1{
     margin: 0 1rem;
 }
@@ -421,18 +428,6 @@ font-size: 2rem;
 }
  /* end main css */
 
-
-
-
-  
-
- 
-
-
-        .flex_2 {
-        display: flex;
-        align-items: center;
-            }
             
         .flex_3{
             display: flex;
@@ -684,22 +679,24 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
             </div>
            
         </div>
-        <aside class="sidbar_right">
-            <div class="flex_2">
-            <span class="user_login ellipsis">
+        <aside>
+            <div class="_user_profile">
+            <span class="user_login">
                 <div>
                     <span class="user_name"><?php echo $_SESSION['user_name'] ;?></span>
                 </div>
             </span>
                 <span class="user_setting">
-                <div class ="flex_3">
+                <div class ="_flex_row">
                      <a class="modal-button" href="#exit_modal" id="exit"></a>
                     <a class="modal-button" href="#pass_modal" id="change_pass"></a>
                     <a id='mode' onclick="themeToggle()"></a>
                 </div>
             </span>
             </div>
+            
             <div class="_drop_group">
+                <div class="minmized"  onclick="min()"><i id = "minmized" class="fas fa-chevron-right"></i></div>
             <?php if ($_SESSION['link_dvice'] == 1) { ?>
                 <ul class="_drop">
                     <li class="_drop_end">
@@ -867,7 +864,7 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
             <div>
 <fieldset class="_p_x05">
     <legend>احصائيات</legend>
-                <div class="_flex_row">
+                <div class="_flex_row _m_y_b1">
                     <div class="_flex_row_4 _light_div _p_y1">
                         <h3>الاجهزه</h3>
                         <span class="_count"><?php echo $pc_all_query->rowCount(); ?></span>
@@ -948,7 +945,7 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                         </div>
                     </div>
                 </div>
-                <div class="_flex_row">
+                <div class="_flex_row _m_y_b1">
                     <div class="_flex_row_4 _light_div _p_y1">
                         <h3>قارئ باركود</h3>
                         <span class="_count"><?php echo $scanner_postal_query->rowCount(); ?></span>
@@ -1021,7 +1018,7 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                         </div>
                     </div>
                 </div>
-                <div class="_flex_row">
+                <div class="_flex_row _m_y_b1">
                     <div class="_flex_row_5 _light_div _p_y1">
                         <h3>مكاتب بريد</h3>
                         <span class="_count"><?php echo $post_office_query->rowCount(); ?></span>
@@ -1046,7 +1043,7 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
    </fieldset>
    <fieldset class="_p_x05">
        <legend>متابعه القاعده</legend>
-<div class="_flex_col">
+<div class="_flex_col _m_y_b1">
                     <div class="_light_div">
                         <div class="_table _p_y1">
                             <!--  -->
@@ -1067,6 +1064,12 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                                     <a href="wrong/none_id.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع جهاز</a>
                                     </span>
                                     <span class="wrong_data_count"><?php echo $none_dvice_type->rowCount(); ?></span>
+                                </div>
+                                <div>
+                                    <span class="wrong_data">
+                                    <a href="wrong/pc_monitor.php" target="_blank" rel="noopener noreferrer" class="details">وجود جهاز بدون شاشه او العكس</a>
+                                    </span>
+                                    <span class="wrong_data_count"><?php  ?></span>
                                 </div>
                         </div>
                     </span>
@@ -1138,7 +1141,45 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
             element.classList.toggle("dark-mode");
         }
     </script>
+    <script>
+        function min() {
+            var r = document.querySelector(':root');
+            var rs = getComputedStyle(r);
 
+             if(rs.getPropertyValue('--aside_width') === '200px'){
+                  r.style.setProperty('--aside_width', '50px');
+ 
+                var minmized = document.getElementById("minmized");
+                minmized.classList.remove("fa-chevron-right");
+                minmized.classList.add("fa-chevron-left");
+
+                 let _drop_list =  document.getElementsByClassName('_drop_list');
+                for(i = 0; i < _drop_list.length; i++) {
+                    _drop_list[i].style.right = '25px';
+                }
+                 let _drop_text =  document.getElementsByClassName('_drop_text');
+                for(i = 0; i < _drop_text.length; i++) {
+                    _drop_text[i].style.display = 'none';
+                }
+
+             } else if (rs.getPropertyValue('--aside_width') === '50px'){
+
+                var minmized = document.getElementById("minmized");
+                minmized.classList.remove("fa-chevron-left");
+                minmized.classList.add("fa-chevron-right");
+                 r.style.setProperty('--aside_width', '200px');
+                let _drop_list =  document.getElementsByClassName('_drop_list');
+                for(i = 0; i < _drop_list.length; i++) {
+                    _drop_list[i].style.right = '150px';
+                }
+                 let _drop_text =  document.getElementsByClassName('_drop_text');
+                for(i = 0; i < _drop_text.length; i++) {
+                    _drop_text[i].style.display = 'inherit';
+                }
+             }                          
+        }
+
+    </script>
     <script>
             // Get the button that opens the modal
 var btn = document.querySelectorAll("a.modal-button");
@@ -1228,7 +1269,7 @@ for (i = 0; i < toggler.length; i++) {
   });
 }
 </script>
-        
+
 </body>
 
 </html>
