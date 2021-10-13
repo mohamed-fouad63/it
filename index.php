@@ -216,7 +216,6 @@ $check_monitor_name->execute();
         }
         .user_login{
         background-color: var(--body-light-bg);
-        width: 160px;
         line-height: 50px;
         text-align: center;
         border-bottom: 1px solid;
@@ -235,7 +234,6 @@ $check_monitor_name->execute();
         border-radius: 0px 0px 5px 5px;
         border-bottom: 5px solid;
         position: absolute;
-        width: 160px;
         top: 10px;
         background-color: var(--body-light-bg);;
         }

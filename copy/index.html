@@ -1,0 +1,5425 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="tableId">
+        <thead>
+            <tr>
+                <th caption="مكتب / قسم" class="th_office"></th>
+                <th caption="نوع الجهاز" class="th_date_in  "></th>
+                <th caption="السريال" class="th_by  "></th>
+                <th caption=" رقم الطرد الى المخزن المحلى" class="th_dvice  "></th>
+                <th caption="تاريخ ارسال الطرد" class="th_sn  "></th>
+            </tr>
+        </thead>
+        <tbody id="result">
+            <tr>
+                <td>المنشيه</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjefa0005pw </td>
+                <td>CP042299055EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ام رماد</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000jxx </td>
+                <td>CP042299064EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اولاد مهنا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30002BW </td>
+                <td>CP042299078EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المرور</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG30005LM </td>
+                <td>CP042299081EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بني صالح</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG300041T </td>
+                <td>CP042299095EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اداره الحركه</td>
+                <td>BARCODE PRINTER DATA MAX</td>
+                <td>52284324 </td>
+                <td>CP042299149EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق الرئيسى</td>
+                <td>BARCODE PRINTER INTERMEC PC41T</td>
+                <td>19270740148 </td>
+                <td>CP042299166EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>طحله بردين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30002MY </td>
+                <td>CP042299002EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الجنيدى</td>
+                <td>HP LaserJet 1102</td>
+                <td>VNC6C76221 </td>
+                <td>CP042299121EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزهراء</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000JQT </td>
+                <td>CP042299104EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>غيته</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG300078E </td>
+                <td>CP042299118EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المسجل</td>
+                <td>BARCODE PRINTER DATA MAX</td>
+                <td>52284315 </td>
+                <td>CP042299152EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر موسى شاويش</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000MHK </td>
+                <td>CP042299020EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شرويده</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB00039K </td>
+                <td>CP042299033EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السعديين</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCKG26797 </td>
+                <td>CP042299135EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بير عماره</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PQL </td>
+                <td>CP042299016EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>نبتيت</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG30003BF </td>
+                <td>CP042299047EG</td>
+                <td>2021-10-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصلوجى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136448K </td>
+                <td>CP042298965EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منطقه توزيع بلبيس</td>
+                <td>FUJITSU 20" LED</td>
+                <td>yv9q017975 </td>
+                <td>CP042298846EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سنهوا</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td> </td>
+                <td>CP042298979EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السعديين</td>
+                <td>PHILIPS 20" LED</td>
+                <td>zv0a1732006097 </td>
+                <td>CP042298832EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قشا</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V025172 </td>
+                <td>CP042298885EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المكتب الفنى للمدير العام</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139864N </td>
+                <td>CP042298982EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سيدى ابو عامر</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139147B </td>
+                <td>CP042298996EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>طهره حميد</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V024147 </td>
+                <td>CP042298792EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>VIEWSONIC 20" LED</td>
+                <td>TSL135100021 </td>
+                <td>CP042298877EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس فرعى</td>
+                <td>FUJITSU 20" LCD</td>
+                <td>YV1V206051 </td>
+                <td>CP042298850EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق محطه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809365 </td>
+                <td>CP042298894EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصايد</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136567F </td>
+                <td>CP042298903EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النخاس</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139539H </td>
+                <td>CP042298917EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحصر</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139032K </td>
+                <td>CP042298925EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الزقازيق القبلى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139422R </td>
+                <td>CP042298934EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>البلاشون</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809308 </td>
+                <td>CP042298948EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q014495 </td>
+                <td>CP042298863EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المهملات</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809694 </td>
+                <td>CP042298951EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق محطه</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T217632 </td>
+                <td>CP042298829EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره الميمونه</td>
+                <td>FUJITSU 20" LED</td>
+                <td>yv8v024157 </td>
+                <td>CP042298801EG</td>
+                <td>2021-10-03</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>PC</td>
+                <td>945GCM-S2L </td>
+                <td>CP042298758EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السعديين</td>
+                <td>Fujitsu Esprimo P2540</td>
+                <td>YKQB138010 </td>
+                <td>CP042298761EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>Fujitsu Esprimo P2540</td>
+                <td>YKQB137512 </td>
+                <td>CP042298775EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مباحث البريد</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yk7u072127 </td>
+                <td>CP042298713EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ادارة الرقابه والتفتيش</td>
+                <td>Fujitsu Esprimo P2540</td>
+                <td>YKQB138375 </td>
+                <td>CP042298789EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المهملات</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002950 </td>
+                <td>CP042298727EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الزقازيق القبلى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003040 </td>
+                <td>CP042298735EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>FUJITSU ESPRIMO E5915</td>
+                <td>YKXR186468 </td>
+                <td>CP042298744EG</td>
+                <td>2021-09-30</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع المصالح</td>
+                <td>ROUTER CISCO C1128</td>
+                <td>FGL2428LCZ9 </td>
+                <td>تم سحبه بمعرفه مندوب شركه WE</td>
+                <td>2021-09-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T218024 </td>
+                <td>CP042296292EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>VIEWSONIC 20" LED</td>
+                <td>TSL135100020 </td>
+                <td>CP042296258EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>SAMSUNG 17" lcd</td>
+                <td>FS311740T </td>
+                <td>CP042296139EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP926450X </td>
+                <td>CP042296465EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8G205171 </td>
+                <td>CP042296332EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جزيره السعاده</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>CP042296575EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>FUJITSU 20" LED</td>
+                <td>yv4t219978 </td>
+                <td>CP042296156EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شئون العاملين بالمنطقه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809292 </td>
+                <td>CP042296584EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قمرونه</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V023329 </td>
+                <td>CP042296329EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التدريب</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td> </td>
+                <td>CP042296482EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شلشلمون</td>
+                <td>HP 15" LCD</td>
+                <td>CNC701QSQF </td>
+                <td>CP042296363EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الجنيدى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139340D </td>
+                <td>CP042296598EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر ابراش</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>CP042296553EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>تل حوين</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V023502 </td>
+                <td>CP042296227EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T217457 </td>
+                <td>CP042296289EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق ثانى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q006427 </td>
+                <td>CP042296142EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصلوجى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V023479 </td>
+                <td>CP042296346EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيا القمح فرعى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q005975 </td>
+                <td>CP042296200EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النكاريه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lq139368n </td>
+                <td>CP042296522EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q005944 </td>
+                <td>CP042296160EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كراديس</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139026n </td>
+                <td>CP042296479EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مباحث البريد</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q006059 </td>
+                <td>CP042296385EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شلشلمون</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td> </td>
+                <td>CP042296536EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصوينى</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809304 </td>
+                <td>CP042296505EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس فرعى</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809366 </td>
+                <td>CP042296425EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس فرعى</td>
+                <td>FUJITSU 20" LCD</td>
+                <td>YV1V206193 </td>
+                <td>CP042296377EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>FUJITSU 20" LCD</td>
+                <td>YV1V006921 </td>
+                <td>CP042296173EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جميزه بني عمرو</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V023517 </td>
+                <td>CP042296195EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T217941 </td>
+                <td>CP042296213EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV1v204740 </td>
+                <td>CP042296235EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q009762 </td>
+                <td>CP042296275EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق ثانى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T217516 </td>
+                <td>CP042296350EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المكتب الفنى بقطاع شرق الدلتا</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8F224443 </td>
+                <td>CP042296315EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شوبك اكراش</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>cms767809478 </td>
+                <td>CP042296540EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم السوق</td>
+                <td>HP 15" LCD</td>
+                <td>CNC51521T9 </td>
+                <td>CP042296125EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>CP042296607EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الدعم الفنى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T214092 </td>
+                <td>CP042296187EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>فرسيس</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139077J </td>
+                <td>CP042296496EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>نشوه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>CP042296567EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المنير</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139223T </td>
+                <td>CP042296448EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>FUJITSU 20" LED</td>
+                <td>yv8v006700 </td>
+                <td>CP042296261EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو طواله</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>CP042296451EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136817V </td>
+                <td>CP042296519EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الاداره العامه للرقابه و التفتيش على قطاعى شمال و </td>
+                <td>FUJITSU 20" LCD</td>
+                <td>YE8L038168 </td>
+                <td>CP042296394EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصحافه</td>
+                <td>NEC LCD 1970NX</td>
+                <td>55035014YB </td>
+                <td>CP042296417EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV8V023357 </td>
+                <td>CP042296244EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مباحث البريد</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lq136604y </td>
+                <td>CP042296434EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع الاميرى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV9Q008604 </td>
+                <td>CP042296403EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T211798 </td>
+                <td>CP042296301EG</td>
+                <td>2021-05-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السعديين</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U071945 </td>
+                <td>CP037312063EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شئون العاملين بالمنطقه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U02554 </td>
+                <td>CP037312001EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التدريب</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072910 </td>
+                <td>CP037312050EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جزيره السعاده</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U074682 </td>
+                <td>CP037312015EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>PC</td>
+                <td> </td>
+                <td>CP037312134EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>فرسيس</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072852 </td>
+                <td>CP037311995EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصايد</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yk7u072585 </td>
+                <td>CP037312085EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yk7u074636 </td>
+                <td>CP037312077EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شوبك اكراش</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003293 </td>
+                <td>CP037312029EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصوينى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU093826 </td>
+                <td>CP037312032EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه بالصيادين</td>
+                <td>Hp compaq d330</td>
+                <td>DC580AV/HUB34507CZ </td>
+                <td>CP037312094EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>ICON</td>
+                <td>8050505168 </td>
+                <td>CP037312103EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شرويده</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002732 </td>
+                <td>CP037312046EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصانيه</td>
+                <td>LENOVO 6073BMM ThinkCentre M57p</td>
+                <td>6073/L3A2535 </td>
+                <td>CP037312117EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم البلد</td>
+                <td>hp 85000</td>
+                <td>4CE0310CJB </td>
+                <td>CP037312125EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحمام</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002918 </td>
+                <td>CP037311978EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كراديس</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YK7U072887 </td>
+                <td>CP037311981EG</td>
+                <td>2021-05-20</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر دهمشا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000ESP </td>
+                <td>CP042295442EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شيبه قش</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000p4y </td>
+                <td>CP042295345EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المسلميه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000GSV </td>
+                <td>CP042295306EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابراش</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000NYP </td>
+                <td>CP042295513EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنايوس</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFb000RTX </td>
+                <td>CP042295310EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنايوس</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCF709851 </td>
+                <td>CP042295592EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCK778805 </td>
+                <td>CP042295589EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>فرغان</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000FJY </td>
+                <td>CP042295297EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الرعايه الصحيه</td>
+                <td>XEROX 3100</td>
+                <td>YUAG539401 </td>
+                <td>CP042295650EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الرعايه الصحيه</td>
+                <td>RICOH 1100</td>
+                <td>S6299321069 </td>
+                <td>CP042295632EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ادارة الرقابه والتفتيش</td>
+                <td>RICOH 1100</td>
+                <td>s6299321135 </td>
+                <td>CP042295629EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>القراقره</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000kyl </td>
+                <td>CP042295266EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الجديده</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubffb0007dz </td>
+                <td>CP042295252EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصلوجى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000M4R </td>
+                <td>CP042295544EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنى قريش</td>
+                <td>SAMSUNG ML-4510ND</td>
+                <td>z5nubjeg3000gfm </td>
+                <td>CP042295221EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر احمد برهام</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG30001MD </td>
+                <td>CP042295460EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سنهوا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB000N7D </td>
+                <td>CP042295558EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم البلد</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0003YV </td>
+                <td>CP042295283EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر العكل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000KDH </td>
+                <td>CP042295399EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصحافه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG30001XT </td>
+                <td>CP042295249EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الغنيمى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000LKV </td>
+                <td>CP042295439EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا السلام</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000prh </td>
+                <td>CP042295195EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الشرابيه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000JWH </td>
+                <td>CP042295527EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حفنا</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000pdw </td>
+                <td>CP042295371EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الغفاريه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PGB </td>
+                <td>CP042295270EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ام الزين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0006JE </td>
+                <td>CP042295218EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر حفنا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000J7N </td>
+                <td>CP042295411EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بني عباد</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30003AV </td>
+                <td>CP042295561EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحاج حسن</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG30004MM </td>
+                <td>CP042295575EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شوبك اكراش</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000K4B </td>
+                <td>CP042295473EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو على</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA00051N </td>
+                <td>CP042295535EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>HP LaserJet 1102</td>
+                <td>VNC6D50945 </td>
+                <td>CP042295615EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جزيره السعاده</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNCHC87177 </td>
+                <td>CP042295601EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قرمله</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000MAB </td>
+                <td>CP042295204EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السعادات</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000NXF </td>
+                <td>CP042295495EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السريع</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000JDV </td>
+                <td>CP042295408EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الجوسق</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000M8F </td>
+                <td>CP042295368EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الكتيبه شرق</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG300034X </td>
+                <td>CP042295354EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>برمكيم</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000F3Z </td>
+                <td>CP042295456EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كوم حلين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PBD </td>
+                <td>CP042295385EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>طهره حميد</td>
+                <td>SAMSUNG ML2551NS</td>
+                <td>BE32B1BX300153A </td>
+                <td>CP042295663EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت يزيد</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000GEB </td>
+                <td>CP042295425EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت معلا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000P0A </td>
+                <td>CP042295337EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حوض الطرفه</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjfh2000d0y </td>
+                <td>CP042295323EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صفط زريق</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA00019A </td>
+                <td>CP042295487EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مباحث البريد</td>
+                <td>xerox 3121</td>
+                <td>3823063864 </td>
+                <td>CP042295646EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سنهوت</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG300011R </td>
+                <td>CP042295500EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم الرئيسى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFA0009GV </td>
+                <td>CP042295235EG</td>
+                <td>2021-05-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيا القمح الرئيسى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5nubjffa0008dv </td>
+                <td>تم تكهينها بمعرفه قطاع الدعم الفنى</td>
+                <td>2020-12-15</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0002EW </td>
+                <td>تم تكهينها بمعرفه قطاع الدعم الفنى</td>
+                <td>2020-12-15</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مركز حركه المسجل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000LYM </td>
+                <td>تم تكهينها بمعرفه قطاع الدعم الفنى</td>
+                <td>2020-12-15</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التلين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB0002NT </td>
+                <td>تم تكهينها بمعرفه قطاع الدعم الفنى</td>
+                <td>2020-12-15</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مباحث البريد</td>
+                <td>Fujitsu Esprimo P2540</td>
+                <td>YKQB138003 </td>
+                <td>CP037309166EG</td>
+                <td>2020-11-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ام رماد</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lq139218x </td>
+                <td>CP037308735EG</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قرموط صهبره</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809058 </td>
+                <td>CP037308727EG</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصلوجى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136423Z </td>
+                <td>CP037308713EG</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP926710F </td>
+                <td>CP037308695EG</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحمام</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809411 </td>
+                <td>CMS767809411</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>LP17H9LP717244X </td>
+                <td>CP037308700EG </td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو متنا</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lpa12455p </td>
+                <td>CP037308761EG</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شرويده</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP926438Z </td>
+                <td>CP037308744EG</td>
+                <td>2020-10-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>تلبانه</td>
+                <td>ROUTER CISCO 1841-3G</td>
+                <td>FGL16061054 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-09-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>ROUTER CISCO 800-3G </td>
+                <td>FCZ1930C2JK </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-09-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المنير</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30004ZV </td>
+                <td>CP034389752EG</td>
+                <td>2020-09-02</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع الاميرى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000C1P </td>
+                <td>CP034389749EG</td>
+                <td>2020-09-02</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحصر</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB000MBL </td>
+                <td>CP034389735EG</td>
+                <td>2020-09-02</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المجفف</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PHM </td>
+                <td>CP034389766EG</td>
+                <td>2020-09-02</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جزيره السعاده</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30004FD </td>
+                <td>CP034388615EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العدليه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000P1T </td>
+                <td>CP034388448EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>RICOH 1100</td>
+                <td>s6299320872 </td>
+                <td>CP034388978EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCF802831 </td>
+                <td>CP034389015EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000EEL </td>
+                <td>CP034388947EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>HP LaserJet 1320</td>
+                <td>CNHW5C0G31 </td>
+                <td>CP034389063EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزنكلون</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000HXR </td>
+                <td>CP034388690EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0006XT </td>
+                <td>CP034388536EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق ثانى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH20008FL </td>
+                <td>CP034388522EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق ثانى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFA00083T </td>
+                <td>CP034388505EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق بلد</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>cncf713793 </td>
+                <td>CP034389029EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المسجل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB000LvP </td>
+                <td>CP034388482EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو على</td>
+                <td>RICOH 1100</td>
+                <td>S6299320234 </td>
+                <td>CP034389001EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره منقلا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG300017B </td>
+                <td>CP034388451EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNBW82N6PZ </td>
+                <td>CP034389085EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>طاروط</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000FXB </td>
+                <td>CP034388434EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو عيد</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG000MHY </td>
+                <td>CP034389151EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الهوابر</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000NRV </td>
+                <td>CP034388788EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قرموط صهبره</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFFB00036 </td>
+                <td>CP034388598EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>زهر شرب</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PCK </td>
+                <td>CP034388862EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النوبه و الدهاشنه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB0000ZV </td>
+                <td>CP034388916EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0006CM </td>
+                <td>CP034389046EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB000HLH </td>
+                <td>CP034388669EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق محطه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000K7A </td>
+                <td>CP034388791EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المسجل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000JKW </td>
+                <td>CP034388845EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الطاهره</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB0005XR </td>
+                <td>CP034388638EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصوينى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000M3V </td>
+                <td>CP034388686EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيا القمح فرعى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB00015W </td>
+                <td>CP034388709EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت حمل</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000hpn </td>
+                <td>CP034388575EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>RICOH 1100</td>
+                <td>S6299320040 </td>
+                <td>CP034389050EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بني هلال</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000GRZ </td>
+                <td>CP034389032EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جميزه بني عمرو</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000NWW </td>
+                <td>CP034388774EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCF708655 </td>
+                <td>CP034389094EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول القاضى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000F2X </td>
+                <td>CP034388672EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الغار</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000GMY </td>
+                <td>CP034388567EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو الاخضر</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB0003XW </td>
+                <td>CP034388757EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو طواله</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000pzw </td>
+                <td>CP034389134EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النكاريه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000F8W </td>
+                <td>CP034388902EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الباشا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000HFF </td>
+                <td>CP034388743EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بيشه عامر</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PSX </td>
+                <td>CP034388933EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه بالصيادين</td>
+                <td>XEROX 3125</td>
+                <td>CAX1761224 </td>
+                <td>CP034389103EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شيبه النكاريه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA00029V </td>
+                <td>CP034388553EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه بالصيادين</td>
+                <td>XEROX 3125</td>
+                <td>CAX764033 </td>
+                <td>CP034389117EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزوامل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG300052F </td>
+                <td>CP034388479EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سوق الجمله</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30005EX </td>
+                <td>CP034388876EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيا القمح الرئيسى</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjffb00144b </td>
+                <td>CP034388828EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الميتكنانى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000EYT </td>
+                <td>CP034388584EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>دويده</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg300068j </td>
+                <td>CP034388955EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بهنباى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG300032T </td>
+                <td>CP034388920EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر محمد جاويش</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNHHC10628 </td>
+                <td>CP034389077EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا النخله</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5N4BJFFB000F7K </td>
+                <td>CP034388880EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النعامنه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB000E5P </td>
+                <td>CP034389148EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الطيبه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJBJFFB000F </td>
+                <td>CP034388624EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بهنيا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000L2D </td>
+                <td>CP034388641EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيه سلمنت</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000J2M </td>
+                <td>CP034388465EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا العنب</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PFP </td>
+                <td>CP034388765EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحمام</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30000RF </td>
+                <td>CP034388655EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت جابر</td>
+                <td>HP LaserJet 2430</td>
+                <td>Q7813A </td>
+                <td>CP034388995EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الطرود</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000JJH </td>
+                <td>CP034388831EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كراديس</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PEF </td>
+                <td>CP034388519EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر موسى عمران</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG300053P </td>
+                <td>CP034388712EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم السوق</td>
+                <td>xerox</td>
+                <td>3871637848 </td>
+                <td>CP034389125EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG300042J </td>
+                <td>CP034388726EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ربيعه الدللا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5nubjeg3000h4n </td>
+                <td>CP034388893EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منطقه توزيع الزقازيق أ</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000RNT </td>
+                <td>CP034388730EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بندف</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000l6p </td>
+                <td>CP034388859EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صافور</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFA0009BL </td>
+                <td>CP034388607EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو عربى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000Q3A </td>
+                <td>CP034388814EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع المصالح</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000L9P </td>
+                <td>CP034389165EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الزقازيق القبلى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000MQD </td>
+                <td>CP034388805EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حركه الزقازيق فرعى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFH2000LEK </td>
+                <td>CP034388540EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بساتين الاسماعيليه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000JAH </td>
+                <td>CP034388496EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم الرئيسى</td>
+                <td>RICOH 1100</td>
+                <td>S6299321073 </td>
+                <td>CP034388981EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر اباظه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000GLN </td>
+                <td>CP034388964EG</td>
+                <td>2020-08-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>غزاله الخيس</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ137236P </td>
+                <td>RK130537325EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحسابات</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130537215EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الهوابر</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136126M </td>
+                <td>RK130537334EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>زهر شرب</td>
+                <td>LG 17" CRT</td>
+                <td>507DIMT21627 </td>
+                <td>RK130536594EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809035 </td>
+                <td>RK130537113EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139405K </td>
+                <td>RK130536784EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزنكلون</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA13213T </td>
+                <td>RK130537348EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التحليل المالى بقطاع شرق الدلتا</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA13389B </td>
+                <td>RK130536705EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مركز المعلومات قطاع شرق الدلتا</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9Lq139756v </td>
+                <td>RK130536740EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP926675B </td>
+                <td>RK130537011EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو على</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809012 </td>
+                <td>RK130536988EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو على</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139327B </td>
+                <td>RK130536807EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الرعايه الصحيه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809049 </td>
+                <td>RK130537229EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره منقلا</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CM5767809425 </td>
+                <td>RK130537263EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنايوس</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17HGLQ139840F </td>
+                <td>RK130537201EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنايوس</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>cms767809528 </td>
+                <td>RK130537192EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق بلد</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ137220Z </td>
+                <td>RK130537025EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت حمل</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130536719EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اولاد سيف</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>cms767809183 </td>
+                <td>RK130537161EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136525K </td>
+                <td>RK130537158EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق بلد</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809226 </td>
+                <td>RK130537042EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحسابات</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA12944R </td>
+                <td>RK130537189EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول القاضى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ136568R </td>
+                <td>RK130537100EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزهراء</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809111 </td>
+                <td>RK130537317EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صافور</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139191L </td>
+                <td>RK130536872EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا النخله</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ823334J </td>
+                <td>RK130537073EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شيبه النكاريه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809415 </td>
+                <td>RK130537277EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النخاس</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>cms767809208 </td>
+                <td>RK130537405EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سنهوا</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YESN129172 </td>
+                <td>RK130537246EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا النخله</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139290J </td>
+                <td>RK130536926EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139243H </td>
+                <td>RK130537303EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الغنيمى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139058K </td>
+                <td>RK130537285EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130536603EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المرور</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809686 </td>
+                <td>RK130536841EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شيبه النكاريه</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YESN129174 </td>
+                <td>RK130537232EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت بشار</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lq139222l </td>
+                <td>RK130536912EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الاداره العامه للرقابه و التفتيش على قطاعى شمال و </td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130537250EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا السلام</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lQ139122k </td>
+                <td>RK130537365EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الاداره العامه للرقابه و التفتيش على قطاعى شمال و </td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809116 </td>
+                <td>RK130537379EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم الرئيسى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9Lq136091F </td>
+                <td>RK130536886EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>البيوم</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>cms767809275 </td>
+                <td>RK130536991EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق الرئيسى</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YESN128940 </td>
+                <td>RK130536943EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>ACER 15" CRT</td>
+                <td>ESC0208001536011FDPK01 </td>
+                <td>RK130536529EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ135868P </td>
+                <td>RK130537008EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP926643X </td>
+                <td>RK130536563EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الغار</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17HGLO139146T </td>
+                <td>RK130536617EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>NCR 14" CRT</td>
+                <td>32086818 </td>
+                <td>RK130536585EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YEZQ158686 </td>
+                <td>RK130536577EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YEZQ207127 </td>
+                <td>RK130536546EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809473 </td>
+                <td>RK130536930EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر ايوب سليمان</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139481R </td>
+                <td>RK130537087EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سيدى ابو عامر</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YESN128712 </td>
+                <td>RK130536957EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابراش</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809186 </td>
+                <td>RK130536722EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بني هلال</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809383 </td>
+                <td>RK130536815EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شئون العاملين بالمنطقه</td>
+                <td>SUNGROUB 15" CRT</td>
+                <td>055UN04061445 </td>
+                <td>RK130537396EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصحافه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139439W </td>
+                <td>RK130537351EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو الاخضر</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130536550EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق بلد</td>
+                <td>SAMSUNG 17</td>
+                <td>LB17H9LP717244X </td>
+                <td>RK130536890EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المجفف</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>cmS767809649 </td>
+                <td>RK130537294EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>دويده</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>Cms767809406 </td>
+                <td>RK130536775EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اكوه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139429T </td>
+                <td>RK130536634EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو عربى</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ137067Y </td>
+                <td>RK130536909EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الاشراف</td>
+                <td>Elnoex 17" LCD</td>
+                <td>MN017TCVBS0527Q </td>
+                <td>RK130537422EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصنافين القبليه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130536665EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>هريه رزنه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130536625EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بهنيا</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>700f072600436 </td>
+                <td>RK130537039EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ادارة الرقابه والتفتيش</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809222 </td>
+                <td>RK130537060EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA12506T </td>
+                <td>RK130536648EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>فرغان</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809189 </td>
+                <td>RK130536824EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزوامل</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ138686J </td>
+                <td>RK130536965EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جميزه بني عمرو</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809538 </td>
+                <td>RK130536682EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP92630X </td>
+                <td>RK130537419EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصيادين</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130537144EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ادارة الرقابه والتفتيش</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130537382EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا صوره</td>
+                <td>NEC FE700 CRT 17</td>
+                <td>D14275 </td>
+                <td>RK130537135EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ام الزين</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>Cms767809387 </td>
+                <td>RK130536869EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جامعه الزقازيق</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809661 </td>
+                <td>RK130537095EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>ACER 15" CRT</td>
+                <td>ES5010200341700 </td>
+                <td>RK130536679EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الطيبه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>ar17h9lq139106r </td>
+                <td>RK130536767EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صفيطه</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809522 </td>
+                <td>RK130536753EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت سهيل</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ139192T </td>
+                <td>RK130536974EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>COMPAQ 17" CRT</td>
+                <td>050FA21SB758 </td>
+                <td>RK130536515EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>خزينه الزقازيق</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA15156D </td>
+                <td>RK130536651EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سنهوت</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td>CMS767809143 </td>
+                <td>RK130537056EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حسابات الطوابع</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP926709Y </td>
+                <td>RK130536736EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سوق الجمله</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LQ140072J </td>
+                <td>RK130536532EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنى شبل</td>
+                <td>GIGAMAX 17" CRT</td>
+                <td> </td>
+                <td>RK130537175EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LP135759H </td>
+                <td>RK130537127EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA13392E </td>
+                <td>RK130536696EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YEZQ175470 </td>
+                <td>RK130536798EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>SAMSUNG 17" CRT</td>
+                <td>AR17H9LPA15351M </td>
+                <td>RK130536838EG</td>
+                <td>2020-08-05</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منطقه توزيع بلبيس</td>
+                <td>BARCODE SCANNER HONEYWELL XENON 1900</td>
+                <td>3k14303309 </td>
+                <td>CP034388006EG</td>
+                <td>2020-07-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الدعم الفنى</td>
+                <td>BARCODE SCANNER HONEYWELL XENON 1900 </td>
+                <td>3K14303310 </td>
+                <td>CP034388010EG</td>
+                <td>2020-07-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السريع</td>
+                <td>BARCODE SCANNER HONEYWELL XENON 1900</td>
+                <td>3K13481820 </td>
+                <td>CP034388023EG</td>
+                <td>2020-07-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المسجل</td>
+                <td>BARCODE SCANNER HONEYWELL XENON 1900</td>
+                <td>3K14303305 </td>
+                <td>CP034388045EG</td>
+                <td>2020-07-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت حمل</td>
+                <td>BARCODE SCANNER HONEYWELL XENON 1900</td>
+                <td>1618b446c </td>
+                <td>CP034388037EG</td>
+                <td>2020-07-06</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شئون العاملين بالمنطقه</td>
+                <td>ICON</td>
+                <td>2.40704E+11 </td>
+                <td>CP034387270EG</td>
+                <td>2020-07-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الاداره العامه للرقابه و التفتيش على قطاعى شمال و </td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002601 </td>
+                <td>CP034387941EG</td>
+                <td>2020-07-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شئون العاملين بالمنطقه</td>
+                <td>FUJITSU ESPRIMO D2250</td>
+                <td>YBBX009640 </td>
+                <td>CP034387221EG</td>
+                <td>2020-07-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU095735 </td>
+                <td>CP034387615EG</td>
+                <td>2020-07-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ادارة الرقابه والتفتيش</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002894 </td>
+                <td>CP034387884EG</td>
+                <td>2020-07-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بني هلال</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002765 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002844 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع المصالح</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U073919 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سندنهور</td>
+                <td>HP COMBAQ DC 7700</td>
+                <td>2UA7020KTZ </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الغار</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072722 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحسابات</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003093 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصيادين</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072146 </td>
+                <td>cp034387646eg</td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ001953 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU095123 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الهوابر</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072770 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>زهر شرب</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072168 </td>
+                <td>CP034387062EG</td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر ابراش</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002517 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزنكلون</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072296 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072505 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق بلد</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU095299 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U021334 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002697 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق بلد</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7u072147 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التحليل المالى بقطاع شرق الدلتا</td>
+                <td>Hp compaq d330</td>
+                <td> </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003020 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072817 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق فرعى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU095368 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق ثانى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU095623 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مركز المعلومات قطاع شرق الدلتا</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U019603 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو على</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002620 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002209 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الرعايه الصحيه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ001880 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صفط زريق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yk7u021084 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U021258 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنايوس</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003168 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره منقلا</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002953 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنايوس</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002903 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق ثانى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U074337 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شوبك بسطه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U073594 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت حمل</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003169 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ام رماد</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq003205 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اولاد سيف</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq002764 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072865 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السعديين</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003327 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزهراء</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003332 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النخاس</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072712 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحسابات</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U020601 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>هريه رزنه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ001931 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072103 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول القاضى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003248 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شلشلمون</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002837 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو على</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002342 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حى الحسينيه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ0022563 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصحافه</td>
+                <td>DELL OPTLEX GX620</td>
+                <td>9QR8xij </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صافور</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAq002857 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيا القمح فرعى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002284 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002980 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U074631 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا النخله</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072682 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المرور</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003230 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو الاخضر</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002977 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت بشار</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yk7u072627 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جميزه بني عمرو</td>
+                <td>LENOVO ThinkCentre 7360</td>
+                <td>1S7360NE2R8B9FM </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الاداره العامه للرقابه و التفتيش على قطاعى شمال و </td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003331 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا السلام</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq003316 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الاداره العامه للرقابه و التفتيش على قطاعى شمال و </td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003017 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق الرئيسى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU094854 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>FUJITSU ESPRIMO D2250</td>
+                <td>YBBX015048 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق الرئيسى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U021268 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU093845 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YK7U072860 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>البيوم</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002975 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>FUJITSU ESPRIMO D2140</td>
+                <td>YBCM207828 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003026 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو طواله</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq002345 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الجوسق</td>
+                <td>HP Compaq dc7100 Ultra-slim Desktop PC</td>
+                <td>HUB5160MT6 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الجوسق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U074609 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بني هلال</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003254 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابراش</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003001 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المجفف</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq002458 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم الرئيسى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YUAQ003158 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اكوه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq003229 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الاشراف</td>
+                <td>FUJITSU ESPRIMO E5925</td>
+                <td>yk8x093292 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت ابو عربى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072236 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الحصر</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072809 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سيدى ابو عامر</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002939 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>دويده</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U074325 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا النخله</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U021303 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم السوق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003216 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بهنيا</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq003305 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>خزينه الزقازيق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072566 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ادارة الرقابه والتفتيش</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003211 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الشئون البريديه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U021007 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>فرغان</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003184 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>FUJITSU ESPRIMO D2250</td>
+                <td>YBBX014330 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جميزه بني عمرو</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAq003144 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002893 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002619 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق الرئيسى</td>
+                <td>Fujitsu Esprimo P3510</td>
+                <td>YKDU095561 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>توفير الزقازيق</td>
+                <td>FUJITSU ESPRIMO D2250</td>
+                <td>YBBX014727 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ديرب نجم الفرعى</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U074313 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ام الزين</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002987 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت جابر</td>
+                <td>HP COMBAQ</td>
+                <td>2UA7181HGP </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جامعه الزقازيق</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003175 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>ICON</td>
+                <td>8050505136 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صفيطه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002192 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الطيبه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>yuaq003006 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت سهيل</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003207 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر ايوب سليمان</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072183 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المناحريت</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002876 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصحافه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072889 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قرموط صهبره</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072734 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سوق الجمله</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ001918 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حسابات الطوابع</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ002985 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>حسابات الطوابع</td>
+                <td>HP COMBAQ</td>
+                <td>CZC3251NCW </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بنى شبل</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003094 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>التجزئه الماليه</td>
+                <td>ICON</td>
+                <td> </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>Fujitsu ESPRIMO X1021</td>
+                <td>YBBX008209 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>المراجعه المحليه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U021264 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>غزاله الخيس</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YK7U072690 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره الميمونه</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003011 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صهبره</td>
+                <td>Fujitsu Esprimo P3500</td>
+                <td>YUAQ003115 </td>
+                <td></td>
+                <td>2020-06-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شوبك بسطه</td>
+                <td>PHILIPS 20" LED</td>
+                <td>ZV0A1732006020 </td>
+                <td>cp029387405eg</td>
+                <td>2020-04-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع المصالح</td>
+                <td>FUJITSU 20" LED</td>
+                <td>YV4T217480 </td>
+                <td>cp029387422eg</td>
+                <td>2020-04-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مركز المعلومات بالمنطقه</td>
+                <td>ACER 20" LED</td>
+                <td>MMT0CEE001420030128500 </td>
+                <td>cp029387419eg</td>
+                <td>2020-04-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قهله الجبله</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FGL1948234T </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اولاد مهنا</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>fcl1939234e </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>السلام</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FCZ1725C1E7 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قشا</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FGL193923G9 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قمرونه</td>
+                <td>ROUTER CISCO 1941-3G</td>
+                <td>FCZ1534C1QG </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الولجا</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>fgl193922zj </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>غزاله الخيس</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FCZ1726C206 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سوق الجمله</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FGLI93922Z7 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر احمد برهام</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FCZ183194WB </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>القراقره</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>fcz1933c3h4 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر العكل</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FCZ1933C3J1 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>fcz173590ax </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الغفاريه</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FCZ1933C3H3 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2020-03-23</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ابو عيد</td>
+                <td>ROUTER CISCO 1900-3G</td>
+                <td>FCZ1534C1Q8 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2019-11-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سلمنت</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FCZ173590B3 </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2019-11-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بساتين الاسماعيليه</td>
+                <td>ROUTER CISCO 800-3G</td>
+                <td>FGL193322AY </td>
+                <td>تم تسليمه الى قسم الشبكات اللاسلكيه</td>
+                <td>2019-11-12</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>راك معلومات</td>
+                <td> </td>
+                <td>تم تسليمه للمخزن المحلى بمعرفه لجنه المفكوكات</td>
+                <td>2019-10-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>ROUTER ZYXEL LL</td>
+                <td> </td>
+                <td>تم تسليمه للمخزن المحلى بمعرفه لجنه المفكوكات</td>
+                <td>2019-10-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>NEC/24 SENTRAL</td>
+                <td> </td>
+                <td>تم تسليمه للمخزن المحلى بمعرفه لجنه المفكوكات</td>
+                <td>2019-10-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الحاسب الالى</td>
+                <td>UBS (Uninterruptible power supply)</td>
+                <td> </td>
+                <td>تم تسليمه للمخزن المحلى بمعرفه لجنه المفكوكات</td>
+                <td>2019-10-01</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>النخاس</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30005vJ </td>
+                <td>CP026831297EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>انشاص الرمل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0005YZ </td>
+                <td>CP026831252EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس فرعى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA00032T </td>
+                <td>CP026831235EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>غزاله الخيس</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG300055M </td>
+                <td>CP026831147EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر محمد حسين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFB000E4K </td>
+                <td>CP026831164EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>تل حوين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000KVJ </td>
+                <td>CP026831306EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>قمرونه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000Q2E </td>
+                <td>CP026831155EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الصيادين</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFFA0009LB </td>
+                <td>CP026831195EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العقده</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjeg3000f1h </td>
+                <td>CP026831102EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>البلاشون</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000M7W </td>
+                <td>CP026831283EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر ابو حاكم</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30000DJ </td>
+                <td>CP026831218EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اولاد سيف</td>
+                <td>samsung ml-4510nd</td>
+                <td>z5nubjefa0006ay </td>
+                <td>CP026831249EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>دهمشا</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG30006CH </td>
+                <td>CP026831093EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>كفر الجنيدى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000FRD </td>
+                <td>CP026831204EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>صهبره</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000P6H </td>
+                <td>CP026831178EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منيا القمح الرئيسى</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5nubjffb000pxJ </td>
+                <td>CP026831133EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق محطه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0000AX </td>
+                <td>CP026831181EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ميت سهيل</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PJE </td>
+                <td>CP026831266EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره الميمونه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJFG30003YD </td>
+                <td>CP026831116EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العصايد</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000PYK </td>
+                <td>CP026831120EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>اكوه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFFB0003H </td>
+                <td>CP026831221EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الكتيبه غرب</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000M1X </td>
+                <td>CP026831270EG</td>
+                <td>2019-08-22</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>البيوم</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEG3000HNJ </td>
+                <td>CP026831310EG</td>
+                <td>2019-08-21</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق محطه</td>
+                <td>samsung ml-4510nd</td>
+                <td>Z5NUBJEFA0000AX </td>
+                <td>CP021502864EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شئون العاملين بالمنطقه</td>
+                <td>EPSON M4000</td>
+                <td>KBJZ112751 </td>
+                <td>CP021502855EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>الزقازيق الرئيسى</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNBW88339Q </td>
+                <td>CP021502881EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا العنب</td>
+                <td>XEROX 3125</td>
+                <td>CAX758869 </td>
+                <td>CP021502952EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>بلبيس الرئيسى</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCF804779 </td>
+                <td>CP021502878EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>البلاشون</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNBW78Q1K1 </td>
+                <td>CP021502966EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شنباره الميمونه</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCHC38572 </td>
+                <td>CP021502921EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>جامعه الزقازيق</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCKG21604 </td>
+                <td>CP021502935EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شرويده</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNHW61NG64 </td>
+                <td>CP021502895EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مجمع المصالح</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCHB44419 </td>
+                <td>CP021502918EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>مشتول السوق محطه</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCHC50600 </td>
+                <td>CP021502864EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>ملامس</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>cnckf18668 </td>
+                <td>CP021502949EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>العزيزيه</td>
+                <td>HP LaserJet P2015n</td>
+                <td>CNC1769554 </td>
+                <td>CP021502904EG</td>
+                <td>2019-06-18</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>منطقه توزيع ديرب نجم</td>
+                <td>HP LaserJet P2055dn</td>
+                <td>CNCKH24473 </td>
+                <td>cp000000000eg</td>
+                <td>2018-10-31</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>سندنهور</td>
+                <td>HP LaserJet 1102</td>
+                <td>VNF3558966 </td>
+                <td>CP019779296EG</td>
+                <td>2018-08-15</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+            <tr>
+                <td>شبرا النخله</td>
+                <td>FUJITSU 17" CRT</td>
+                <td>YESN128176 </td>
+                <td>CP021504817EG</td>
+                <td>2018-02-28</td>
+
+                <!--<td > </td> -->
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <input type="button" value="select table" onclick="selectElementContents( document.getElementById('tableId') );">
+
+
+    <script>
+
+        function selectElementContents(el) {
+            var body = document.body, range, sel;
+            if (document.createRange && window.getSelection) {
+                range = document.createRange();
+                sel = window.getSelection();
+                sel.removeAllRanges();
+                try {
+                    range.selectNodeContents(el);
+                    sel.addRange(range);
+                } catch (e) {
+                    range.selectNode(el);
+                    sel.addRange(range);
+                }
+            } else if (body.createTextRange) {
+                range = body.createTextRange();
+                range.moveToElementText(el);
+                range.select();
+            }
+            document.execCommand("Copy");
+        }
+
+
+    </script>
+</body>
+
+</html>

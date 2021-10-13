@@ -129,7 +129,7 @@ function misin_add() {
                     end_time: end_time,
                     id: id,
                     counter: counter,
-                    does
+                    does:does
                 },
                 success: function(data) {
                     function load_data() {

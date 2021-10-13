@@ -171,11 +171,11 @@ VALUES (
            <?php echo $nameOfDay ; ?> 
           الموافق
           <span class="date_misin">
-           <?php echo $badal_raha_date_date ; ?>
+           <?php echo $misin_date ; ?>
            </span>
             و ذلك عن يوم السبت الموافق
             
-            <?php echo  $misin_date;?>
+            <?php echo $badal_raha_date_date ;?>
       </p>
     </div>
     <div>
@@ -184,9 +184,12 @@ VALUES (
       </h2>
     </div>
     <div style="text-align: left;">
-  <h2>
+  <h3>
     مقدمه لسيادتكم /
-  </h2>
+  </h3>
+   <h3>
+    <?php echo $it_name  ?>
+  </h3>
   </div>
   </div>
 
