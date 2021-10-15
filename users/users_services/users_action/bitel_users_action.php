@@ -16,9 +16,10 @@ include '../../../connection.php';
                     <td><?php echo $bitel_user_action_row['names']; ?></td>
                     <td><?php echo $bitel_user_action_row['id']; ?></td>
                     <td><?php echo $bitel_user_action_row['action']; ?></td>
-                    <td>
+                    <td class="hide"><?php echo $bitel_user_action_row['num']; ?></td>
+                    <td class="hide td_btn">
                     <button onclick="bitel_done();">تم التنفيذ</button>
-                    <button>الغاء التنفيذ</button>
+                    <button onclick="bitel_cancel();">الغاء التنفيذ</button>
                     </td>
                 </tr>
     <?php

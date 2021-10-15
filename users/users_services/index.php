@@ -6,6 +6,7 @@ $db = $_SESSION['db'];
 include '../../../it/setup/session/no_session.php';
 //if ( $job == "hg"){ header('location: not.php');}
 include '../../connection.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="rtl"
@@ -41,6 +42,50 @@ include '../../connection.php';
         table tbody tr td {
             padding-bottom: 1px;
         }
+        .tablinks {
+            display: flex;
+        }
+
+        .tablink {
+            background-color: #FFFFFF;
+            display: flex;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 50%;
+        }
+        .tablink_default {
+    background-color: #dddddd;
+        }
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+.tabcontent {
+    display: none;
+    height: 100%;
+}
+        .tab_defult {
+    display: block;
+}
+.hide {
+    opacity: 0;
+}
+.hewalat_table tr:hover .td_btn,
+.bitel_table tr:hover .td_btn,
+.v200t_table tr:hover .td_btn
+{
+    opacity: 1;
+}
     </style>
 </head>
 
@@ -129,7 +174,13 @@ include '../../connection.php';
             </table>
         </fieldset>
         <div>
-        <table id="hewalat_table">
+        <div class="tablinks">
+        <button class="tablink tablink_default" onclick="openPage('hewalat_tab', this, '#dddddd')" >مستخدمين</button>
+        <button class="tablink" onclick="openPage('bitel_tab', this, '#dddddd')" >مستخدمين البايتل</button>
+        <button class="tablink" onclick="openPage('v200t_tab', this, '#dddddd')" >مستخدمين الفيرفون</button>
+        </div>
+        <div id="hewalat_tab" class="modal-content tabcontent tab_defult">
+        <table id="hewalat_table" class="hewalat_table">
             <thead>
                 <tr>
                     <td>الكود المالى</td>
@@ -138,14 +189,16 @@ include '../../connection.php';
                     <td>رقم الملف</td>
                     <td>الرقم القومى</td>
                     <td>الاجراء</td>
-                    <td><input type="button" value="نسخ جدول الحوالات" onclick="selectElementContents( document.getElementById('hewalat_table_body') );"></td>
+                    <td><input type="button"  class="td_hide" value="نسخ جدول الحوالات"  onclick="selectElementContents( document.getElementById('hewalat_table_body') );"></td>
                 </tr>
             </thead>
             <tbody id="hewalat_table_body">
 
             </tbody>
         </table>
-        <table id="bitel_table">
+        </div>
+        <div id="bitel_tab" class="modal-content tabcontent">
+        <table id="bitel_table" class="bitel_table">
             <thead>
                 <tr>
                     <td>اسم المكتب</td>
@@ -163,7 +216,9 @@ include '../../connection.php';
 
             </tbody>
         </table>
-        <table id="v200t_table">
+        </div>
+        <div id="v200t_tab" class="modal-content tabcontent">
+        <table id="v200t_table" class="v200t_table">
             <thead>
                 <tr>
                     <td>اسم المكتب</td>
@@ -181,6 +236,7 @@ include '../../connection.php';
 
             </tbody>
         </table>
+        </div>
         </div>
     </div>
 <script>
@@ -410,7 +466,7 @@ $(document).on('click', '#hewalat_action_insert', function() {
 
             var hewalat_user_name_done = document.getElementById('hewalat_user_name').innerText;
             var hewalat_user_id_done = document.getElementById('hewalat_user_id').innerText;
-            var hewalat_user_code_done = document.getElementById('hewalat_code').innerText;
+            var hewalat_user_code_done = document.getElementById('hewalat_user_code').innerText;
 
             var select_hewalat_action_done = document.getElementById('hewalat_action');
                 var option_hewalat_action_done = select_hewalat_action_done.options[select_hewalat_action_done.selectedIndex];
@@ -439,8 +495,6 @@ $(document).on('click', '#hewalat_action_insert', function() {
         }
 
     });
-
-
 });
 </script>
 <script>
@@ -467,7 +521,10 @@ $(document).on('click', '#hewalat_action_insert', function() {
 </script>
 <script>
 $(document).ready(function() {
+
+
 function load_data() {
+
 $.ajax({
     url: "users_action/bitel_users_action.php",
     method: "POST",
@@ -498,58 +555,254 @@ $.ajax({
 });
 </script>
 <script>
-function misin_remove() {
-    var table = document.getElementById("result"),
+function hewalat_done() {
+   
+    var hewalat_table = document.getElementById("hewalat_table"),
         rIndex;
-    for (var i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
+    for (var i = 0; i < hewalat_table.rows.length; i++) {
+        hewalat_table.rows[i].onclick = function() {
             rIndex = this.rowIndex;
-            var it_name = this.cells[0].innerHTML,
-            misin_day = this.cells[1].innerHTML,
-            misin_date = this.cells[2].innerHTML,
-            office_name = this.cells[3].innerHTML,
-            misin_type = this.cells[4].innerHTML,
-            start_time = this.cells[5].innerHTML,
-            end_time = this.cells[6].innerHTML,
-            id = this.cells[7].innerHTML,
-            counter = this.cells[8].innerHTML;
-            $.ajax({
-                url: "mission_online_remove.php",
-                method: "POST",
-                data: {
-                    it_name: it_name,
-                    misin_day: misin_day,
-                    misin_date: misin_date,
-                    office_name: office_name,
-                    misin_type: misin_type,
-                    start_time: start_time,
-                    end_time: end_time,
-                    id: id,
-                    counter: counter
-                },
-                success: function(data) {
-                    function load_data() {
+            var money_code = this.cells[0].innerHTML,
+            names = this.cells[1].innerHTML,
+            auth = this.cells[2].innerHTML,
+            id = this.cells[3].innerHTML,
+            code = this.cells[4].innerHTML,
+            action = this.cells[5].innerHTML,
+            office_name = this.cells[6].innerHTML,
+            num = this.cells[7].innerHTML
+                    $.ajax({
+                    url: "users_done/hewalat_users_done.php",
+                    method: "POST",
+                    data: {
+                        money_code:money_code,
+                        names:names,
+                        auth:auth,
+                        id:id,
+                        code:code,
+                        action:action,
+                        office_name:office_name,
+                        num:num
+                    },
+                    success: function(data) {
+                        alert(data);
                         $.ajax({
-                            url: "mission_online_fetch.php",
-                            method: "POST",
-                            data: {},
-                            success: function(data) {
-                                $('#result').html(data);
-                            }
-                        });
+                        url: "users_action/hewalat_users_action.php",
+                        method: "POST",
+                        data: {},
+                        success: function(data) {
+                            $('#hewalat_table_body').html(data);
+                        }
+                    });
                     }
-                    load_data();
-                }
-            });
-            
-
+                });
         };
     }
-
-
-
 }
 
+</script>
+<script>
+function hewalat_cancel() {
+    var hewalat_table = document.getElementById("hewalat_table"),
+        rIndex;
+    for (var i = 0; i < hewalat_table.rows.length; i++) {
+        hewalat_table.rows[i].onclick = function() {
+            rIndex = this.rowIndex;
+            var num = this.cells[7].innerHTML;
+                    $.ajax({
+                    url: "users_undone/hewalat_users_undone.php",
+                    method: "POST",
+                    data: {num:num},
+                    success: function(data) {
+                        $.ajax({
+                        url: "users_action/hewalat_users_action.php",
+                        method: "POST",
+                        data: {},
+                        success: function(data) {
+                            $('#hewalat_table_body').html(data);
+                        }
+                    });
+                    }
+                });
+        };
+    }
+}
+
+</script>
+<script>
+function bitel_done() {
+    var bitel_table = document.getElementById("bitel_table"),
+        rIndex;
+    for (var i = 0; i < bitel_table.rows.length; i++) {
+        bitel_table.rows[i].onclick = function() {
+            rIndex = this.rowIndex;
+            var office_name = this.cells[0].innerHTML,
+            money_code = this.cells[1].innerHTML,
+            pos_terminal = this.cells[2].innerHTML,
+            sn = this.cells[3].innerHTML,
+            auth = this.cells[4].innerHTML,
+            names = this.cells[5].innerHTML,
+            id = this.cells[6].innerHTML,
+            action = this.cells[7].innerHTML,
+            num = this.cells[8].innerHTML;
+                    $.ajax({
+                    url: "users_done/bitel_users_done.php",
+                    method: "POST",
+                    data: {
+                        money_code:money_code,
+                        names:names,
+                        auth:auth,
+                        id:id,
+                        action:action,
+                        office_name:office_name,
+                        pos_terminal :pos_terminal,
+                        sn:sn,
+                        num:num
+                    },
+                    success: function(data) {
+                        alert(data);
+                        $.ajax({
+                        url: "users_action/bitel_users_action.php",
+                        method: "POST",
+                        data: {},
+                        success: function(data) {
+                            $('#bitel_table_body').html(data);
+                        }
+                    });
+                    }
+                });
+        };
+    }
+}
+
+</script>
+<script>
+function bitel_cancel() {
+    var bitel_table = document.getElementById("bitel_table"),
+        rIndex;
+    for (var i = 0; i < bitel_table.rows.length; i++) {
+        bitel_table.rows[i].onclick = function() {
+            rIndex = this.rowIndex;
+            var num = this.cells[8].innerHTML;
+                    $.ajax({
+                    url: "users_undone/bitel_users_undone.php",
+                    method: "POST",
+                    data: {num:num},
+                    success: function(data) {
+                        $.ajax({
+                        url: "users_action/bitel_users_action.php",
+                        method: "POST",
+                        data: {},
+                        success: function(data) {
+                            $('#bitel_table_body').html(data);
+                        }
+                    });
+                    }
+                });
+        };
+    }
+}
+
+</script>
+<script>
+function v200t_done() {
+    var v200t_table = document.getElementById("v200t_table"),
+        rIndex;
+    for (var i = 0; i < v200t_table.rows.length; i++) {
+        v200t_table.rows[i].onclick = function() {
+            rIndex = this.rowIndex;
+            var office_name = this.cells[0].innerHTML,
+            money_code = this.cells[1].innerHTML,
+            pos_terminal = this.cells[2].innerHTML,
+            sn = this.cells[3].innerHTML,
+            auth = this.cells[4].innerHTML,
+            names = this.cells[5].innerHTML,
+            id = this.cells[6].innerHTML,
+            action = this.cells[7].innerHTML,
+            num = this.cells[8].innerHTML;
+                    $.ajax({
+                    url: "users_done/v200t_users_done.php",
+                    method: "POST",
+                    data: {
+                        money_code:money_code,
+                        names:names,
+                        auth:auth,
+                        id:id,
+                        action:action,
+                        office_name:office_name,
+                        pos_terminal :pos_terminal,
+                        sn:sn,
+                        num:num
+                    },
+                    success: function(data) {
+                        alert(data);
+                        $.ajax({
+                        url: "users_action/v200t_users_action.php",
+                        method: "POST",
+                        data: {},
+                        success: function(data) {
+                            $('#v200t_table_body').html(data);
+                        }
+                    });
+                    }
+                });
+        };
+    }
+}
+
+</script>
+<script>
+function v200t_cancel() {
+    var v200t_table = document.getElementById("v200t_table"),
+        rIndex;
+    for (var i = 0; i < v200t_table.rows.length; i++) {
+        v200t_table.rows[i].onclick = function() {
+            rIndex = this.rowIndex;
+            var num = this.cells[8].innerHTML;
+                    $.ajax({
+                    url: "users_undone/v200t_users_undone.php",
+                    method: "POST",
+                    data: {num:num},
+                    success: function(data) {
+                        $.ajax({
+                        url: "users_action/v200t_users_action.php",
+                        method: "POST",
+                        data: {},
+                        success: function(data) {
+                            $('#v200t_table_body').html(data);
+                        }
+                    });
+                    }
+                });
+        };
+    }
+}
+
+</script>
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "#FFFFFF";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+
+</script>
+<script>
+    function hide_office_name1(){
+          hewalat_office_name = document.getElementsByClassName("hewalat_office_name");
+  for (i = 0; i < hewalat_office_name.length; i++) {
+    hewalat_office_name[i].style.color = "red";
+  }
+    }
 </script>
 </body>
 

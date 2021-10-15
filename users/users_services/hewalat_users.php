@@ -111,7 +111,7 @@ if(isset($_POST["id"]))
                         </select>
                     </td>
                     <td id="hewalat_user_id"><?php echo $stuff_name_row['id'] ;?></td>
-                    <td id="hewalat_code"><?php echo $stuff_name_row['code'] ;?></td>
+                    <td id="hewalat_user_code"><?php echo $stuff_name_row['code'] ;?></td>
                     <td>
                         <select name="" id="hewalat_action">
                             <option value="" ></option>

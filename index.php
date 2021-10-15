@@ -126,9 +126,9 @@ $check_monitor_name->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dash board</title>
-<link rel="stylesheet" href="css/web-fonts-with-css/css/all.css">
-<link rel="stylesheet" href="css/scrollbar.css">
-<style>
+    <link rel="stylesheet" href="css/web-fonts-with-css/css/all.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <style>
         :root {
             /* start light mode */
             --body-light-bg: #F2F2F7;
@@ -159,7 +159,7 @@ $check_monitor_name->execute();
             --font-dark-color: #E4E6EB;
             /* end dark mode */
             --header_height: 60px;
-            --aside_width:200px;
+            --aside_width: 200px;
             --green-color: #1e9258;
             --gray-color: #8a8a8a;
         }
@@ -177,7 +177,10 @@ $check_monitor_name->execute();
             font-family: "Font Awesome 5 Free";
             content: "\f186";
         }
-        #exit,#mode,#change_pass{
+
+        #exit,
+        #mode,
+        #change_pass {
             font-size: 1em;
             cursor: pointer;
             transition: all 1s;
@@ -185,16 +188,19 @@ $check_monitor_name->execute();
             color: var(--body-dark-bg);
             margin: 0 4px;
         }
+
         #exit::before {
             font-family: "Font Awesome 5 Free";
             content: "\f2f5";
- 
+
         }
+
         #exit:hover,
         #mode:hover,
-        #change_pass:hover{
-        transform: translateY(5px);
+        #change_pass:hover {
+            transform: translateY(5px);
         }
+
         #change_pass::before {
             font-family: "Font Awesome 5 Free";
             content: "\f084";
@@ -209,45 +215,52 @@ $check_monitor_name->execute();
             top: 0;
             left: 0;
             height: var(--header_height);
-            width: calc( 100% - var(--aside_width) );
+            width: calc(100% - var(--aside_width));
             background-color: var(--body-light-bg);
             padding: 0 30px;
             user-select: none;
         }
-        .user_login{
-        background-color: var(--body-light-bg);
-        line-height: 50px;
-        text-align: center;
-        border-bottom: 1px solid;
-        cursor: pointer;
-        position: absolute;
-        z-index: 2;
+
+        .user_login {
+            background-color: var(--body-light-bg);
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 1px solid;
+            cursor: pointer;
+            position: absolute;
+            z-index: 2;
         }
 
-        .user_login:hover + .user_setting {
-        top: 50px;
+        .user_login:hover+.user_setting {
+            top: 50px;
         }
+
         .user_setting {
-        transition: top 1s;
-        border: 1px solid;
-        padding: 5px;
-        border-radius: 0px 0px 5px 5px;
-        border-bottom: 5px solid;
-        position: absolute;
-        top: 10px;
-        background-color: var(--body-light-bg);;
+            transition: top 1s;
+            border: 1px solid;
+            padding: 5px;
+            border-radius: 0px 0px 5px 5px;
+            border-bottom: 5px solid;
+            position: absolute;
+            top: 10px;
+            background-color: var(--body-light-bg);
+            ;
         }
+
         .user_setting span {
             margin: 0 5px;
         }
+
         .user_setting:hover {
-           top: 50px;
+            top: 50px;
         }
-        .brand{
+
+        .brand {
             height: 50px;
             width: 50px;
             display: inherit;
         }
+
         aside {
             width: var(--aside_width);
             position: fixed;
@@ -256,28 +269,33 @@ $check_monitor_name->execute();
             top: 0;
         }
 
-        ._user_profile{
+        ._user_profile {
             position: relative;
         }
-        .minmized{
-            text-align:center
+
+        .minmized {
+            text-align: center
         }
-aside.min ,main.min,.header.min{
-    --aside_width:43px;
-}
 
- input {
-     padding:5px;
-     
- }
-legend {
-    margin: 0 30px;
-    padding: 10px 10px;
-    border: 1px solid;
+        aside.min,
+        main.min,
+        .header.min {
+            --aside_width: 43px;
+        }
 
-}
+        input {
+            padding: 5px;
 
-                a {
+        }
+
+        legend {
+            margin: 0 30px;
+            padding: 10px 10px;
+            border: 1px solid;
+
+        }
+
+        a {
             text-decoration: none;
         }
 
@@ -328,12 +346,12 @@ legend {
             top: -10px;
             right: 150px;
             background-color: var(--hover-light-bg);
-}
+        }
 
 
         ._drop_list ._drop_item {
-            display:flex;
-            align-items:center;
+            display: flex;
+            align-items: center;
             padding: 0.25rem 1rem;
             color: var(--font-light-color);
             position: relative;
@@ -369,68 +387,85 @@ legend {
         }
 
         /* start main css */
-._light_div{
-    background-color: var(--light_div);
-} 
-._flex_row {  /* To create one row */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: center;
-}
+        ._light_div {
+            background-color: var(--light_div);
+        }
 
-._flex_col { /* To create one columne */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-._flex_row_4{
-    flex-basis: 24%;
-}
-._flex_row_5{
-    flex-basis: 19%;
-}
+        ._flex_row {
+            /* To create one row */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: center;
+        }
 
-._p_y1{
-    padding: 1rem 0;
-}
-._p_y_t1{
-    padding: 1rem 0 0 0;
-}
-._p_y_b1{
-    padding: 0 0 1rem 0;
-}
-._p_x1{
-    padding: 0 1rem;
-}
-._p_x05{
-    padding: 0 0.5rem;
-}
-._m_x05 {
-    margin: 0 0.5rem;
-}
-._m_y1{
-    margin: 1rem 0;
-}
- ._m1{
-     margin: 1rem;
- }
-._m_y_b1{
-    margin:  0 0 1rem 0;
-}
-._m_x1{
-    margin: 0 1rem;
-}
-._count{
-font-size: 2rem;
-}
- /* end main css */
+        ._flex_col {
+            /* To create one columne */
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
 
-            
-        .flex_3{
+        ._flex_row_4 {
+            flex-basis: 24%;
+        }
+
+        ._flex_row_5 {
+            flex-basis: 19%;
+        }
+
+        ._p_y1 {
+            padding: 1rem 0;
+        }
+
+        ._p_y_t1 {
+            padding: 1rem 0 0 0;
+        }
+
+        ._p_y_b1 {
+            padding: 0 0 1rem 0;
+        }
+
+        ._p_x1 {
+            padding: 0 1rem;
+        }
+
+        ._p_x05 {
+            padding: 0 0.5rem;
+        }
+
+        ._m_x05 {
+            margin: 0 0.5rem;
+        }
+
+        ._m_y1 {
+            margin: 1rem 0;
+        }
+
+        ._m1 {
+            margin: 1rem;
+        }
+
+        ._m_y_b1 {
+            margin: 0 0 1rem 0;
+        }
+
+        ._m_x1 {
+            margin: 0 1rem;
+        }
+
+        ._count {
+            font-size: 2rem;
+        }
+
+        /* end main css */
+
+
+        .flex_3 {
             display: flex;
             justify-content: space-between;
         }
+
         .flex_3>span {
             flex-basis: 30%;
         }
@@ -446,6 +481,7 @@ font-size: 2rem;
             border-right: 2px solid var(--font-light-color);
             padding: 0 5px 0 0;
         }
+
         .user_it h3,
         .user_hg h3 {
             margin-bottom: 5px;
@@ -500,33 +536,39 @@ font-size: 2rem;
             background-color: var(--gray-color);
             padding: 2px;
         }
-.details{
-        color: var(--font-light-color);
-}
-      fieldset:not(:first-of-type){
-          margin-top:10px
-    }
-    .sync {
-    color: red;
-    font-size: 30px;
-    margin-right: 10px;
-    }
-    .sync + ._table {
-        content: "m";
-        position: relative;
-    }
-    .sync + ._table:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-    }
-    ._table {
+
+        .details {
+            color: var(--font-light-color);
+        }
+
+        fieldset:not(:first-of-type) {
+            margin-top: 10px
+        }
+
+        .sync {
+            color: red;
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        .sync+._table {
+            content: "m";
+            position: relative;
+        }
+
+        .sync+._table:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        ._table {
             display: table;
             margin: auto;
-            width :90%;
+            width: 90%;
             border-collapse: unset;
             border-spacing: 0px 2px;
         }
@@ -538,13 +580,16 @@ font-size: 2rem;
         ._table div span {
             display: table-cell;
         }
-.wrong_data{
-    border-bottom: 2px solid var(--gray-color);
-    text-align: right;
-}
-.wrong_data_count{
-    background-color: var(--gray-color);
-}
+
+        .wrong_data {
+            border-bottom: 2px solid var(--gray-color);
+            text-align: right;
+        }
+
+        .wrong_data_count {
+            background-color: var(--gray-color);
+        }
+
         ._border_dark {
             border-radius: 8px;
             box-shadow: 0 3px 8px var(--newtab-inner-box-shadow-color-nte), 0 0 2px var(--newtab-tile-shadow-secondary);
@@ -562,7 +607,7 @@ font-size: 2rem;
         }
 
         /* start modal */
-                .modal {
+        .modal {
             position: fixed;
             top: 0;
             right: 0;
@@ -575,57 +620,63 @@ font-size: 2rem;
         }
 
         /* Modal Content */
-.modal-content {
-    position: absolute;
-    top: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    right: 25%;
-    padding: 10px;
-    width: max-content;
-    background: var(--body-light-bg);
-}
-.modal-footer{
-    margin-top: 10px;
-}
-.fa-times:before{
-    color:var(--cancel);
-}
-.fa-check {
-    color :var(--ok)
-}
-.flex-center {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-.btn {
-    padding: 0.375rem 0.75rem;
-    cursor: pointer;
-    margin: 0 10px;
-}
+        .modal-content {
+            position: absolute;
+            top: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            right: 25%;
+            padding: 10px;
+            width: max-content;
+            background: var(--body-light-bg);
+        }
+
+        .modal-footer {
+            margin-top: 10px;
+        }
+
+        .fa-times:before {
+            color: var(--cancel);
+        }
+
+        .fa-check {
+            color: var(--ok)
+        }
+
+        .flex-center {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.375rem 0.75rem;
+            cursor: pointer;
+            margin: 0 10px;
+        }
 
         /* end modal */
         /*start dark mode css */
 
-        body.dark-mode ,
-        body.dark-mode .user_login ,
-        body.dark-mode .user_setting
-         {
+        body.dark-mode,
+        body.dark-mode .user_login,
+        body.dark-mode .user_setting {
             background-color: var(--body-dark-bg);
             color: var(--font-dark-color)
         }
 
         body.dark-mode .header {
-           background-color: var(--body-dark-bg);
+            background-color: var(--body-dark-bg);
         }
 
         body.dark-mode ._light_div {
             background-color: var(--form-dark-bg);
-        }            
+        }
+
         body.dark-mode ._drop_list:hover,
         body.dark-mode .user:hover {
             background-color: var(--hover-dark-bg);
         }
+
         body.dark-mode ._drop:hover {
             background-color: var(--hover-dark-bg);
         }
@@ -635,21 +686,28 @@ font-size: 2rem;
             background-color: var(--hover-dark-bg);
             border: none;
         }
+
         body.dark-mode ._drop_link {
             color: var(--font-dark-color);
         }
-        body.dark-mode ._drop_list ._drop_item,body.dark-mode .details
-         {
+
+        body.dark-mode ._drop_list ._drop_item,
+        body.dark-mode .details {
             color: var(--font-dark-color);
         }
+
         body.dark-mode #mode::before {
             font-family: "Font Awesome 5 Free";
             content: "\f185";
             cursor: pointer;
         }
-body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
-    color: var(--font-dark-color);
-}
+
+        body.dark-mode #exit,
+        body.dark-mode #mode,
+        body.dark-mode #change_pass {
+            color: var(--font-dark-color);
+        }
+
         body.dark-mode .user {
             border: 1px solid #3e3e3e;
         }
@@ -658,217 +716,227 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
         body.dark-mode .user_hg>ul {
             border-right: 2px solid var(--font-dark-color);
         }
- body.dark-mode .modal .modal-content{
-        color: var(--font-light-color);
-} 
+
+        body.dark-mode .modal .modal-content {
+            color: var(--font-light-color);
+        }
+
         /*end dark mode css */
         @media only screen and (max-width: 600px) {}
-
     </style>
 </head>
 
 <body id="theme">
     <div class="container">
-    <div>
-        <div class="header">
-             <div></div>
+        <div>
+            <div class="header">
+                <div></div>
                 <div class="brand">
-                <img src="img/it1.svg" alt="الصفحه الرئيسيه">
+                    <img src="img/it1.svg" alt="الصفحه الرئيسيه">
+                </div>
+
             </div>
-           
-        </div>
-        <aside>
-            <div class="_user_profile">
-            <span class="user_login">
+            <aside>
+                <div class="_user_profile">
+                    <span class="user_login">
+                        <div>
+                            <span class="user_name">
+                                <?php echo $_SESSION['user_name'] ;?>
+                            </span>
+                        </div>
+                    </span>
+                    <span class="user_setting">
+                        <div class="_flex_row">
+                            <a class="modal-button" href="#exit_modal" id="exit"></a>
+                            <a class="modal-button" href="#pass_modal" id="change_pass"></a>
+                            <a id='mode' onclick="themeToggle()"></a>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="_drop_group">
+                    <div class="minmized" onclick="min()"><i id="minmized" class="fas fa-chevron-right"></i></div>
+                    <?php if ($_SESSION['link_dvice'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span class="_drop_icon"><i class="fas fa-laptop"></i></span>
+                                <span class="_drop_text">الاجهزه</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['all_dvices'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/all_dvices.php">اجهزه المكاتب</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['post'] == 1) { ?>
+                                <li><a class="_drop_item" href="post/post.php">اجهزه مكتب</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['in_it'] == 1) { ?>
+                                <li><a class="_drop_item" href="in_it/in_it.php">اجهزه بالدعم الفنى</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['in_tts'] == 1) { ?>
+                                <li><a class="_drop_item" href="in_tts/in_tts.php">اجهزه بقطاع الدعم الفنى</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['replace_dvices'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/replace_dvices.php">اجهزه تم تغيير مكوناتها</a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                    <?php if ($_SESSION['link_misin'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span class="_drop_icon"><i class="fas fa-suitcase"></i></span>
+                                <span class="_drop_text">الماموريات</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['my_misin'] == 1) { ?>
+                                <li><a class="_drop_item" href="misin/my_misin.php">مامورياتى</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['misins'] == 1) { ?>
+                                <li><a class="_drop_item" href="misin/missin.php">الماموريات</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['misins'] == 1) { ?>
+                                <li><a class="_drop_item" href="misin/misin_online.php">ماموريات تحت الانتظار</a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                    <?php if ($_SESSION['link_reg'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span><i class="fas fa-envelope"></i></span>
+                                <span class="_drop_text">المراسلات</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['reg_to'] == 1) { ?>
+                                <li><a class="_drop_item" href="reg/to/to.php">تسجيل الصادر</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['to_filter'] == 1) { ?>
+                                <li><a class="_drop_item" href="reg/to/to_filter.php">استعلام الصادر</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['reg_in'] == 1) { ?>
+                                <li><a class="_drop_item" href="reg/in/in.php">تسجيل الوارد</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['in_filter'] == 1) { ?>
+                                <li><a class="_drop_item" href="reg/in/in_filter.php">استعلام الوارد</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['reg_parcel_to'] == 1) { ?>
+                                <li><a class="_drop_item" href="reg/parcel/parcel_to.php">تسجيل الطرود الصادره</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['parcel_to_filter'] == 1) { ?>
+                                <li><a class="_drop_item" href="reg/parcel/parcel_to_filter.php">استعلام الطرود
+                                        الصادره</a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                    <?php if ($_SESSION['link_record'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span class="_drop_icon"><i class="fas fa-book-open"></i></span>
+                                <span class="_drop_text">السجلات</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['Incoming'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/Incoming.php"> سجل الصيانه</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['move_dvices'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/move.php">سجل المنقول</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['deleted_dvices'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/deleted.php">سجل التكهين</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['all_misin'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/all_misin.php"> سجل التحركات</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['all_misin'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/vacation.php"> سجل الاجازات و الراحات</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['notice'] == 1) { ?>
+                                <li><a class="_drop_item" href="record/notice.php"> سجل البلاغات</a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                    <?php if ($_SESSION['link_user'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span><i class="fas fas fa-user-tie"></i></span>
+                                <span class="_drop_text">المستخدمين</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['users'] == 1) { ?>
+                                <li><a class="_drop_item" href="users/user_auth.php">صلاحيات المستخدمين</a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                    <?php if ($_SESSION['link_office_group'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span class="_drop_icon"><i class="fas fa-broadcast-tower"></i></span>
+                                <span class="_drop_text">المكاتب</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['edit_office'] == 1) { ?>
+                                <li><a class="_drop_item" href="office_group/update/edit_office.php"> تعديل مكتب /
+                                        قسم</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['add_office'] == 1) { ?>
+                                <li><a class="_drop_item" href="office_group/add/add_office.php"> اضافه مكتب / قسم</a>
+                                </li>
+                                <?php } ?>
+                                <?php if ($_SESSION['office_group'] == 1) { ?>
+                                <li><a class="_drop_item" href="office_group/group/office_group.php">مجموعات بريديه</a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                    <?php if ($_SESSION['link_network'] == 1) { ?>
+                    <ul class="_drop">
+                        <li class="_drop_end">
+                            <a href="#0" class="_drop_link">
+                                <span class="_drop_icon"><i class="fas fa-building"></i></span>
+                                <span class="_drop_text">شبكات</span>
+                            </a>
+                            <ul class="_drop_list">
+                                <?php if ($_SESSION['sims'] == 1) { ?>
+                                <li><a class="_drop_item" href="network/sims.php">الشرائح المتوفره</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['replace_sims'] == 1) { ?>
+                                <li><a class="_drop_item" href="network/replace_sims.php">سجل تغيير شرائح</a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php } ?>
+            </aside>
+            <main>
                 <div>
-                    <span class="user_name"><?php echo $_SESSION['user_name'] ;?></span>
-                </div>
-            </span>
-                <span class="user_setting">
-                <div class ="_flex_row">
-                     <a class="modal-button" href="#exit_modal" id="exit"></a>
-                    <a class="modal-button" href="#pass_modal" id="change_pass"></a>
-                    <a id='mode' onclick="themeToggle()"></a>
-                </div>
-            </span>
-            </div>
-            
-            <div class="_drop_group">
-                <div class="minmized"  onclick="min()"><i id = "minmized" class="fas fa-chevron-right"></i></div>
-            <?php if ($_SESSION['link_dvice'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                             <span class="_drop_icon"><i class="fas fa-laptop"></i></span>
-                             <span class="_drop_text">الاجهزه</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['all_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/all_dvices.php">اجهزه المكاتب</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['post'] == 1) { ?>
-                            <li><a class="_drop_item" href="post/post.php">اجهزه مكتب</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['in_it'] == 1) { ?>
-                            <li><a class="_drop_item" href="in_it/in_it.php">اجهزه بالدعم الفنى</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['in_tts'] == 1) { ?>
-                            <li><a class="_drop_item" href="in_tts/in_tts.php">اجهزه بقطاع الدعم الفنى</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['replace_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/replace_dvices.php">اجهزه تم تغيير مكوناتها</a>
-                            </li><?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-            <?php if ($_SESSION['link_misin'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-suitcase"></i></span>
-                            <span class="_drop_text">الماموريات</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['my_misin'] == 1) { ?>
-                            <li><a class="_drop_item" href="misin/my_misin.php">مامورياتى</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['misins'] == 1) { ?>
-                            <li><a class="_drop_item" href="misin/missin.php">الماموريات</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['misins'] == 1) { ?>
-                            <li><a class="_drop_item" href="misin/misin_online.php">ماموريات تحت الانتظار</a></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-            <?php if ($_SESSION['link_reg'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span><i class="fas fa-envelope"></i></span>
-                            <span class="_drop_text">المراسلات</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['reg_to'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/to/to.php">تسجيل الصادر</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['to_filter'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/to/to_filter.php">استعلام الصادر</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['reg_in'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/in/in.php">تسجيل الوارد</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['in_filter'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/in/in_filter.php">استعلام الوارد</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['reg_parcel_to'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/parcel/parcel_to.php">تسجيل الطرود الصادره</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['parcel_to_filter'] == 1) { ?>
-                            <li><a class="_drop_item" href="reg/parcel/parcel_to_filter.php">استعلام الطرود الصادره</a></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-            <?php if ($_SESSION['link_record'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-book-open"></i></span>
-                            <span class="_drop_text">السجلات</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['Incoming'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/Incoming.php"> سجل الصيانه</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['move_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/move.php">سجل المنقول</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['deleted_dvices'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/deleted.php">سجل التكهين</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['all_misin'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/all_misin.php"> سجل التحركات</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['all_misin'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/vacation.php"> سجل الاجازات و الراحات</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['notice'] == 1) { ?>
-                            <li><a class="_drop_item" href="record/notice.php"> سجل البلاغات</a></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-            <?php if ($_SESSION['link_user'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span><i class="fas fas fa-user-tie"></i></span>
-                            <span class="_drop_text">المستخدمين</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['users'] == 1) { ?>
-                            <li><a class="_drop_item" href="users/user_auth.php">صلاحيات المستخدمين</a></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-            <?php if ($_SESSION['link_office_group'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-broadcast-tower"></i></span>
-                            <span class= "_drop_text">المكاتب</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['edit_office'] == 1) { ?>
-                            <li><a class="_drop_item" href="office_group/update/edit_office.php"> تعديل مكتب / قسم</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['add_office'] == 1) { ?>
-                            <li><a class="_drop_item" href="office_group/add/add_office.php"> اضافه مكتب / قسم</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['office_group'] == 1) { ?>
-                            <li><a class="_drop_item" href="office_group/group/office_group.php">مجموعات بريديه</a></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-            <?php if ($_SESSION['link_network'] == 1) { ?>
-                <ul class="_drop">
-                    <li class="_drop_end">
-                        <a href="#0" class="_drop_link">
-                            <span class="_drop_icon"><i class="fas fa-building"></i></span>
-                            <span class="_drop_text">شبكات</span>
-                        </a>
-                        <ul class="_drop_list">
-                            <?php if ($_SESSION['sims'] == 1) { ?>
-                            <li><a class="_drop_item" href="network/sims.php">الشرائح المتوفره</a></li>
-                            <?php } ?>
-                            <?php if ($_SESSION['replace_sims'] == 1) { ?>
-                            <li><a class="_drop_item" href="network/replace_sims.php">سجل تغيير شرائح</a></li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php } ?>
-        </aside>
-        <main>
-            <div>
-<fieldset class="_p_x05">
-    <legend>احصائيات</legend>
-                <div class="_flex_row _m_y_b1">
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>الاجهزه</h3>
-                        <span class="_count"><?php echo $pc_all_query->rowCount(); ?></span>
-                        <div class="_table pc_type">
-                            <!--  -->
-                            <?php
+                    <fieldset class="_p_x05">
+                        <legend>احصائيات</legend>
+                        <div class="_flex_row _m_y_b1">
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>الاجهزه</h3>
+                                <span class="_count">
+                                    <?php echo $pc_all_query->rowCount(); ?>
+                                </span>
+                                <div class="_table pc_type">
+                                    <!--  -->
+                                    <?php
                             while($pc = $pc_query->fetch()){
                             echo '<div>
                                 <span class="pc_name">
@@ -878,12 +946,14 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                        </div>
-                    </div>
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>الشاشات</h3>
-                        <span class="_count"><?php echo $monitor_all_query->rowCount(); ?></span>
-                        <?php
+                                </div>
+                            </div>
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>الشاشات</h3>
+                                <span class="_count">
+                                    <?php echo $monitor_all_query->rowCount(); ?>
+                                </span>
+                                <?php
                             if($check_monitor_name->rowCount() >= 1){
                                 echo '
                                 <a href="updater/update_monitor_name.php" class="sync">
@@ -891,9 +961,9 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                                 </a>
                                 ';}
                         ?>
-                        <div class="_table monitor_type">
-                            <!--  -->
-                            <?php
+                                <div class="_table monitor_type">
+                                    <!--  -->
+                                    <?php
                             while($monitor = $monitor_query->fetch()){
                             echo '<div>
                                 <span class="monitor_name">
@@ -903,15 +973,17 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                            <!--  -->
-                        </div>
-                    </div>
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>الطابعات</h3>
-                        <span class="_count"><?php echo $printer_all_query->rowCount(); ?></span>
-                        <div class="_table printer_type">
-                            <!--  -->
-                            <?php
+                                    <!--  -->
+                                </div>
+                            </div>
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>الطابعات</h3>
+                                <span class="_count">
+                                    <?php echo $printer_all_query->rowCount(); ?>
+                                </span>
+                                <div class="_table printer_type">
+                                    <!--  -->
+                                    <?php
                             while($printer = $printer_query->fetch()){
                             echo '<div>
                                 <span class="printer_name">
@@ -921,15 +993,17 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                            <!--  -->
-                        </div>
-                    </div>
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>نقاط البيع</h3>
-                        <span class="_count"><?php echo $pos_all_query->rowCount(); ?></span>
-                        <div class="_table pos_type">
-                            <!--  -->
-                            <?php
+                                    <!--  -->
+                                </div>
+                            </div>
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>نقاط البيع</h3>
+                                <span class="_count">
+                                    <?php echo $pos_all_query->rowCount(); ?>
+                                </span>
+                                <div class="_table pos_type">
+                                    <!--  -->
+                                    <?php
                             while($pos = $pos_query->fetch()){
                             echo '<div>
                                 <span class="pos_name">
@@ -939,17 +1013,19 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                            <!--  -->
+                                    <!--  -->
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="_flex_row _m_y_b1">
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>قارئ باركود</h3>
-                        <span class="_count"><?php echo $scanner_postal_query->rowCount(); ?></span>
-                        <div class="_table pc_type">
-                            <!--  -->
-                            <?php
+                        <div class="_flex_row _m_y_b1">
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>قارئ باركود</h3>
+                                <span class="_count">
+                                    <?php echo $scanner_postal_query->rowCount(); ?>
+                                </span>
+                                <div class="_table pc_type">
+                                    <!--  -->
+                                    <?php
                             while($scanner_postal = $scanner_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="pc_name">
@@ -959,14 +1035,16 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                        </div>
-                    </div>
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>طابعه باركود</h3>
-                        <span class="_count"><?php echo $printer_postal_query->rowCount(); ?></span>
-                        <div class="_table monitor_type">
-                            <!--  -->
-                            <?php
+                                </div>
+                            </div>
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>طابعه باركود</h3>
+                                <span class="_count">
+                                    <?php echo $printer_postal_query->rowCount(); ?>
+                                </span>
+                                <div class="_table monitor_type">
+                                    <!--  -->
+                                    <?php
                             while($printer_postal = $printer_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="monitor_name">
@@ -976,15 +1054,17 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                            <!--  -->
-                        </div>
-                    </div>
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>ميزان اليكترونى</h3>
-                        <span class="_count"><?php echo $weight_postal_query->rowCount(); ?></span>
-                        <div class="_table printer_type">
-                            <!--  -->
-                            <?php
+                                    <!--  -->
+                                </div>
+                            </div>
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>ميزان اليكترونى</h3>
+                                <span class="_count">
+                                    <?php echo $weight_postal_query->rowCount(); ?>
+                                </span>
+                                <div class="_table printer_type">
+                                    <!--  -->
+                                    <?php
                             while($weight_postal = $weight_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="printer_name">
@@ -994,15 +1074,17 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                            <!--  -->
-                        </div>
-                    </div>
-                    <div class="_flex_row_4 _light_div _p_y1">
-                        <h3>شاشه عميل</h3>
-                        <span class="_count"><?php echo $display_postal_query->rowCount(); ?></span>
-                        <div class="_table pos_type">
-                            <!--  -->
-                            <?php
+                                    <!--  -->
+                                </div>
+                            </div>
+                            <div class="_flex_row_4 _light_div _p_y1">
+                                <h3>شاشه عميل</h3>
+                                <span class="_count">
+                                    <?php echo $display_postal_query->rowCount(); ?>
+                                </span>
+                                <div class="_table pos_type">
+                                    <!--  -->
+                                    <?php
                             while($display_postal = $display_postal_dvice->fetch()){
                             echo '<div>
                                 <span class="pos_name">
@@ -1012,127 +1094,152 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
                             </div>';
                             }
                             ?>
-                            <!--  -->
+                                    <!--  -->
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="_flex_row _m_y_b1">
-                    <div class="_flex_row_5 _light_div _p_y1">
-                        <h3>مكاتب بريد</h3>
-                        <span class="_count"><?php echo $post_office_query->rowCount(); ?></span>
-                    </div>
-                    <div class="_flex_row_5 _light_div _p_y1">
-                        <h3>مراكز خدمات</h3>
-                         <span class="_count"><?php echo $center_serv_query->rowCount(); ?></span>
-                    </div>
-                    <div class="_flex_row_5 _light_div _p_y1">
-                        <h3>مناطق توزيع</h3>
-                       <span class="_count"><?php echo $delivery_query->rowCount(); ?></span>
-                    </div>
-                    <div class="_flex_row_5 _light_div _p_y1">
-                        <h3>خزينه</h3>
-                        <span class="_count"><?php echo $money_safe_query->rowCount(); ?></span>
-                    </div>
-                    <div class="_flex_row_5 _light_div _p_y1">
-                        <h3>اقسام المنطقه</h3>
-                        <span class="_count"><?php echo $section_query->rowCount(); ?></span>
-                    </div>
-                </div>
-   </fieldset>
-   <fieldset class="_p_x05">
-       <legend>متابعه القاعده</legend>
-<div class="_flex_col _m_y_b1">
-                    <div class="_light_div">
-                        <div class="_table _p_y1">
-                            <!--  -->
-                            <div>
-                                <span class="wrong_data">
-                                    <a href="wrong/repeat_sn_office.php" target="_blank" rel="noopener noreferrer" class="details">رقم سريال مكرر</a>
+                        <div class="_flex_row _m_y_b1">
+                            <div class="_flex_row_5 _light_div _p_y1">
+                                <h3>مكاتب بريد</h3>
+                                <span class="_count">
+                                    <?php echo $post_office_query->rowCount(); ?>
                                 </span>
-                                <span class="wrong_data_count"><?php echo $repeat_serials->rowCount() ; ?></span>
+                            </div>
+                            <div class="_flex_row_5 _light_div _p_y1">
+                                <h3>مراكز خدمات</h3>
+                                <span class="_count">
+                                    <?php echo $center_serv_query->rowCount(); ?>
+                                </span>
+                            </div>
+                            <div class="_flex_row_5 _light_div _p_y1">
+                                <h3>مناطق توزيع</h3>
+                                <span class="_count">
+                                    <?php echo $delivery_query->rowCount(); ?>
+                                </span>
+                            </div>
+                            <div class="_flex_row_5 _light_div _p_y1">
+                                <h3>خزينه</h3>
+                                <span class="_count">
+                                    <?php echo $money_safe_query->rowCount(); ?>
+                                </span>
+                            </div>
+                            <div class="_flex_row_5 _light_div _p_y1">
+                                <h3>اقسام المنطقه</h3>
+                                <span class="_count">
+                                    <?php echo $section_query->rowCount(); ?>
+                                </span>
+                            </div>
                         </div>
-                                <div>
-                                    <span class="wrong_data">
-                                         <a href="wrong/none_type_office.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع مكتب</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php echo $none_office_type->rowCount() ; ?></span>
+                    </fieldset>
+                    <fieldset class="_p_x05">
+                        <legend>متابعه القاعده</legend>
+                        <div class="_flex_col _m_y_b1">
+                            <div class="_light_div">
+                                <div class="_table _p_y1">
+                                    <!--  -->
+                                    <div>
+                                        <span class="wrong_data">
+                                            <a href="wrong/repeat_sn_office.php" target="_blank"
+                                                rel="noopener noreferrer" class="details">رقم سريال مكرر</a>
+                                        </span>
+                                        <span class="wrong_data_count">
+                                            <?php echo $repeat_serials->rowCount() ; ?>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="wrong_data">
+                                            <a href="wrong/none_type_office.php" target="_blank"
+                                                rel="noopener noreferrer" class="details">بدون نوع مكتب</a>
+                                        </span>
+                                        <span class="wrong_data_count">
+                                            <?php echo $none_office_type->rowCount() ; ?>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="wrong_data">
+                                            <a href="wrong/none_id.php" target="_blank" rel="noopener noreferrer"
+                                                class="details">بدون نوع جهاز</a>
+                                        </span>
+                                        <span class="wrong_data_count">
+                                            <?php echo $none_dvice_type->rowCount(); ?>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="wrong_data">
+                                            <a href="wrong/pc_monitor.php" target="_blank" rel="noopener noreferrer"
+                                                class="details">وجود جهاز بدون شاشه او العكس</a>
+                                        </span>
+                                        <span class="wrong_data_count">
+                                            <?php  ?>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span class="wrong_data">
-                                    <a href="wrong/none_id.php" target="_blank" rel="noopener noreferrer" class="details">بدون نوع جهاز</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php echo $none_dvice_type->rowCount(); ?></span>
-                                </div>
-                                <div>
-                                    <span class="wrong_data">
-                                    <a href="wrong/pc_monitor.php" target="_blank" rel="noopener noreferrer" class="details">وجود جهاز بدون شاشه او العكس</a>
-                                    </span>
-                                    <span class="wrong_data_count"><?php  ?></span>
-                                </div>
+                                </span>
+                            </div>
                         </div>
-                    </span>
-                    </div>
+                    </fieldset>
                 </div>
-   </fieldset>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
-</div>
     <div id="exit_modal" class="modal">
 
         <div class="modal-dialog">
             <div class="modal-content py-3 px-3">
-                <h4  class="modal-title">هل تريد تسجيل الخروج ؟</h4>
-            <div class="modal-body"></div>
-            <div class="modal-footer">
-                <div class="flex-center">
-                <a href="../../../it/setup/log/logout.php" class="btn">
-                    <i class="fas fa-check"></i></a>
-                <a class="btn close">
-                    <i class="fas fa-times"></i></a>
+                <h4 class="modal-title">هل تريد تسجيل الخروج ؟</h4>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <div class="flex-center">
+                        <a href="../../../it/setup/log/logout.php" class="btn">
+                            <i class="fas fa-check"></i></a>
+                        <a class="btn close">
+                            <i class="fas fa-times"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
     <div id="pass_modal" class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="POST">
-                <div class="modal-header">
-                    <h4 class="modal-title">تغيير كلمه المرور</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <label class="form-label col-sm-2" for="name">الحاليه</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control my-1" name="current_password" required="" placeholder="كلمه المرور الحاليه" autocomplete="off">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST">
+                    <div class="modal-header">
+                        <h4 class="modal-title">تغيير كلمه المرور</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group">
+                            <label class="form-label col-sm-2" for="name">الحاليه</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control my-1" name="current_password" required=""
+                                    placeholder="كلمه المرور الحاليه" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="form-label col-sm-2" for="name">الجديده</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control my-1" name="new_password" required=""
+                                    placeholder="كلمه المرور الجديده" autocomplete="off" aria-autocomplete="list">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="form-label col-sm-2" for="name">تأكيد</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control my-1" name="repeat_password" required=""
+                                    placeholder="تأكيد" autocomplete="off">
+                            </div>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <label class="form-label col-sm-2" for="name">الجديده</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control my-1" name="new_password" required="" placeholder="كلمه المرور الجديده" autocomplete="off" aria-autocomplete="list">
+                    <div class="modal-footer">
+                        <div class="flex-center">
+                            <button class="btn" type="submit" name="change_pass"> <i class="fas fa-check"></i></button>
+                            <button class="btn close" type="button"> <i class="fas fa-times"></i></button>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <label class="form-label col-sm-2" for="name">تأكيد</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control my-1" name="repeat_password" required="" placeholder="تأكيد" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="flex-center">
-                        <button class="btn" type="submit" name="change_pass"> <i class="fas fa-check"></i></button>
-                        <button class="btn close" type="button"> <i class="fas fa-times"></i></button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
- <?php if(isset($_POST['change_pass'])){ include 'setup/pass/change_password_pdo.php';}?>
+    <?php if(isset($_POST['change_pass'])){ include 'setup/pass/change_password_pdo.php';}?>
     <script>
         function mode() {
             var element = document.body;
@@ -1144,129 +1251,139 @@ body.dark-mode #exit,body.dark-mode #mode,body.dark-mode #change_pass{
             var r = document.querySelector(':root');
             var rs = getComputedStyle(r);
 
-             if(rs.getPropertyValue('--aside_width') === '200px'){
-                  r.style.setProperty('--aside_width', '50px');
- 
+            if (rs.getPropertyValue('--aside_width') === '200px') {
+                r.style.setProperty('--aside_width', '50px');
+
                 var minmized = document.getElementById("minmized");
                 minmized.classList.remove("fa-chevron-right");
                 minmized.classList.add("fa-chevron-left");
 
-                 let _drop_list =  document.getElementsByClassName('_drop_list');
-                for(i = 0; i < _drop_list.length; i++) {
+                let _drop_list = document.getElementsByClassName('_drop_list');
+                for (i = 0; i < _drop_list.length; i++) {
                     _drop_list[i].style.right = '25px';
                 }
-                 let _drop_text =  document.getElementsByClassName('_drop_text');
-                for(i = 0; i < _drop_text.length; i++) {
+                let _drop_text = document.getElementsByClassName('_drop_text');
+                for (i = 0; i < _drop_text.length; i++) {
                     _drop_text[i].style.display = 'none';
                 }
 
-             } else if (rs.getPropertyValue('--aside_width') === '50px'){
+            } else if (rs.getPropertyValue('--aside_width') === '50px') {
 
                 var minmized = document.getElementById("minmized");
                 minmized.classList.remove("fa-chevron-left");
                 minmized.classList.add("fa-chevron-right");
-                 r.style.setProperty('--aside_width', '200px');
-                let _drop_list =  document.getElementsByClassName('_drop_list');
-                for(i = 0; i < _drop_list.length; i++) {
+                r.style.setProperty('--aside_width', '200px');
+                let _drop_list = document.getElementsByClassName('_drop_list');
+                for (i = 0; i < _drop_list.length; i++) {
                     _drop_list[i].style.right = '150px';
                 }
-                 let _drop_text =  document.getElementsByClassName('_drop_text');
-                for(i = 0; i < _drop_text.length; i++) {
+                let _drop_text = document.getElementsByClassName('_drop_text');
+                for (i = 0; i < _drop_text.length; i++) {
                     _drop_text[i].style.display = 'inherit';
                 }
-             }                          
+            }
         }
 
     </script>
     <script>
-            // Get the button that opens the modal
-var btn = document.querySelectorAll("a.modal-button");
+        // Get the button that opens the modal
+        var btn = document.querySelectorAll("a.modal-button");
 
-// All page modals
-var modals = document.querySelectorAll('.modal');
+        // All page modals
+        var modals = document.querySelectorAll('.modal');
 
-// Get the <span> element that closes the modal
-var spans = document.getElementsByClassName("close");
+        // Get the <span> element that closes the modal
+        var spans = document.getElementsByClassName("close");
 
-// When the user clicks the button, open the modal
-for (var i = 0; i < btn.length; i++) {
- btn[i].onclick = function(e) {
-    e.preventDefault();
-    modal = document.querySelector(e.target.getAttribute("href"));
-    modal.style.display = "block";
- }
-}
+        // When the user clicks the button, open the modal
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function (e) {
+                e.preventDefault();
+                modal = document.querySelector(e.target.getAttribute("href"));
+                modal.style.display = "block";
+            }
+        }
 
-// When the user clicks on <span> (x), close the modal
-for (var i = 0; i < spans.length; i++) {
- spans[i].onclick = function() {
-    for (var index in modals) {
-      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
-    }
- }
-}
+        // When the user clicks on <span> (x), close the modal
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].onclick = function () {
+                for (var index in modals) {
+                    if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+                }
+            }
+        }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-     for (var index in modals) {
-      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
-     }
-    }
-}
-        </script>
-        <script>
- var element = document.body;
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                for (var index in modals) {
+                    if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script>
+        var element = document.body;
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
 
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
 
-function checkCookie() {
-      let theme_mode = getCookie("theme_mode");
-  if (theme_mode == "dark-mode") {
-        
-    element.classList.add('dark-mode');
-  } 
-}
-window.onload = checkCookie();
+        function checkCookie() {
+            let theme_mode = getCookie("theme_mode");
+            if (theme_mode == "dark-mode") {
 
-function themeToggle(){
-     element.classList.toggle("dark-mode");
-theme = document.getElementById('theme').classList.value; // get classname
-setCookie('theme_mode', theme, '365');
-}
-        </script>
-<script>
-var toggler = document.getElementsByClassName("box");
-var i;
+                element.classList.add('dark-mode');
+            }
+        }
+        window.onload = checkCookie();
 
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    
-    this.classList.toggle("check-box");
-      
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-  });
-}
-</script>
+        function themeToggle() {
+            element.classList.toggle("dark-mode");
+            theme = document.getElementById('theme').classList.value; // get classname
+            setCookie('theme_mode', theme, '365');
+        }
+    </script>
+    <script>
+        var toggler = document.getElementsByClassName("box");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+
+                this.classList.toggle("check-box");
+
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+            });
+        }
+    </script>
+    <script>
+        function openCity(cityName) {
+            var i;
+            var x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(cityName).style.display = "block";
+        }
+    </script>
 
 </body>
 

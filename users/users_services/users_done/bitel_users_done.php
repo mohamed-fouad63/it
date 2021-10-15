@@ -11,48 +11,48 @@ $names = $_POST['names'];
 $id = $_POST['id'];
 $action = $_POST['action'];
 $num = $_POST['num'];
-$query_v200t_users_insert = "
+$query_bitel_users_insert = "
 INSERT INTO
-`v200t_users`
+`bitel_users`
 (`names`, `id`,`auth`,`money_code`, `office_name`,`sn`,`pos_terminal`)
 VALUES
 ('$names','$id','$auth','$money_code','$office_name','$sn','$pos_terminal')
 ";
-$query_v200t_users_done_history_insert = "
+$query_bitel_users_done_history_insert = "
 INSERT INTO
-`v200t_users_done_history`
+`bitel_users_done_history`
 (`names`, `id`,`auth`,`money_code`, `office_name`,`sn`,`pos_terminal`)
 VALUES
 ('$names','$id','$auth','$money_code','$office_name','$sn','$pos_terminal')
 ";
-$query_v200t_users_delete = "
-DELETE FROM v200t_users where id = $id;
+$query_bitel_users_delete = "
+DELETE FROM bitel_users where id = $id;
 ";
 
-$query_v200t_users_action_delete = "
-DELETE FROM v200t_users_action where num = $num ;
+$query_bitel_users_action_delete = "
+DELETE FROM bitel_users_action where num = $num ;
 ";
 switch ($action) {
     case 'اضافة':
-        if ($conn->query($query_v200t_users_insert) == true) {
-        $conn->query($query_v200t_users_done_history_insert);
-        $conn->query($query_v200t_users_action_delete);
+        if ($conn->query($query_bitel_users_insert) == true) {
+        $conn->query($query_bitel_users_done_history_insert);
+        $conn->query($query_bitel_users_action_delete);
         echo "done";
         }
-        else if ($conn->query($query_v200t_users_insert) == false) {
+        else if ($conn->query($query_bitel_users_insert) == false) {
         echo "حذف المستخدم اولا";
         }
     break;
     case 'الغاء':
-        if ($conn->query($query_v200t_users_delete) == true) {
-        $conn->query($query_v200t_users_done_history_insert);
-        $conn->query($query_v200t_users_action_delete);
+        if ($conn->query($query_bitel_users_delete) == true) {
+        $conn->query($query_bitel_users_done_history_insert);
+        $conn->query($query_bitel_users_action_delete);
         echo "done";
         }
     break;
     case 'اعادة تعيين كلمة السر':
-        $conn->query($query_v200t_users_done_history_insert);
-        $conn->query($query_v200t_users_action_delete);
+        $conn->query($query_bitel_users_done_history_insert);
+        $conn->query($query_bitel_users_action_delete);
         echo "done";
     break;
 }
