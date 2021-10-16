@@ -1,41 +1,117 @@
 <?php
-if(isset($_POST["id"]))
+session_start();
+$session_id = $_SESSION['id'];
+$session_username = $_SESSION['user_name'];
+$db = $_SESSION['db'];
+include '../../../it/setup/session/no_session.php';
+//if ( $job == "hg"){ header('location: not.php');}
+include '../../connection.php';
+
+?>
+<!DOCTYPE html>
+<html lang="en" dir="rtl"
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        fieldset:not(:first-of-type) {
+            margin-top: 10px
+        }
+
+        legend {
+            margin: 0 30px;
+            padding: 10px 10px;
+            border: 1px solid;
+
+        }
+
+        table {
+            display: table;
+            margin: auto;
+            width: 90%;
+            border-collapse: unset;
+            border-spacing: 0px 2px;
+            text-align: center;
+        }
+
+
+        table tbody tr td {
+            padding-bottom: 1px;
+        }
+        .tablinks {
+            display: flex;
+        }
+
+        .tablink {
+            background-color: #FFFFFF;
+            display: flex;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 50%;
+        }
+        .tablink_default {
+    background-color: #dddddd;
+        }
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+.tabcontent {
+    display: none;
+    height: 100%;
+}
+        .tab_defult {
+    display: block;
+}
+.hide {
+    opacity: 0;
+}
+.hewalat_table tr:hover .td_btn,
+.bitel_table tr:hover .td_btn,
+.v200t_table tr:hover .td_btn
 {
-    $n = 0;
-    $id =  $_POST['id'];
+    opacity: 1;
+}
+    </style>
+</head>
+
+<body>
+<table>
+<?php
+
+$id = '70747';
+
+
     $conn=mysqli_connect("localhost","root","12345678","post");
 
-    $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
-    $all_office = mysqli_query($conn, $query_all_office);
+
 
 
     $query_bitel_user = "SELECT * FROM bitel_users WHERE id = '$id'";
     $bitel_user = mysqli_query($conn, $query_bitel_user);
 
     $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
-    $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);?>
-<form>
-            <table>
-                <thead>
-                    <tr>
-                        <th>اسم المنطقه</th>
-                        <th>اسم المكتب</th>
-                        <th>الكود المالى</th>
-                        <th>رقم الماكينه</th>
-                        <th>s / n</th>
-                        <th>صلاحيه</th>
-                        <th>الاسم رباعى</th>
-                        <th>رقم الملف</th>
-                        <th>الاجراء</th>
-                    </tr>
-                </thead>
-                <tbody>
-<?php
+    $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);
+
+
     if(mysqli_num_rows($bitel_user) >= 1 )
     {
     while($bitel_user_row = mysqli_fetch_array($bitel_user))
         {
-            $n++;
             $bitel_office_name = $bitel_user_row['office_name'];
             $bitel_money_code = $bitel_user_row['money_code'];
             $bitel_auth = $bitel_user_row['auth'];
@@ -48,15 +124,16 @@ if(isset($_POST["id"]))
                 <tr>
                     <td>جنوب الشرقيه</td>
                     <td>
-                        <select name="office_name" id="bitel_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" class="bitel_office_name" onchange=get_bitel_terminal(this.dataset.n);>
-                        <?php
+                        <select name="office_name"  onchange=get_bitel_terminal();>
+                        <?php 
                             $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
-    $all_office = mysqli_query($conn, $query_all_office);
-                                while($all_office_name_row = mysqli_fetch_array($all_office))
+                        $all_office = mysqli_query($conn, $query_all_office);
+                          while($all_office_name_row = mysqli_fetch_assoc($all_office))
                             {
                                 $office_name = $all_office_name_row['office_name'];
                                 $money_code = $all_office_name_row['money_code'];
                                 ?>
+
                                 <option value="<?php echo $money_code ;?>"
                                 <?php
                                     if($bitel_office_name == $office_name ){ echo 'selected';} ?>
@@ -64,20 +141,21 @@ if(isset($_POST["id"]))
                                 <?php echo  $office_name ;?>
                             
                                 </option>
+
                                 <?php
                             }
                         ?>
-                        </select>
+                         </select>
                     </td>
-                    <td name="money_code" id="bitel_money_code<?php echo $n ?>"><?php echo $bitel_money_code ;?></td>
+                    <td><?php echo $bitel_money_code ;?></td>
                     <td>
-                        <select name="bitel_terminal" data-m = "<?php echo $n ; ?>" id="bitel_terminal<?php echo $n ?>" onchange=get_bitel_sn(this.id,this.dataset.m);>
+                        <select name="bitel_terminal" id="bitel_terminal" onchange=get_bitel_sn();>
                         <option value="<?php echo $bitel_sn ;?>"><?php echo $bitel_terminal ;?></option>
                         </select>
                     </td>
-                    <td name="bitel_sn" id="bitel_sn<?php echo $n ?>"><?php echo $bitel_sn ;?></td>
+                    <td name="bitel_sn" id="bitel_sn"><?php echo $bitel_sn ;?></td>
                     <td>
-                        <select name="bitel_auth" id="bitel_auth<?php echo $n ?>">
+                        <select name="bitel_auth" id="bitel_auth">
                             <option
                            <?php if($bitel_auth == 'موظف'){ echo 'selected'; } ?>
                             value="">موظف
@@ -92,17 +170,17 @@ if(isset($_POST["id"]))
                             </option>
                         </select>                
                     </td>
-                    <td name="bitel_user_name" id="bitel_user_name<?php echo $n ?>"><?php echo $bitel_user_name ;?></td>
-                    <td name="bitel_user_id" id="bitel_user_id<?php echo $n ?>"><?php echo $bitel_user_id ;?></td>
+                    <td name="bitel_user_name" id="bitel_user_name"><?php echo $bitel_user_name ;?></td>
+                    <td name="bitel_user_id" id="bitel_user_id"><?php echo $bitel_user_id ;?></td>
                     <td>
-                        <select name="bitel_action" id="bitel_action<?php echo $n ?>">
+                        <select name="bitel_action" id="bitel_action">
                             <option value="" >اضافه</option>
                             <option value="" selected>الغاء</option>
                             <option value="">اعادة تعيين كلمة السر</option>
                         </select>
                     </td>
                     <td>
-                     <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action(this.dataset.i)">تم</button>
+                        <button type="button" id="bitel_action_insert">تم</button>
                     </td>
                 </tr>
             <?php
@@ -116,7 +194,7 @@ if(isset($_POST["id"]))
                 <tr>
                     <td>جنوب الشرقيه</td>
                     <td>
-                        <select name="office_name" id="bitel_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" class="bitel_office_name" onchange=get_bitel_terminal(this.dataset.n);>
+                        <select name="office_name" id="bitel_office_name" onchange=get_bitel_terminal();>
                             <option value=""></option>
                         <?php 
                                 while($all_office_name_row2 = mysqli_fetch_array($all_office))
@@ -133,39 +211,37 @@ if(isset($_POST["id"]))
                         ?>
                         </select>
                     </td>
-                    <td name="money_code" id="bitel_money_code<?php echo $n ?>"></td>
+                    <td name="money_code" id="bitel_money_code"></td>
                     <td>
-                        <select name="bitel_terminal" id="bitel_terminal<?php echo $n ?>" data-m = "<?php echo $n ; ?>" onchange=get_bitel_sn(this.id,this.dataset.m);>
+                        <select name="bitel_terminal" id="bitel_terminal" onchange=get_bitel_sn();></select>
                     </td>
-                    <td name="bitel_sn" id="bitel_sn<?php echo $n ?>"></td>
+                    <td name="bitel_sn" id="bitel_sn"></td>
                     <td>
-                         <select name="bitel_auth" id="bitel_auth<?php echo $n ?>">
+                         <select name="bitel_auth" id="bitel_auth">
                             <option value="">موظف</option>
                             <option value="">مدير</option>
                             <option value="">دعم فنى</option>
                         </select>
                     </td>
-                    <td name="bitel_user_name"id="bitel_user_name<?php echo $n ?>"><?php echo $stuff_name_row['names'] ;?></td>
-                    <td name="bitel_user_id" id="bitel_user_id<?php echo $n ?>"><?php echo $stuff_name_row['id'] ;?></td>
+                    <td name="bitel_user_name" id="bitel_user_name"><?php echo $stuff_name_row['names'] ;?></td>
+                    <td name="bitel_user_id" id="bitel_user_id"><?php echo $stuff_name_row['id'] ;?></td>
                     <td>
-                        <select name="bitel_action" id="bitel_action<?php echo $n ?>">
+                        <select name="bitel_action" id="bitel_action">
                             <option value="" selected>اضافة</option>
                             <option value="">الغاء</option>
                             <option value="">اعادة تعيين كلمة السر</option>
                         </select>
                     </td>
                     <td>
-                        <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action(this.dataset.i)">تم</button>
+                        <button type="button" id="bitel_action_insert">تم</button>
                     </td>
                 </tr>
-
             <?php
         }
     }
 
-}
 
 ?>
-    </tbody>
-    </table>
-    </form>
+</table>
+</body>
+</html>

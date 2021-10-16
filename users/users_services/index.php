@@ -133,6 +133,7 @@ include '../../connection.php';
         </fieldset>
         <fieldset>
             <legend>pos Bitel</legend>
+            <div id="bitel_users">
             <table>
                 <thead>
                     <tr>
@@ -147,10 +148,10 @@ include '../../connection.php';
                         <th>الاجراء</th>
                     </tr>
                 </thead>
-                <tbody id="bitel_users">
-
+                <tbody>
                 </tbody>
             </table>
+            </div>
         </fieldset>
         <fieldset>
             <legend>pos verifone</legend>
@@ -288,28 +289,30 @@ include '../../connection.php';
             }
 </script>
 <script>
-    function get_bitel_terminal(){
-        var select_office_name = document.getElementById('bitel_office_name');
-        var money_code = document.getElementById('bitel_money_code');
-        var option_office_name = select_office_name.options[select_office_name.selectedIndex];
-        money_code.innerText = option_office_name.value;
+    function get_bitel_terminal(m){
+
+        var select_office_name_bitel = document.getElementById('bitel_office_name'+m);
+        var money_code_bitel = document.getElementById('bitel_money_code'+m);
+        var option_office_name = select_office_name_bitel.options[select_office_name_bitel.selectedIndex];
+        money_code_bitel.innerText = option_office_name.value;
         var office_name = option_office_name.text;
         $.ajax({
             url: "bitel_terminal.php",
             method: "POST",
             data: { office_name: office_name },
             success: function (data) {
-                $('#bitel_terminal').html(data);
-                get_bitel_sn();
+                $('#bitel_terminal'+m).html(data);
+                var bitel_terminal = 'bitel_terminal'+m;
+                get_bitel_sn(bitel_terminal,m);
             }
         });
 
     }
 </script>
 <script>
-    function get_bitel_sn(){
-        var select_bitel_terminal = document.getElementById('bitel_terminal');
-        var bitel_sn = document.getElementById('bitel_sn');
+    function get_bitel_sn(o,m){
+        var select_bitel_terminal = document.getElementById(o);
+        var bitel_sn = document.getElementById('bitel_sn'+m);
         var option_bitel_terminal = select_bitel_terminal.options[select_bitel_terminal.selectedIndex];
         if (select_bitel_terminal.value == '') {
             bitel_sn.innerText = ''
@@ -352,27 +355,30 @@ include '../../connection.php';
 }
 </script>
 <script>
-$(document).on('click', '#bitel_action_insert', function() {
-            var select_bitel_office_name_done = document.getElementById('bitel_office_name');
+function insert_action(i) {
+
+            var select_bitel_office_name_done = document.getElementById('bitel_office_name'+i);
                 var option_bitel_office_name_done = select_bitel_office_name_done.options[select_bitel_office_name_done.selectedIndex];
                 var bitel_office_name_done = option_bitel_office_name_done.text;
                 var bitel_money_code_done = option_bitel_office_name_done.value;
 
-            var select_bitel_terminal_done = document.getElementById('bitel_terminal');
+             var select_bitel_terminal_done = document.getElementById('bitel_terminal'+i);
                 var option_bitel_terminal_done = select_bitel_terminal_done.options[select_bitel_terminal_done.selectedIndex];
                 var bitel_terminal_done = option_bitel_terminal_done.text;
                 var bitel_sn_done = option_bitel_terminal_done.value;
 
-            var select_bitel_auth_done = document.getElementById('bitel_auth');
+            var select_bitel_auth_done = document.getElementById('bitel_auth'+i);
                 var option_bitel_auth_done = select_bitel_auth_done.options[select_bitel_auth_done.selectedIndex];
                 var bitel_auth_done = option_bitel_auth_done.text;
 
-            var bitel_user_name_done = document.getElementById('bitel_user_name').innerText;
-            var bitel_user_id_done = document.getElementById('bitel_user_id').innerText;
+            var bitel_user_name_done = document.getElementById('bitel_user_name'+i).innerText;
+            var bitel_user_id_done = document.getElementById('bitel_user_id'+i).innerText;
 
-            var select_bitel_action_done = document.getElementById('bitel_action');
+            var select_bitel_action_done = document.getElementById('bitel_action'+i);
                 var option_bitel_action_done = select_bitel_action_done.options[select_bitel_action_done.selectedIndex];
                 var bitel_action_done = option_bitel_action_done.text;
+
+                 alert(bitel_user_name_done);
     $.ajax({
         url: "users_action_insert/bitel_users_action_insert.php",
         type: "POST",
@@ -399,7 +405,7 @@ $(document).on('click', '#bitel_action_insert', function() {
     });
 
 
-});
+}
 </script>
 <script>
 $(document).on('click', '#v200t_action_insert', function() {

@@ -21,16 +21,16 @@ VALUES
 $query_bitel_users_done_history_insert = "
 INSERT INTO
 `bitel_users_done_history`
-(`names`, `id`,`auth`,`money_code`, `office_name`,`sn`,`pos_terminal`)
+(`names`, `id`,`auth`,`money_code`, `office_name`,`sn`,`pos_terminal`,`action`)
 VALUES
-('$names','$id','$auth','$money_code','$office_name','$sn','$pos_terminal')
+('$names','$id','$auth','$money_code','$office_name','$sn','$pos_terminal','$action')
 ";
 $query_bitel_users_delete = "
-DELETE FROM bitel_users where id = $id;
+DELETE FROM bitel_users where id = '$id';
 ";
 
 $query_bitel_users_action_delete = "
-DELETE FROM bitel_users_action where num = $num ;
+DELETE FROM bitel_users_action where num = '$num' ;
 ";
 switch ($action) {
     case 'اضافة':
