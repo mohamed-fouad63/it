@@ -4,14 +4,10 @@ if(isset($_POST["id"]))
     $n = 0;
     $id =  $_POST['id'];
     $conn=mysqli_connect("localhost","root","12345678","post");
-
     $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
     $all_office = mysqli_query($conn, $query_all_office);
-
-
     $query_bitel_user = "SELECT * FROM bitel_users WHERE id = '$id'";
     $bitel_user = mysqli_query($conn, $query_bitel_user);
-
     $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
     $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);?>
 <form>
@@ -48,10 +44,10 @@ if(isset($_POST["id"]))
                 <tr>
                     <td>جنوب الشرقيه</td>
                     <td>
-                        <select name="office_name" id="bitel_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" class="bitel_office_name" onchange=get_bitel_terminal(this.dataset.n);>
+                        <select name="office_name" id="bitel_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" onchange=get_bitel_terminal(this.dataset.n);>
                         <?php
                             $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
-    $all_office = mysqli_query($conn, $query_all_office);
+                            $all_office = mysqli_query($conn, $query_all_office);
                                 while($all_office_name_row = mysqli_fetch_array($all_office))
                             {
                                 $office_name = $all_office_name_row['office_name'];
@@ -102,7 +98,7 @@ if(isset($_POST["id"]))
                         </select>
                     </td>
                     <td>
-                     <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action(this.dataset.i)">تم</button>
+                     <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action_bitel(this.dataset.i)">تم</button>
                     </td>
                 </tr>
             <?php
@@ -155,7 +151,7 @@ if(isset($_POST["id"]))
                         </select>
                     </td>
                     <td>
-                        <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action(this.dataset.i)">تم</button>
+                        <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action_bitel(this.dataset.i)">تم</button>
                     </td>
                 </tr>
 

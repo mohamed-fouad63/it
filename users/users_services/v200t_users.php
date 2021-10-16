@@ -1,26 +1,23 @@
 <?php
 if(isset($_POST["id"]))
 {
+    $n = 0;
     $id =  $_POST['id'];
     $conn=mysqli_connect("localhost","root","12345678","post");
-
-
-
-    $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
+        $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
     $all_office = mysqli_query($conn, $query_all_office);
-
-
     $query_v200t_user = "SELECT * FROM v200t_users WHERE id = '$id'";
     $v200t_user = mysqli_query($conn, $query_v200t_user);
-
     $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
     $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);
 
 
-    if(mysqli_num_rows($v200t_user) == 1 )
+    if(mysqli_num_rows($v200t_user) >= 1 )
     {
+
     while($v200t_user_row = mysqli_fetch_array($v200t_user))
         {
+            $n++;
             $v200t_office_name = $v200t_user_row['office_name'];
             $v200t_money_code = $v200t_user_row['money_code'];
             $v200t_auth = $v200t_user_row['auth'];
@@ -33,8 +30,10 @@ if(isset($_POST["id"]))
                 <tr>
                     <td>جنوب الشرقيه</td>
                     <td>
-                        <select name="" id="v200t_office_name" onchange=get_v200t_terminal();>
+                        <select name="" id="v200t_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" onchange=get_v200t_terminal(this.dataset.n);>
                         <?php 
+                            $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
+                            $all_office = mysqli_query($conn, $query_all_office);
                                 while($all_office_name_row = mysqli_fetch_array($all_office))
                             {
                                 $office_name = $all_office_name_row['office_name'];
@@ -52,15 +51,15 @@ if(isset($_POST["id"]))
                         ?>
                         </select>
                     </td>
-                    <td id = "v200t_money_code"><?php echo $v200t_money_code ;?></td>
+                    <td id = "v200t_money_code<?php echo $n ?>"><?php echo $v200t_money_code ;?></td>
                     <td>
-                        <select name="" id="v200t_terminal" onchange=get_v200t_sn();>
+                        <select name="" data-m = "<?php echo $n ; ?>" id="v200t_terminal<?php echo $n ?>" onchange=get_v200t_sn(this.id,this.dataset.m);>
                         <option value="<?php echo $v200t_sn ;?>"><?php echo $v200t_terminal ;?></option>
                         </select>
                     </td>
-                    <td id="v200t_sn"><?php echo $v200t_sn ;?></td>
+                    <td id="v200t_sn<?php echo $n ?>"><?php echo $v200t_sn ;?></td>
                     <td>
-                        <select name="" id="v200t_auth">
+                        <select name="" id="v200t_auth<?php echo $n ?>">
                             <option
                            <?php if($v200t_auth == 'موظف'){ echo 'selected'; } ?>
                             value="">موظف
@@ -74,17 +73,17 @@ if(isset($_POST["id"]))
                             </option>
                         </select>                
                     </td>
-                    <td id="v200t_user_name"><?php echo $v200t_user_name ;?></td>
-                    <td id="v200t_user_id"><?php echo $v200t_user_id ;?></td>
+                    <td id="v200t_user_name<?php echo $n ?>"><?php echo $v200t_user_name ;?></td>
+                    <td id="v200t_user_id<?php echo $n ?>"><?php echo $v200t_user_id ;?></td>
                     <td>
-                        <select name="" id="v200t_action">
+                        <select name="" id="v200t_action<?php echo $n ?>">
                             <option value="" >اضافه</option>
                             <option value="" selected>الغاء</option>
                             <option value="">اعادة تعيين كلمة السر</option>
                         </select>
                     </td>
                     <td>
-                        <button type="button" id="v200t_action_insert">تم</button>
+                        <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action_v200t(this.dataset.i)">تم</button>
                     </td>
                 </tr>
             <?php
@@ -98,7 +97,7 @@ if(isset($_POST["id"]))
                 <tr>
                     <td>جنوب الشرقيه</td>
                     <td>
-                        <select name="" id="v200t_office_name" onchange=get_v200t_terminal();>
+                         <select name="" id="v200t_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" onchange=get_v200t_terminal(this.dataset.n);>
                             <option value=""></option>
                         <?php 
                                 while($all_office_name_row2 = mysqli_fetch_array($all_office))
@@ -115,29 +114,29 @@ if(isset($_POST["id"]))
                         ?>
                         </select>
                     </td>
-                    <td id = "v200t_money_code"></td>
+                    <td id = "v200t_money_code<?php echo $n ?>"></td>
                     <td>
-                        <select name="" id="v200t_terminal" onchange=get_v200t_sn();></select>
+                         <select name="" data-m = "<?php echo $n ; ?>" id="v200t_terminal<?php echo $n ?>" onchange=get_v200t_sn(this.id,this.dataset.m);>
                     </td>
-                    <td id="v200t_sn"></td>
+                    <td id="v200t_sn<?php echo $n ?>"></td>
                     <td>
-                         <select name="" id="v200t_auth">
+                         <select name="" id="v200t_auth<?php echo $n ?>">
                             <option value="">موظف</option>
                             <option value="">مدير</option>
                             <option value="">دعم فنى</option>
                         </select>
                     </td>
-                    <td id="v200t_user_name"><?php echo $stuff_name_row['names'] ;?></td>
-                    <td id="v200t_user_id"><?php echo $stuff_name_row['id'] ;?></td>
+                    <td id="v200t_user_name<?php echo $n ?>"><?php echo $stuff_name_row['names'] ;?></td>
+                    <td id="v200t_user_id<?php echo $n ?>"><?php echo $stuff_name_row['id'] ;?></td>
                     <td>
-                        <select name="" id="v200t_action">
+                        <select name="" id="v200t_action<?php echo $n ?>">
                             <option value="" selected>اضافة</option>
                             <option value="">الغاء</option>
                             <option value="">اعادة تعيين كلمة السر</option>
                         </select>
                     </td>
                     <td>
-                        <button type="button" id="v200t_action_insert">تم</button>
+                        <button type="button" data-i ="<?php echo $n ?>" onclick="insert_action_v200t(this.dataset.i)">تم</button>
                     </td>
                 </tr>
 

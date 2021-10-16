@@ -323,9 +323,9 @@ include '../../connection.php';
     }
 </script>
 <script>
-    function get_v200t_terminal(){
-        var select_office_name_v200t = document.getElementById('v200t_office_name');
-        var money_code_v200t = document.getElementById('v200t_money_code');
+    function get_v200t_terminal(m){
+        var select_office_name_v200t = document.getElementById('v200t_office_name'+m);
+        var money_code_v200t = document.getElementById('v200t_money_code'+m);
         var option_office_name = select_office_name_v200t.options[select_office_name_v200t.selectedIndex];
         money_code_v200t.innerText = option_office_name.value;
         var office_name = option_office_name.text;
@@ -334,17 +334,18 @@ include '../../connection.php';
             method: "POST",
             data: { office_name: office_name },
             success: function (data) {
-                $('#v200t_terminal').html(data);
-                get_v200t_sn();
+                $('#v200t_terminal'+m).html(data);
+                 var v200t_terminal = 'v200t_terminal'+m;
+                get_bitel_sn(v200t_terminal,m);
             }
         });
 
     }
 </script>
 <script>
-    function get_v200t_sn(){
-    var select_v200t_terminal = document.getElementById('v200t_terminal');
-    var v200t_sn = document.getElementById('v200t_sn');
+    function get_v200t_sn(o,m){
+    var select_v200t_terminal = document.getElementById(o);
+    var v200t_sn = document.getElementById('v200t_sn'+m);
     var option_200t_terminal = select_v200t_terminal.options[select_v200t_terminal.selectedIndex];
     if (select_v200t_terminal.value == '') {
         v200t_sn.innerText = ''
@@ -355,7 +356,7 @@ include '../../connection.php';
 }
 </script>
 <script>
-function insert_action(i) {
+function insert_action_bitel(i) {
 
             var select_bitel_office_name_done = document.getElementById('bitel_office_name'+i);
                 var option_bitel_office_name_done = select_bitel_office_name_done.options[select_bitel_office_name_done.selectedIndex];
@@ -408,26 +409,26 @@ function insert_action(i) {
 }
 </script>
 <script>
-$(document).on('click', '#v200t_action_insert', function() {
+function insert_action_v200t(i) {
 
-            var select_v200t_office_name_done = document.getElementById('v200t_office_name');
+var select_v200t_office_name_done = document.getElementById('v200t_office_name'+i);
                 var option_v200t_office_name_done = select_v200t_office_name_done.options[select_v200t_office_name_done.selectedIndex];
                 var v200t_office_name_done = option_v200t_office_name_done.text;
                 var v200t_money_code_done = option_v200t_office_name_done.value;
 
-            var select_v200t_terminal_done = document.getElementById('v200t_terminal');
+            var select_v200t_terminal_done = document.getElementById('v200t_terminal'+i);
                 var option_v200t_terminal_done = select_v200t_terminal_done.options[select_v200t_terminal_done.selectedIndex];
                 var v200t_terminal_done = option_v200t_terminal_done.text;
                 var v200t_sn_done = option_v200t_terminal_done.value;
 
-            var select_v200t_auth_done = document.getElementById('v200t_auth');
+            var select_v200t_auth_done = document.getElementById('v200t_auth'+i);
                 var option_v200t_auth_done = select_v200t_auth_done.options[select_v200t_auth_done.selectedIndex];
                 var v200t_auth_done = option_v200t_auth_done.text;
 
-            var v200t_user_name_done = document.getElementById('v200t_user_name').innerText;
-            var v200t_user_id_done = document.getElementById('v200t_user_id').innerText;
+            var v200t_user_name_done = document.getElementById('v200t_user_name'+i).innerText;
+            var v200t_user_id_done = document.getElementById('v200t_user_id'+i).innerText;
 
-            var select_v200t_action_done = document.getElementById('v200t_action');
+            var select_v200t_action_done = document.getElementById('v200t_action'+i);
                 var option_v200t_action_done = select_v200t_action_done.options[select_v200t_action_done.selectedIndex];
                 var v200t_action_done = option_v200t_action_done.text;
     $.ajax({
@@ -457,7 +458,7 @@ $(document).on('click', '#v200t_action_insert', function() {
     });
 
 
-});
+}
 </script>
 <script>
 $(document).on('click', '#hewalat_action_insert', function() {
