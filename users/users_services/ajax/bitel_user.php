@@ -9,24 +9,7 @@ if(isset($_POST["id"]))
     $query_bitel_user = "SELECT * FROM bitel_users WHERE id = '$id'";
     $bitel_user = mysqli_query($conn, $query_bitel_user);
     $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
-    $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);?>
-<form>
-            <table>
-                <thead>
-                    <tr>
-                        <th>اسم المنطقه</th>
-                        <th>اسم المكتب</th>
-                        <th>الكود المالى</th>
-                        <th>رقم الماكينه</th>
-                        <th>s / n</th>
-                        <th>صلاحيه</th>
-                        <th>الاسم رباعى</th>
-                        <th>رقم الملف</th>
-                        <th>الاجراء</th>
-                    </tr>
-                </thead>
-                <tbody>
-<?php
+    $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);
     if(mysqli_num_rows($bitel_user) >= 1 )
     {
     while($bitel_user_row = mysqli_fetch_array($bitel_user))
@@ -42,7 +25,6 @@ if(isset($_POST["id"]))
             
             ?>
                 <tr>
-                    <td>جنوب الشرقيه</td>
                     <td>
                         <select name="office_name" id="bitel_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" onchange=get_bitel_terminal(this.dataset.n);>
                         <?php
@@ -72,8 +54,10 @@ if(isset($_POST["id"]))
                         </select>
                     </td>
                     <td name="bitel_sn" id="bitel_sn<?php echo $n ?>"><?php echo $bitel_sn ;?></td>
+                    <td name="bitel_user_name" id="bitel_user_name<?php echo $n ?>"><?php echo $bitel_user_name ;?></td>
                     <td>
                         <select name="bitel_auth" id="bitel_auth<?php echo $n ?>">
+                            <option></option>
                             <option
                            <?php if($bitel_auth == 'موظف'){ echo 'selected'; } ?>
                             value="">موظف
@@ -83,15 +67,20 @@ if(isset($_POST["id"]))
                             value="">مدير
                             </option>
                             <option
+                            <?php if($bitel_auth == 'مدير + موظف'){ echo 'selected'; } ?>
+                            value="">مدير + موظف
+                            </option>
+                            
+                            <option
                             <?php if($bitel_auth == 'دعم فنى'){ echo 'selected'; } ?>
                             value="">دعم فنى
                             </option>
                         </select>                
                     </td>
-                    <td name="bitel_user_name" id="bitel_user_name<?php echo $n ?>"><?php echo $bitel_user_name ;?></td>
                     <td name="bitel_user_id" id="bitel_user_id<?php echo $n ?>"><?php echo $bitel_user_id ;?></td>
                     <td>
                         <select name="bitel_action" id="bitel_action<?php echo $n ?>">
+                            <option></option>
                             <option value="" >اضافه</option>
                             <option value="" selected>الغاء</option>
                             <option value="">اعادة تعيين كلمة السر</option>
@@ -110,7 +99,6 @@ if(isset($_POST["id"]))
         {
             ?>
                 <tr>
-                    <td>جنوب الشرقيه</td>
                     <td>
                         <select name="office_name" id="bitel_office_name<?php echo $n ?>" data-n = "<?php echo $n ; ?>" class="bitel_office_name" onchange=get_bitel_terminal(this.dataset.n);>
                             <option value=""></option>
@@ -136,8 +124,10 @@ if(isset($_POST["id"]))
                     <td name="bitel_sn" id="bitel_sn<?php echo $n ?>"></td>
                     <td>
                          <select name="bitel_auth" id="bitel_auth<?php echo $n ?>">
+                            <option></option>
                             <option value="">موظف</option>
                             <option value="">مدير</option>
+                            <option value="">مدير + موظف</option>
                             <option value="">دعم فنى</option>
                         </select>
                     </td>
@@ -145,7 +135,8 @@ if(isset($_POST["id"]))
                     <td name="bitel_user_id" id="bitel_user_id<?php echo $n ?>"><?php echo $stuff_name_row['id'] ;?></td>
                     <td>
                         <select name="bitel_action" id="bitel_action<?php echo $n ?>">
-                            <option value="" selected>اضافة</option>
+                            <option></option>
+                            <option value="">اضافة</option>
                             <option value="">الغاء</option>
                             <option value="">اعادة تعيين كلمة السر</option>
                         </select>
@@ -162,6 +153,3 @@ if(isset($_POST["id"]))
 }
 
 ?>
-    </tbody>
-    </table>
-    </form>

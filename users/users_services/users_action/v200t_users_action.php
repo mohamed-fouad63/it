@@ -3,7 +3,7 @@ session_start();
 include '../../../setup/session/no_session.php';
 include '../../../connection.php';
 
-    $query_v200t_users_action = "SELECT * FROM v200t_users_action";
+    $query_v200t_users_action = "SELECT * FROM v200t_users_action ORDER BY pos_terminal ASC ";
     $v200t_user_action = mysqli_query($conn, $query_v200t_users_action);
         while($v200t_user_action_row = mysqli_fetch_array($v200t_user_action))
         { ?>
