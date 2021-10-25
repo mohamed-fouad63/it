@@ -37,7 +37,7 @@ switch ($action) {
         if ($conn->query($query_bitel_users_insert) == true) {
         $conn->query($query_bitel_users_done_history_insert);
         $conn->query($query_bitel_users_action_delete);
-        echo "done";
+        echo "تم";
         }
         else if ($conn->query($query_bitel_users_insert) == false) {
         echo "حذف المستخدم اولا";

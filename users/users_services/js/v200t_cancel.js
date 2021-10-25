@@ -5,10 +5,11 @@ function v200t_cancel() {
     v200t_table.rows[i].onclick = function () {
       rIndex = this.rowIndex;
       var num = this.cells[8].innerHTML;
+      var pos_terminal = this.cells[2].innerHTML;
       $.ajax({
         url: "users_undone/v200t_users_undone.php",
         method: "POST",
-        data: { num: num },
+        data: { num: num, pos_terminal: pos_terminal },
         success: function (data) {
           $.ajax({
             url: "users_action/v200t_users_action.php",

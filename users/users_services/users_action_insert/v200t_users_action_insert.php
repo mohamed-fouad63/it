@@ -11,7 +11,14 @@ include '../../../connection.php';
  $names = $_POST['names'];
  $action = $_POST['action'];
 
-    $query_v200t_users_action_insert = "
+ $query_v200t_users_action_dublicate = "
+ select id , pos_terminal from v200t_users_action where id = $id and pos_terminal = $pos_terminal
+ ";
+
+ $result=mysqli_query($conn,$query_v200t_users_action_dublicate);
+if ( mysqli_num_rows($result) == 0) {
+
+        $query_v200t_users_action_insert = "
     INSERT INTO
     `v200t_users_action`
     (`names`, `id`,`auth`, `money_code`, `office_name`, `sn`, `pos_terminal`,`action`)
@@ -27,5 +34,14 @@ include '../../../connection.php';
         '$action'
     )
     ";
-$conn->query($query_v200t_users_action_insert);
+
+    $conn->query($query_v200t_users_action_insert);
+}
+
+else {
+
+    
+}
+
+
 ?>

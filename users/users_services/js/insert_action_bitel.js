@@ -36,7 +36,6 @@ function insert_action_bitel(i) {
     select_bitel_action_done.options[select_bitel_action_done.selectedIndex];
   var bitel_action_done = option_bitel_action_done.text;
 
-  alert(bitel_user_name_done);
   $.ajax({
     url: "users_action_insert/bitel_users_action_insert.php",
     type: "POST",

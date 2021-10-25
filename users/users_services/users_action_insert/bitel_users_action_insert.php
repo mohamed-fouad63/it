@@ -11,6 +11,12 @@ include '../../../connection.php';
  $names = $_POST['names'];
  $action = $_POST['action'];
 
+  $query_bitel_users_action_dublicate = "
+ select id , pos_terminal from bitel_users_action where id = $id and pos_terminal = $pos_terminal
+ ";
+
+  $result=mysqli_query($conn,$query_bitel_users_action_dublicate);
+if ( mysqli_num_rows($result) == 0) {
     $query_bitel_users_action_insert = "
     INSERT INTO
     `bitel_users_action`
@@ -29,5 +35,9 @@ include '../../../connection.php';
     ";
 $conn->query($query_bitel_users_action_insert);
 
+    }
+    else {
 
+    
+}
 ?>

@@ -1,7 +1,7 @@
 <?php
-if(isset($_POST["id"]))
+if(isset($_POST["office_users_search"]))
 {
-    $id =  $_POST['id'];
+    $office_users_search =  $_POST['office_users_search'];
     $conn=mysqli_connect("localhost","root","12345678","post");
 
 
@@ -10,14 +10,13 @@ if(isset($_POST["id"]))
     $all_office = mysqli_query($conn, $query_all_office);
 
 
-    $query_hewalat_user = "SELECT * FROM hewalat WHERE id = '$id'";
+    $query_hewalat_user = "SELECT * FROM hewalat WHERE money_code = '$office_users_search' or office_name = '$office_users_search'";
     $hewalat_user = mysqli_query($conn, $query_hewalat_user);
 
-    $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
-    $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);
+ 
 
 
-    if(mysqli_num_rows($hewalat_user) == 1 )
+    if(mysqli_num_rows($hewalat_user) >= 1 )
     {
     while($hewalat_user_row = mysqli_fetch_array($hewalat_user))
         {
@@ -73,58 +72,6 @@ if(isset($_POST["id"]))
                         <button type="submit" id="hewalat_action_insert">تقديم الطلب</button>
                     </td>
                 </tr>
-            <?php
-        }
-    }
-    else
-    {
-           while($stuff_name_row = mysqli_fetch_array($stuff_name_user))
-        {
-            ?>
-                <tr>
-                    <td>
-                        <select name="" id="hewalat_office_name"  onchange=get_money_code_hewalat();>
-                            <option value=""></option>
-                        <?php 
-                                while($all_office_name_row2 = mysqli_fetch_array($all_office))
-                            {
-                                $office_name2 = $all_office_name_row2['office_name'];
-                                $money_code2 = $all_office_name_row2['money_code'];
-                                ?>
-                                <option value="<?php echo $money_code2 ;?>"
-                                >
-                                <?php echo  $office_name2 ;?>
-                                </option>
-                                <?php
-                            }
-                        ?>
-                            
-                        </select>
-                    </td>
-                    <td id="hewalat_money_code"></td>
-                    <td id="hewalat_user_name"><?php echo $stuff_name_row['names'] ;?></td>
-                    <td>
-                         <select name="" id="hewalat_auth">
-                            <option value=""></option>
-                            <option value="">موظف</option>
-                            <option value="">مدير</option>
-                        </select>
-                    </td>
-                    <td id="hewalat_user_id"><?php echo $stuff_name_row['id'] ;?></td>
-                    <td id="hewalat_user_code"><?php echo $stuff_name_row['code'] ;?></td>
-                    <td>
-                        <select name="" id="hewalat_action">
-                            <option value="" ></option>
-                            <option value="" selected>اضافة</option>
-                            <option value="">الغاء</option>
-                            <option value="">اعادة تعيين كلمة السر</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button type="submit" id="hewalat_action_insert">تقديم الطلب</button>
-                    </td>
-                </tr>
-
             <?php
         }
     }

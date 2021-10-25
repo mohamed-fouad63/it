@@ -28,7 +28,6 @@ function bitel_done() {
           num: num,
         },
         success: function (data) {
-          alert(data);
           $.ajax({
             url: "users_action/bitel_users_action.php",
             method: "POST",

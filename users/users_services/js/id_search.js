@@ -1,6 +1,5 @@
 $("#id_search").keyup(function () {
   var id = this.value;
-  //  alert(id.length );
   if (id != "") {
     $.ajax({
       url: "ajax/tg_user.php",

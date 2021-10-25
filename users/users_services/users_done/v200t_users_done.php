@@ -26,7 +26,7 @@ VALUES
 ('$names','$id','$auth','$money_code','$office_name','$sn','$pos_terminal')
 ";
 $query_v200t_users_delete = "
-DELETE FROM v200t_users where id = $id;
+DELETE FROM v200t_users where id = $id AND pos_terminal = $pos_terminal;
 ";
 
 $query_v200t_users_action_delete = "
