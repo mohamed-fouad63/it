@@ -6,7 +6,13 @@ if(isset($_POST["id"]))
     $conn=mysqli_connect("localhost","root","12345678","post");
         $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
     $all_office = mysqli_query($conn, $query_all_office);
-    $query_v200t_user = "SELECT * FROM v200t_users WHERE id = '$id'";
+    $query_v200t_user = "
+SELECT v200t_users.* , dvice.stuff_pos
+FROM v200t_users
+INNER JOIN dvice
+ON ( v200t_users.pos_terminal = dvice.pos_terminal)
+WHERE v200t_users.id = '$id'
+    ";
     $v200t_user = mysqli_query($conn, $query_v200t_user);
     $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
     $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);
@@ -25,6 +31,7 @@ if(isset($_POST["id"]))
             $v200t_sn = $v200t_user_row['sn'] ;
             $v200t_user_name = $v200t_user_row['names'] ;
             $v200t_user_id = $v200t_user_row['id'] ;
+            $v200t_stuff_pos  = $v200t_user_row['stuff_pos'] ;
             
             ?>
                 <tr>
@@ -55,6 +62,7 @@ if(isset($_POST["id"]))
                         <select name="" data-m = "<?php echo $n ; ?>" id="v200t_terminal<?php echo $n ?>" onchange=get_v200t_sn(this.id,this.dataset.m);>
                         <option value="<?php echo $v200t_sn ;?>"><?php echo $v200t_terminal ;?></option>
                         </select>
+                        <span>/<?php echo $v200t_stuff_pos ; ?></span>
                     </td>
                     <td id="v200t_sn<?php echo $n ?>"><?php echo $v200t_sn ;?></td>
                     <td id="v200t_user_name<?php echo $n ?>"><?php echo $v200t_user_name ;?></td>
@@ -123,6 +131,8 @@ if(isset($_POST["id"]))
                     <td id = "v200t_money_code<?php echo $n ?>"></td>
                     <td>
                          <select name="" data-m = "<?php echo $n ; ?>" id="v200t_terminal<?php echo $n ?>" onchange=get_v200t_sn(this.id,this.dataset.m);>
+                         </select>
+                         <span id="v200t_stuff_pos<?php echo $n ?>"></span>
                     </td>
                     <td id="v200t_sn<?php echo $n ?>"></td>
                     <td id="v200t_user_name<?php echo $n ?>"><?php echo $stuff_name_row['names'] ;?></td>

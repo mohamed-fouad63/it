@@ -1,5 +1,5 @@
 <div  class="search_div">
-    <input type="search" id="id_search">
+    <input type="search" id="id_search" placeholder="ادخل رقم الملف">
 </div>
         <?php
         include 'tg.php';

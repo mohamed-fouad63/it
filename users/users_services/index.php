@@ -92,6 +92,9 @@ legend {
 {
     opacity: 1;
 }
+.select_none{
+    user-select:none;
+}
     </style>
 </head>
 

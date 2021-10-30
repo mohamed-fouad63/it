@@ -18,7 +18,7 @@ if(isset($_POST["office_users_search"]))
         { ?>
                 <tr>
                     <td><?php echo $hewalat_user_row['office_name'] ;?></td>
-                    <td><?php echo $hewalat_user_rowhewalat_user_row['money_code'] ;?></td>
+                    <td><?php echo $hewalat_user_row['money_code'] ;?></td>
                     <td><?php echo $hewalat_user_row['names'] ;?></td>
                     <td><?php echo $hewalat_user_row['auth'] ;?></td>
                     <td><?php echo $hewalat_user_row['id'] ;?></td>

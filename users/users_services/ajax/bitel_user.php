@@ -6,7 +6,15 @@ if(isset($_POST["id"]))
     $conn=mysqli_connect("localhost","root","12345678","post");
     $query_all_office = "SELECT * FROM all1 WHERE office_type = 'مركز خدمات' or office_type = 'مكتب بريد' ORDER BY office_name";
     $all_office = mysqli_query($conn, $query_all_office);
-    $query_bitel_user = "SELECT * FROM bitel_users WHERE id = '$id'";
+    $query_bitel_user = 
+    "
+SELECT bitel_users.* , dvice.stuff_pos
+FROM bitel_users
+INNER JOIN dvice
+ON ( bitel_users.pos_terminal = dvice.pos_terminal)
+WHERE bitel_users.id = '$id'
+    "
+    ;
     $bitel_user = mysqli_query($conn, $query_bitel_user);
     $query_stuff_name_user = "SELECT * FROM stuff_names WHERE id = '$id'";
     $stuff_name_user = mysqli_query($conn, $query_stuff_name_user);
@@ -22,6 +30,7 @@ if(isset($_POST["id"]))
             $bitel_sn = $bitel_user_row['sn'] ;
             $bitel_user_name = $bitel_user_row['names'] ;
             $bitel_user_id = $bitel_user_row['id'] ;
+            $bitel_stuff_pos  = $bitel_user_row['stuff_pos'] ;
             
             ?>
                 <tr>
@@ -52,6 +61,7 @@ if(isset($_POST["id"]))
                         <select name="bitel_terminal" data-m = "<?php echo $n ; ?>" id="bitel_terminal<?php echo $n ?>" onchange=get_bitel_sn(this.id,this.dataset.m);>
                         <option value="<?php echo $bitel_sn ;?>"><?php echo $bitel_terminal ;?></option>
                         </select>
+                        <span>/<?php echo $bitel_stuff_pos ; ?></span>
                     </td>
                     <td name="bitel_sn" id="bitel_sn<?php echo $n ?>"><?php echo $bitel_sn ;?></td>
                     <td name="bitel_user_name" id="bitel_user_name<?php echo $n ?>"><?php echo $bitel_user_name ;?></td>
@@ -120,6 +130,8 @@ if(isset($_POST["id"]))
                     <td name="money_code" id="bitel_money_code<?php echo $n ?>"></td>
                     <td>
                         <select name="bitel_terminal" id="bitel_terminal<?php echo $n ?>" data-m = "<?php echo $n ; ?>" onchange=get_bitel_sn(this.id,this.dataset.m);>
+                        </select>
+                        <span id="bitel_stuff_pos<?php echo $n ?>"></span>
                     </td>
                     <td name="bitel_sn" id="bitel_sn<?php echo $n ?>"></td>
                     <td name="bitel_user_name"id="bitel_user_name<?php echo $n ?>"><?php echo $stuff_name_row['names'] ;?></td>

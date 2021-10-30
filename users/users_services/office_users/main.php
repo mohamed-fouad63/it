@@ -1,5 +1,5 @@
 <div class="search_div">
-    <input type="search"  id="office_users_search">
+    <input type="search"  id="office_users_search" placeholder="ادخل كود مالى او اسم المكتب">
 </div>
         <fieldset>
             <legend>التجزئه الماليه</legend>

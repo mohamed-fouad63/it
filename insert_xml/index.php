@@ -3,19 +3,20 @@ $conn = mysqli_connect("localhost", "root", "12345678", "post");
 
 $affectedRow = 0;
 
-$xml = simplexml_load_file("Bitel data1.xml") or die("Error: Cannot create object");
+$xml = simplexml_load_file("v200t.xml") or die("Error: Cannot create object");
 
 foreach ($xml->children() as $row) {
-    $Terminal = $row->Cell[3];
-    $Merchant = $row->Cell[4];
-    $sn = $row->Cell[1];
-    $ip = $row->Cell[3];
+    $sn = $row->Cell[0];
+    $manager_pos = $row->Cell[1];
+    $stuff_pos = $row->Cell[2];
+    $it_pos = $row->Cell[3];
 
     
-    $sql = "UPDATE  dvice set 
-    pos_terminal = '$Terminal',
-    pos_merchant =  '$Merchant'
-    where sn = '$sn'
+    $sql = " UPDATE  dvice set 
+    manager_pos = '$manager_pos',
+    stuff_pos =  '$stuff_pos',
+    it_pos =  '$it_pos'
+    where num = '$sn'
         ";
     
     $result = mysqli_query($conn, $sql);
