@@ -12,7 +12,7 @@ if(isset($_POST["office_users_search"]))
     INNER JOIN dvice
     ON ( v200t_users.pos_terminal = dvice.pos_terminal)
     WHERE v200t_users.money_code = '$office_users_search' OR v200t_users.office_name = '$office_users_search'
-    ORDER BY v200t_users.pos_terminal ,v200t_users.auth
+    ORDER BY v200t_users.pos_terminal ASC,v200t_users.auth ASC
     ";
     $v200t_user = mysqli_query($conn, $query_v200t_user);
 

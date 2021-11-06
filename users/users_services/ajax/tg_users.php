@@ -16,6 +16,7 @@ if(isset($_POST["office_users_search"]))
                     <td><?php echo $row1['code'] ;?></td>
                     <td><?php echo $row1['auth'] ;?></td>
                     <td><?php echo $row1['tel'] ;?></td>
+                    <td><?php echo $row1['date_add'] ;?></td>
                 </tr>
 
             <?php

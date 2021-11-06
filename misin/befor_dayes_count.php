@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set('Africa/Cairo');
 include '../connection.php';
-$key = $_POST['key'];
+$key = implode(' ', array_slice(explode(' ', $_POST['key']), 0, 4)) ;
 ?>
 <table class="table_dayes_before" id="table_dayes_before">
     <thead class="thead" id="thead" onclick="myFunction(this)">
@@ -59,7 +59,7 @@ $key = $_POST['key'];
 
             if ($nameOfDay != 'الجمعه') {
 
-                $query_missin_daye = " SELECT counter  from misin_it where it_name = '$key' and misin_date = '$date'";
+                $query_missin_daye = " SELECT counter  from misin_it  WHERE it_name LIKE '%$key%' and misin_date = '$date'";
 
                 $query_missin_daye_result = mysqli_query($conn, $query_missin_daye);
 

@@ -12,6 +12,7 @@ if(isset($_POST["id"]))
             ?>
                 <tr>
                     <td><?php echo $row['office_name'] ;?></td>
+                    <td><?php echo $row['money_code'] ;?></td>
                     <td><?php echo $row['names'] ;?></td>
                     <td><?php echo $row['id'] ;?></td>
                     <td><?php echo $row['code'] ;?></td>

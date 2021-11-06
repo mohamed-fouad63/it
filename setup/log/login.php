@@ -62,6 +62,7 @@ if ($_SESSION) {
                         <option value="MAHALA_KOBA">المحله الكبرى</option>
                         <option value="BEHERA">البحيره</option>
                         <option value="AKSUR">الاقصر</option>
+                        <option value="suez">السويس</option>
                     </select>
                 </div>
                 <div class="username">

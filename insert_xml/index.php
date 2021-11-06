@@ -11,12 +11,13 @@ foreach ($xml->children() as $row) {
     $stuff_pos = $row->Cell[2];
     $it_pos = $row->Cell[3];
 
+
     
-    $sql = " UPDATE  dvice set 
+    $sql = "UPDATE  dvice set 
     manager_pos = '$manager_pos',
     stuff_pos =  '$stuff_pos',
     it_pos =  '$it_pos'
-    where num = '$sn'
+    where sn = '$sn'
         ";
     
     $result = mysqli_query($conn, $sql);

@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('Africa/Cairo');
 $session_id = $_SESSION['id'];
 include '../connection.php';
-$key = $_POST['key'];
+$key = implode(' ', array_slice(explode(' ', $_POST['key']), 0, 4)) ;
 $this_date = $_POST['date_missin'];
 
 $date_missin_month = date("m", strtotime($this_date));
@@ -76,7 +76,7 @@ foreach ($alldays as $daye) {
 }
 
 
-$query_missin_daye = " SELECT counter  from misin_it where it_name like '%{$key}%' and misin_date like '%{$this_date}%' ";
+$query_missin_daye = " SELECT counter  from misin_it  WHERE it_name LIKE '%$key%' and misin_date like '%{$this_date}%' ";
 
 $query_missin_daye_result = mysqli_query($conn, $query_missin_daye);
 

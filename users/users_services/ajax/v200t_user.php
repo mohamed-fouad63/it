@@ -62,7 +62,20 @@ WHERE v200t_users.id = '$id'
                         <select name="" data-m = "<?php echo $n ; ?>" id="v200t_terminal<?php echo $n ?>" onchange=get_v200t_sn(this.id,this.dataset.m);>
                         <option value="<?php echo $v200t_sn ;?>"><?php echo $v200t_terminal ;?></option>
                         </select>
-                        <span>/<?php echo $v200t_stuff_pos ; ?></span>
+                        <?php
+                            if($v200t_stuff_pos){ ?>
+                                <span id="v200t_stuff_pos<?php echo $n ?>">
+                                /<?php echo $v200t_stuff_pos ; ?>
+                            </span>
+                            
+                            <?php } else { ?>
+                                     <span id="v200t_stuff_pos<?php echo $n ?>"></span>
+
+                           <?php }
+                        ?>
+                        
+                       
+                        
                     </td>
                     <td id="v200t_sn<?php echo $n ?>"><?php echo $v200t_sn ;?></td>
                     <td id="v200t_user_name<?php echo $n ?>"><?php echo $v200t_user_name ;?></td>

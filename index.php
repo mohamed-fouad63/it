@@ -41,6 +41,12 @@ $post_office_query->execute(['مكتب بريد']);
 $center_serv_query = $pdo->prepare($query_office);
 $center_serv_query->execute(['مركز خدمات']);
 
+$mobile_office_query = $pdo->prepare($query_office);
+$mobile_office_query->execute(['مكتب متنقل']);
+
+$delivery_center_query = $pdo->prepare($query_office);
+$delivery_center_query->execute(['نقطه توزيع']);
+
 $delivery_query = $pdo->prepare($query_office);
 $delivery_query->execute(['منطقه توزيع']);
 
@@ -410,8 +416,8 @@ $check_monitor_name->execute();
             flex-basis: 24%;
         }
 
-        ._flex_row_5 {
-            flex-basis: 19%;
+        ._flex_row_7 {
+            flex-basis: 13%;
         }
 
         ._p_y1 {
@@ -1099,31 +1105,43 @@ $check_monitor_name->execute();
                             </div>
                         </div>
                         <div class="_flex_row _m_y_b1">
-                            <div class="_flex_row_5 _light_div _p_y1">
+                            <div class="_flex_row_7 _light_div _p_y1">
                                 <h3>مكاتب بريد</h3>
                                 <span class="_count">
                                     <?php echo $post_office_query->rowCount(); ?>
                                 </span>
                             </div>
-                            <div class="_flex_row_5 _light_div _p_y1">
+                            <div class="_flex_row_7 _light_div _p_y1">
                                 <h3>مراكز خدمات</h3>
                                 <span class="_count">
                                     <?php echo $center_serv_query->rowCount(); ?>
                                 </span>
                             </div>
-                            <div class="_flex_row_5 _light_div _p_y1">
+                            <div class="_flex_row_7 _light_div _p_y1">
+                                <h3>مكتب متنقل</h3>
+                                <span class="_count">
+                                    <?php echo $mobile_office_query->rowCount(); ?>
+                                </span>
+                            </div>
+                            <div class="_flex_row_7 _light_div _p_y1">
+                                <h3>نقطه توزيع</h3>
+                                <span class="_count">
+                                    <?php echo $delivery_center_query->rowCount(); ?>
+                                </span>
+                            </div>
+                            <div class="_flex_row_7 _light_div _p_y1">
                                 <h3>مناطق توزيع</h3>
                                 <span class="_count">
                                     <?php echo $delivery_query->rowCount(); ?>
                                 </span>
                             </div>
-                            <div class="_flex_row_5 _light_div _p_y1">
+                            <div class="_flex_row_7 _light_div _p_y1">
                                 <h3>خزينه</h3>
                                 <span class="_count">
                                     <?php echo $money_safe_query->rowCount(); ?>
                                 </span>
                             </div>
-                            <div class="_flex_row_5 _light_div _p_y1">
+                            <div class="_flex_row_7 _light_div _p_y1">
                                 <h3>اقسام المنطقه</h3>
                                 <span class="_count">
                                     <?php echo $section_query->rowCount(); ?>
