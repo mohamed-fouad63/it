@@ -10,6 +10,10 @@ $misin_date = $_POST['misin_date'];
 $reason_vacation = $_POST['reason_vacation'];
 $date = $misin_date;
 $nameOfDay = date('D', strtotime($date));
+$missin_day = date('d', strtotime($date));
+$missin_year = date('Y', strtotime($date));
+$missin_month = date('m', strtotime($date));
+
 
 switch ($nameOfDay) {
   case "Fri":
@@ -152,7 +156,7 @@ VALUES (
            <?php echo $nameOfDay ; ?> 
           الموافق
           <span class="date_misin">
-           <?php echo $misin_date ; ?>
+           <?php echo $missin_day."-".$missin_month."-".$missin_year ; ?>
            </span>
             و ذلك 
             

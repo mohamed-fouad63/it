@@ -34,13 +34,7 @@ while($row_pc=mysqli_fetch_assoc($result)){
 <td ><?php echo $row_pc["sn"]?> </td>
 <td ><?php echo $row_pc["ip"] ?></td>
 <td ><?php echo $row_pc["pc_doman_name"] ?></td>
-<td ><?php echo $row_pc["note"] ?></td>
-<td ><?php    
-    ?> </td>
-<td style="display:none"><?php echo $row_pc["count_in_it"] ?></td>
-<td style="display:none"><?php echo $row_pc["num"] ?></td>
-<td>
-</td>  
+<td ><?php echo $row_pc["note"] ?></td>  
 </tr>
 <?php }
 

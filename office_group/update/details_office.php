@@ -22,7 +22,7 @@ $query=mysqli_query($conn, "select * from all1 where money_code LIKE '{$key}' OR
         $ll = $row["LL"];
         $tel = $row["tel"];
         $id = $row["id"];
-}
+
 $query_post_group = mysqli_query($conn, "SELECT post_group_name  FROM post_group");
 $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخصائى تشغيل نظم' ");
 $query_id_hg = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'رئيس مجموعه' ");
@@ -146,17 +146,14 @@ $query_name_it = mysqli_query($conn, "SELECT first_name FROM tbl_user where id l
             <label class="input-group-text">رئيس المجموعه</label>
           </div>
             
-                        <?php
-                
-            ?>
-            <!--<label class="form-control details-text"><?php echo $hg_first_name ;?></label>-->
-            
-            
             <select class="custom-select" name="id_hg" >
                 <option></option>
-          <?php  while($row_query_id_hg=mysqli_fetch_assoc($query_id_hg)){ $hg_id_first_name = $row_query_id_hg["first_name"]; ?>
-            <option  value="<?php echo $row_query_id_hg["id"];?>"
-                                  
+          <?php  while($row_query_id_hg=mysqli_fetch_assoc($query_id_hg)){
+              $hg_id_first_name = $row_query_id_hg["first_name"];
+              $hg_id = $row_query_id_hg["id"]; ?>
+            <option
+            value="<?php echo $hg_id ?>"
+            <?php if($hg_id == $id_hg){ echo 'selected';}?>     
                     ><?php echo $hg_id_first_name; ?></option>
            <?php } ?>
         </select>
@@ -174,8 +171,12 @@ $query_name_it = mysqli_query($conn, "SELECT first_name FROM tbl_user where id l
            <!-- <label class="form-control details-text"><?php echo $it_first_name ;?></label> -->
             <select class="custom-select" name="id_it" >
                 <option></option>
-          <?php  while($row_query_id_it=mysqli_fetch_assoc($query_id_it)){ $it_id_first_name = $row_query_id_it["first_name"]; ?>
-            <option  value="<?php echo $row_query_id_it["id"];?>"
+          <?php  while($row_query_id_it=mysqli_fetch_assoc($query_id_it)){
+              $it_id_first_name = $row_query_id_it["first_name"]; 
+              $it_id = $row_query_id_it["id"]; ?>
+            <option
+            value="<?php echo $it_id;?>"
+           <?php if($it_id == $id_it){ echo 'selected';}?>
                     
                     ><?php echo $it_id_first_name; ?></option>
            <?php } ?>
@@ -235,6 +236,8 @@ $query_name_it = mysqli_query($conn, "SELECT first_name FROM tbl_user where id l
 </div>
 
 </form>
+
+<?php } ?>
 <button class="btn btn-primary edit" >تحديث البيانات</button>
 <script>
 $(".edit").click(function(){
