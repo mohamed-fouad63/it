@@ -4,9 +4,7 @@ session_start();
 include '../../setup/session/no_session.php';
 include '../../connection.php'; 
  $query = "
- SELECT * FROM send  
-           WHERE date BETWEEN '".date('Y-m-d')."' AND '".date('Y-m-d')."'
- 
+ SELECT * FROM send  WHERE date = '".date('Y-m-d')."' and CHAR_LENGTH(barcode) = 13
  ";  
  $result = mysqli_query($conn, $query);
 
@@ -37,7 +35,6 @@ include '../../connection.php';
                   width: 100%;
               }
               th {
-                  text-wrap: break-word;
                     text-align: center;
                 }
               .table td, .table th {
@@ -45,9 +42,6 @@ include '../../connection.php';
                                 vertical-align: middle;
                                    
                             }
-              .table td {
-                 
-              }
               .container {
                     width: auto;
                     margin:auto;

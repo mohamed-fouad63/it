@@ -36,8 +36,6 @@ include '../../connection.php';
             text-align: center;
         }
 
-        body {}
-
         form {
             margin-top: 90px;
         }

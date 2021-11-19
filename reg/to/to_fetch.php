@@ -29,7 +29,7 @@ if($result)
 <table class="table table-bordered table-sm">
     <tr>
         <th>التاريخ</th>
-        <th>رقم المسجل</th>
+        <th>عن طريق</th>
         <th>المرسل اليه</th>
         <th style="width:35%;">الموضوع</th>
     </tr>

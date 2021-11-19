@@ -78,6 +78,15 @@ $session_role = $_SESSION['role'];
             display: inline-grid;
             text-align: center;
         }
+        .by_label {
+            border: none !important;
+            text-align: end;
+            width: 10px;
+        }
+
+        .by_hand {
+            display : none;
+        }
 
     </style>
 </head>
@@ -98,8 +107,13 @@ $session_role = $_SESSION['role'];
                 <input type="date" class="col-sm-2 form-control" name='_date' id="inputAddress2" value="<?php echo date('Y-m-d'); ?>" readonly>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="inputparcode">رقم الباركود</label>
-                <input type="tetx" class="col-sm-2 form-control masked" name="barcode" id="czc" placeholder="RR123456789EG" onkeyup="m(this)" data-charset="__XXXXXXXXX__" autocomplete="off" autofocus>
+                <!--<label class="col-sm-2 col-form-label" for="inputparcode">رقم الباركود</label>-->
+                 <select class="col-sm-2 col-form-label by_label" id="by" onchange="by1()">
+                    <option>رقم المسجل</option>
+                    <option>تسليم ليد</option>
+                </select>
+                <input type="text" class="col-sm-2 form-control masked" name="barcode" id="czc" placeholder="RR123456789EG" onkeyup="m(this)" data-charset="__XXXXXXXXX__" autocomplete="off" autofocus>
+                <input type="text" class="col-sm-2 form-control by_hand" id="by_hand" name="by_hand">
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="inputto">المرسل اليه</label>
@@ -148,18 +162,16 @@ if(isset($_POST["insert_to"]))
 /* echo $_POST['barcode'].$_POST['to'].$_POST['subject'].$_POST['_date'];*/
 $date = $_POST["_date"];
 $barcode = $_POST["barcode"];
+$by_hand = $_POST["by_hand"];
 $to = $_POST["to"];
 $subject = $_POST["subject"];
-if(strlen($barcode) == 13){
-if($to == "" or $subject == "")
-{ ?>
-        <script>
-            alert('الحقول فارغه')
 
-        </script>
-        <?php }
-else
+if($barcode != '' and $to != '' and $subject != '' and $by_hand =='' )
 {
+    $dupicate_barcode = "select barcode from send where barcode = '$barcode' ";
+    $dupicate_barcode_row = mysqli_query($conn,$dupicate_barcode);
+    $rows_count =mysqli_num_rows($dupicate_barcode_row);
+    if( $rows_count == 0){
 $insert_new = "
 INSERT INTO send 
 (date,barcode,send_to,subject,admin)
@@ -169,16 +181,28 @@ if (!$conn->query($insert_new) === true)
 {
     echo "<script> alert (' لم يتم اضافه المسجل - باركود مكرر')</script>";
 }
-else
-{
-
 }
+else {
+    echo "<script> alert (' لم يتم اضافه المسجل - باركود مكرر')</script>";
+}
+}
+elseif($by_hand != '' and $to != '' and $subject != '' and $barcode == '')
+{
+$insert_new_by_hand = "
+INSERT INTO send 
+(date,barcode ,send_to,subject,admin)
+VALUES ('$date','$by_hand','$to','$subject','$session_username')
+";
+if (!$conn->query($insert_new_by_hand) === true)
+{
+    echo "<script> alert (' لم يتم اضافه ')</script>";
 }
 }
 else {
-echo "<script> alert ('الباركود غير صحيح')</script>";
+    echo "<script> alert (' لم يتم اضافه المسجل')</script>";
 }
 }
+
 ?>
         <script>
             $("#typeahead").focus();
@@ -227,6 +251,23 @@ echo "<script> alert ('الباركود غير صحيح')</script>";
             }
 
         </script>
+        <script>
+            function by1() {
+                var by = document.getElementById("by");
+                var option_by = by.options[by.selectedIndex];
+            
+            if(option_by.value == "رقم المسجل"){
+                document.getElementById("czc").style.display = "inline-block";
+                document.getElementById("by_hand").style.display = "none";
+                document.getElementById("by_hand").value = "";
+            }
+            if(option_by.value == "تسليم ليد"){
+                document.getElementById("czc").style.display = "none";
+                document.getElementById("czcMask").nextSibling.value = "";
+                document.getElementById("by_hand").style.display = "inline-block";
+            }
+        }
+            </script>
     </div>
     <!-- php start change_pass -->
     <?php   include '../../setup/pass/change_password_form.php'; ?>
