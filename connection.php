@@ -29,4 +29,11 @@ try {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 ?>
+<?php
+$dsn2 = new PDO($dsn, $user, $pass);
+//set come db attributes
+$dsn2->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+$dsn2->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY,true);
+$dsn2->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+?>
 

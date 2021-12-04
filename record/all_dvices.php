@@ -37,7 +37,7 @@ $session_role = $_SESSION['role']; ?>
 				<ul class="navbar-nav">
 					<li class="nav-item ">
 						<form class="navbar-form  form-inline my-2 my-lg-0" method="post">
-							<input type="search" class="form-control" name="search_text" id="search_text"  autofocus placeholder=" بحث فورى"/>
+							<input type="search" class="form-control" name="search_text" id="search_text"  onkeyup="search()" autofocus placeholder=" بحث فورى"/>
 						</form>
 					</li>
 				</ul>
@@ -50,18 +50,17 @@ $session_role = $_SESSION['role']; ?>
     <div class="tableview tableview-has-footer">
   <div class="tableview-holder" id="tableview-holder">
   
-<table>
+<table id="all_dvice_table">
 <thead>
 <tr>
     <th caption="مكتب / قسم" class="th_office"></th>
     <th caption="نوع الجهاز" class="th_date_in  "></th>
     <th caption="السريال" class="th_by  "></th>
     <th caption="IP" class="th_dvice  "></th>
-    <th caption="اسم الجهاز" class="th_sn  "></th>
     <th caption="موقفه" class="th_damage  "></th>
 </tr>
     </thead>
-    <tbody id="result">
+    <tbody id="all_dvice">
     </tbody>
       </table>
         </div>
@@ -80,38 +79,69 @@ $session_role = $_SESSION['role']; ?>
                     <!-- end Logout Modal -->
 
     </body>
-  <script>
-$(document).ready(function(){
-
- load_data();
-
- function load_data(query)
- {
-  $.ajax({
-   url:"all_dvices_fetch.php",
-   method:"POST",
-   data:{query:query},
-   beforeSend: function() {
-        // setting a timeout
-        $('#result').html("الرجاء الانتظار");
-    },
-   success:function(data)
-   {
-    $('#result').html(data);
-   }
-  });
- }
- $('#search_text').keyup(function(){
-  var search = $(this).val();
-  if(search != '')
-  {
-   load_data(search);
+  
+<script>
+    var url = 'http://localhost/it/api/read.php';
+    loadJSON(url, responseData,responseError);
+    function loadJSON(path, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = ()=> {
+        if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            success(JSON.parse(xhr.responseText));
+            console.log(xhr);
+        }
+        else {
+            error(xhr);
+        }
+        }
+    };
+    xhr.open('POST', path, true);
+    xhr.addEventListener("loadstart", e => { document.getElementById("all_dvice").innerHTML = "جارى تحميل البيانات"; });
+    //  xhr.addEventListener("progress", e => { alert("progress"); });
+    // xhr.addEventListener("load", e => { alert("load"); });
+    // xhr.addEventListener("loadend", e => { alert("loadend"); });
+    xhr.send();
+    }
+    function responseError(error){
+        console.log(error);
+    }
+    function responseData(Data){
+    var tr = '';
+    for (let i = 0; i < Data.length; i++) {
+        tr = tr
+        +"<tr>"
+        +"<td>"+Data[i].office_name+"</td>"
+        +"<td>"+Data[i].dvice_name+"</td>"
+        +"<td>"+Data[i].sn+"</td>"
+        +"<td>"+Data[i].ip+"</td>"
+        +"<td>"+Data[i].note+Data[i].note_move_to+"</td>"
+        +"</tr>";
+    }
+    document.getElementById("all_dvice").innerHTML = tr;
+    }
+</script>
+<script>
+  function search() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search_text");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("all_dvice_table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+      tr[i].style.display = "none";
+      td = tr[i].getElementsByTagName("td");
+      for (var j = 0; j < td.length; j++) {
+        cell = tr[i].getElementsByTagName("td")[j];
+        
+          if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          }
+        
+      }
+      
   }
-  else
-  {
-   load_data();
   }
- });
-});
+  </script>
 </script>
 </html>
