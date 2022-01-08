@@ -37,6 +37,11 @@ while($row_printer=mysqli_fetch_assoc($query_printer_in_it)){?>
 <i class='fas fa-reply'></i></button>
 </li>
 <?php } ?>
+<?php if ($_SESSION['to_tts'] == 1){ ?>
+<li><button type='button' style="background-color: chocolate;" class='btn-editbtn btn' data-toggle='modal' data-target='#pc_ticket' onclick='printer_ticket()'>
+<i class="fas fa-clipboard-list" style="font-size: 25px;"></i></button>
+</li>
+<?php } ?>
 <?php if ($_SESSION['to_tts'] == 1){ ?> 
 <li><button type='button' class='btn-edit btn btn-warning' data-toggle='modal' data-target='#printer_to_tts' onclick='printer_to_tts()'>
 <i class="fas fa-ambulance"></i></button>

@@ -10,8 +10,8 @@
     <?php
 while($row_postal=mysqli_fetch_assoc($query_postal_in_it)){?>
 <tr>
-<td><?php echo $row_postal["office_name"] ?></td>
-<td ><?php echo $row_postal["dvice_name"] ?></td>
+<td><?php echo $row_postal["office_name"]; ?></td>
+<td><?php echo $row_postal["dvice_name"] ?></td>
 <td><?php echo $row_postal["sn"] ?></td>
 <td><?php echo $row_postal["damage"] ?></td>
 <td><?php echo $row_postal["in_it_note"] ?></td>
@@ -35,6 +35,11 @@ while($row_postal=mysqli_fetch_assoc($query_postal_in_it)){?>
 <?php if ($_SESSION['resent_in_it'] == 1){ ?>
 <li><button type='button' class='btn-edit btn btn-info' data-toggle='modal' data-target='#export_postal_to' onclick='export_postal_in_it()'>
 <i class='fas fa-reply'></i></button>
+</li>
+<?php } ?>
+<?php if ($_SESSION['to_tts'] == 1){ ?>
+<li><button type='button' style="background-color: chocolate;" class='btn-editbtn btn' data-toggle='modal' data-target='#pc_ticket' onclick='postal_ticket()'>
+<i class="fas fa-clipboard-list" style="font-size: 25px;"></i></button>
 </li>
 <?php } ?>
 <?php if ($_SESSION['to_tts'] == 1){ ?> 

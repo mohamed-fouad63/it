@@ -12,11 +12,13 @@ class Dvice{
 
 
  function __construct($db){
+
 $this->conn = $db;
 }
 // creat query
   function read(){
-    $query = 'SELECT * FROM dvice ORDER BY office_name';
+    $query = 'SELECT * FROM '.$this->table.' ORDER BY office_name ';
+    // $query = 'SELECT * FROM '.$this->table.' WHERE office_name = "'.$this->office_name.'" ORDER BY office_name ';
 
     // prepare statment
 $stmt = $this->conn->prepare($query);

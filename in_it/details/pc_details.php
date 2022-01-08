@@ -40,6 +40,11 @@ while($row_pc=mysqli_fetch_assoc($query_pc_in_it)){ ?>
 </li>
 <?php } ?>
 <?php if ($_SESSION['to_tts'] == 1){ ?>
+<li><button type='button' style="background-color: chocolate;" class='btn-editbtn btn' data-toggle='modal' data-target='#pc_ticket' onclick='pc_ticket()'>
+<i class="fas fa-clipboard-list" style="font-size: 25px;"></i></button>
+</li>
+<?php } ?>
+<?php if ($_SESSION['to_tts'] == 1){ ?>
 <li><button type='button' class='btn-editbtn btn btn-warning' data-toggle='modal' data-target='#pc_to_tts' onclick='pc_to_tts()'>
 <i class="fas fa-ambulance"></i></button>
 </li>

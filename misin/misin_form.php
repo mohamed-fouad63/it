@@ -697,7 +697,7 @@ while($row10 = $result10->fetch_assoc()) {?>
                             <i class="fas fa-check"></i>اضافه الماموريه
                         </button>
                         <button style="display:none;" type="hidden" class="btn btn-primary" id="second_form"
-                            formaction="vaction_form_sub.php">
+                            formaction="vaction_form_sub1.php">
                             <i class="fas fa-check"></i>اضافه الاجازه
                         </button>
                         <button style="display:none;" type="hidden" class="btn btn-primary" id="third_form"

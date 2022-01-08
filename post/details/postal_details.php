@@ -18,8 +18,7 @@ $rowcount6 = mysqli_num_rows($query6);
 if ($rowcount6 > 0 ){
 while($row6=mysqli_fetch_assoc($query6)){ ?>
             <tr>
-                <td><?php echo $row6["dvice_name"]?>
-                </td>
+                <td><?php echo $row6["dvice_name"]?></td>
                 <td><?php echo $row6["sn"]?></td>
                 <td><?php echo $row6["note"] ?></td>
                 <td><?php echo $row6["note_move_to"] ?></td>

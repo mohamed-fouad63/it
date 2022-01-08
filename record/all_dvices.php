@@ -23,7 +23,6 @@ $session_role = $_SESSION['role']; ?>
  #wait {
     position: relative;
     text-align: center;
-    /* justify-content: center; */
     margin-top: 17%;
 }
 </style>
@@ -81,7 +80,7 @@ $session_role = $_SESSION['role']; ?>
     </body>
   
 <script>
-    var url = 'http://localhost/it/api/read.php';
+    var url = '../api/dvice/read.php';
     loadJSON(url, responseData,responseError);
     function loadJSON(path, success, error) {
     var xhr = new XMLHttpRequest();
@@ -97,11 +96,12 @@ $session_role = $_SESSION['role']; ?>
         }
     };
     xhr.open('POST', path, true);
-    xhr.addEventListener("loadstart", e => { document.getElementById("all_dvice").innerHTML = "جارى تحميل البيانات"; });
+    xhr.addEventListener("loadstart", function(){ document.getElementById("all_dvice").innerHTML = "جارى تحميل البيانات"; });
     //  xhr.addEventListener("progress", e => { alert("progress"); });
     // xhr.addEventListener("load", e => { alert("load"); });
     // xhr.addEventListener("loadend", e => { alert("loadend"); });
-    xhr.send();
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("office_name=office_name");
     }
     function responseError(error){
         console.log(error);
@@ -133,7 +133,6 @@ $session_role = $_SESSION['role']; ?>
       td = tr[i].getElementsByTagName("td");
       for (var j = 0; j < td.length; j++) {
         cell = tr[i].getElementsByTagName("td")[j];
-        
           if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
           }

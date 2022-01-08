@@ -29,6 +29,7 @@ while($row_user_auth = mysqli_fetch_assoc($result_user_auth)){
 <script src="../js/edit_in_it.js"></script>
 <script src="../js/export_in_it.js"></script>
 <script src="../js/to_tts.js"></script>
+<script src="../js/print_ticket.js"></script>
 <script src="../js/deleted.js"></script>
 <script src="../js/replace.js"></script>
 <script src="../js/move_in_it.js"></script>
@@ -95,6 +96,7 @@ include "modals/modal_export/other_export.php";
 <!-- start to_tts pc -->
 <?php if ($_SESSION['to_tts'] == 1){
 include "modals/modal_to_tts/pc_to_tts.php";
+include "modals/modal_print_ticket/pc_ticket.php";
 include "modals/modal_to_tts/monitor_to_tts.php";
 include "modals/modal_to_tts/printer_to_tts.php";
 include "modals/modal_to_tts/pos_to_tts.php";
