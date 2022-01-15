@@ -218,10 +218,28 @@ switch ($pc_name_ticket) {
         .select_dvice {
             box-shadow: inset 0 0 0 1000px #201e1e54;
         }
+        .btn_print{
+            color: #fff;
+            background-color: #337ab7;
+            padding: 6px 12px;
+            -ms-touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            border: none;
+            border-radius: 4px;
+        }
+        @media print {
+            .btn_print {
+                display :none
+            }
+        }
     </style>
 </head>
 
 <body class="A4 landscape">
+<button type="button" class="btn_print" onclick="window.print();"> طباعه الماموريه </button>
     <div class="sheet padding-5mm">
         <div class="flex">
             <div>

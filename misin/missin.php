@@ -354,7 +354,9 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary add" data-dismiss="modal"><i class="fas fa-check"></i>اضافه الماموريه</button>
+                        <label for="chk_btn" style="user-select: none;">ابقاء النافذه</label>
+                        <input type="checkbox" onclick="show_box();"  id="chk_btn">
+                        <button type="button" id="add_btn" class="btn btn-primary add" data-dismiss="modal"><i class="fas fa-check"></i>اضافه الماموريه</button>
                         <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fas fa-ban"></i> الغاء</button>
                     </div>
                 </div>
@@ -635,5 +637,20 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
         });
     })
 </script>
+<script>
+    chk_btn = document.querySelector('#chk_btn');
+    add_btn = document.querySelector('#add_btn');
+    function show_box(){
 
+    if(chk_btn.checked === true){
+        add_btn.dataset.dismiss = "";
+    }
+    else {
+        add_btn.dataset.dismiss = "modal";
+
+    }
+    }
+
+
+</script>
 </html>
