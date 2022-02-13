@@ -1191,6 +1191,15 @@ $check_monitor_name->execute();
                                             <?php  ?>
                                         </span>
                                     </div>
+                                    <div>
+                                        <span class="wrong_data">
+                                            <a href="count/postal_dvices_comptaible.php" target="_blank" rel="noopener noreferrer"
+                                                class="details">توافق اجهزه بوستال</a>
+                                        </span>
+                                        <span class="wrong_data_count">
+                                            <?php  ?>
+                                        </span>
+                                    </div>
                                 </div>
                                 </span>
                             </div>

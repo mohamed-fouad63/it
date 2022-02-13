@@ -47,7 +47,7 @@ $query_name_it = mysqli_query($conn, "SELECT first_name FROM tbl_user where id l
             <span class="input-group-text" id="basic-addon1">اسم المكتب / القسم</span>
           </div>
           
-            <input type="text" name="office_name" class="form-control details-text" value="<?php echo $office_name;?>" readonly>
+            <input type="text" name="office_name" class="form-control details-text" value="<?php echo $office_name;?>">
         </div>
     </div>
  
@@ -224,12 +224,13 @@ $query_name_it = mysqli_query($conn, "SELECT first_name FROM tbl_user where id l
        <div class="col-md-6 mb-3">
 
     </div>
-        <div class="col-md-6 mb-3" style="display:none;">
+        <div class="col-md-6 mb-3" style="display:;">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">رقم المعرف</span>
             </div>
-            <input type="text" name="id" class="form-control details-text" value="<?php echo $id;?>">
+            <input type="text" name="id" class="form-control details-text" value="<?php echo $id;?>" readonly>
+            <input type="text" name="office_name2" class="form-control details-text" value="<?php echo $office_name;?>" readonly>
         </div>
     </div>
 
@@ -247,7 +248,7 @@ url:"update_office_details.php",
 type:"POST",
 data :$(".edit_form").serialize(),
 success:function(data){
-    alert('تم تحديث البيانات ')
+    alert(data);
 // var key = $(".typeahead").val();
 // $.ajax({
 // url:"details_office.php",type:"POST",

@@ -12,7 +12,7 @@ $session_username = $_SESSION['user_name'];
 <link rel="icon" href="../img/it.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../css/web-fonts-with-css/css/all.css">
     <link rel="stylesheet" href="../css4/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/header_nav.css">
+    <!-- <link rel="stylesheet" href="../css/header_nav.css"> -->
     <link rel="stylesheet" href="../css/incoming.css">
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -65,11 +65,11 @@ textarea {
     <tbody id="result"></tbody>
       </table>
         </div>
-                <script>
+                <!-- <script>
         var heightclient = document.documentElement.clientHeight - 157;
             document.getElementById('tableview-holder').style.height = heightclient + 'px';
             //alert(heightclient);
-        </script>
+        </script> -->
     </div>
     </div>
 <!-- end add notice -->
