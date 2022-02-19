@@ -272,7 +272,7 @@ $query_id_it = mysqli_query($conn, "SELECT first_name, id FROM tbl_user where id
 				<span class="befor_dayes_count" id="befor_dayes_count">
 				</span>
 				<input type="month" class="form-control col-sm-2" id="month_missin" value="<?php echo date('Y-m'); ?>">
-				<a href="misin_form.php" class="btn btn-outline-secondary add-icon"><i class='fas fa-plus'></i></a>
+				<a href="misin_form.php" class="btn btn-outline-secondary add-icon" target="_blank"><i class='fas fa-plus'></i></a>
 				<div class="nav-item dropdown ">
 					<?php include '../setup/user/user.php'; ?>
 				</div>

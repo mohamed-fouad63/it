@@ -196,7 +196,8 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
             transition: all 1s ease-out;
         }
 
-        .hide {
+        .hide ,#vaction_type ,#vaction_type_label,
+        #badal_type,#badal_type_label,#ill_type,#ill_type_label,#misin_cairo_type{
             display: none
         }
 
@@ -283,7 +284,7 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
         </div>
     </div>
     <div style="text-align:center;" class="modal fade" id="export_pc_to" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form method="POST" class="form-horizontal add_form" target="_top">
+        <form method="POST" class="form-horizontal add_form">
             <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -326,14 +327,29 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
                         <!-- end first -->
                         <!-- start sec -->
                         <div class="input-group">
-                            <div class="col-sm-4">
-                                <select class="form-control " name="misin_type" id="misin_type">
+                            <div class="col-sm-4" id="misin_type">
+                                <select class="form-control " name="misin_type" id="misin_type_select">
                                     <option></option>
                                     <option value="خطه">خطه</option>
                                     <option value="بلاغ">بلاغ</option>
                                 </select>
                             </div>
+                            <div class="col-sm-4" id="misin_cairo_type">
+                            <input class="form-control " name="misin_cairo" placeholder="سبب الماموريه" id ="misin_cairo">
+                            </div>
                             <label class="control-label col-sm-2" id="misin_type_label"> نوع الماموريه</label>
+                            <div class="col-sm-4" id="vaction_type">
+                                <input class="form-control " name="reason_vacation" value = "ظروف طارئه">
+                            </div>
+                            <label class="control-label col-sm-2" id="vaction_type_label">و ذلك لـ</label>
+                            <div class="col-sm-4" id="badal_type">
+                            <input type="date" class="form-control" id="badal_date" name="badal_raha_date" value="<?php echo date('Y-m-d'); ?>">
+                            </div>
+                            <label class="control-label col-sm-2" id="badal_type_label">و ذلك عن يوم</label>
+                            <div class="col-sm-4" id="ill_type">
+                            <input type="date" class="form-control" id="ill_date" name="ill_date" value="<?php echo date('Y-m-d'); ?>">
+                            </div>
+                            <label class="control-label col-sm-2" id="ill_type_label">حتى تاريخ</label>
                             <div class="col-sm-4">
                                 <input type="date" class="form-control" id="misin_date" name="misin_date" value="<?php echo date('Y-m-d'); ?>" placeholder="تاريخ الماموريه" required>
                             </div>
@@ -354,10 +370,23 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <label for="chk_btn" style="user-select: none;">ابقاء النافذه</label>
-                        <input type="checkbox" onclick="show_box();"  id="chk_btn">
+                        <div id="vaction_div" style="display:none">
+                            <button type="hidden" class="btn btn-primary" formaction="vaction_form_sub.php" formtarget= "_blank">
+                                <i class="fas fa-print"></i>طباعه الاجازه
+                            </button>
+                        </div>
+                        <div id="bdaal_div" style="display:none">
+                            <button type="hidden" class="btn btn-primary" formaction="badal_raha_form_sub.php" formtarget= "_blank">
+                                <i class="fas fa-print"></i>طباعه بدل الراحه
+                            </button>
+                            <input type="hidden" class="form-control list" name="no_insert_badal" value="no_insert_badal">
+                        </div>
+                        
                         <button type="button" id="add_btn" class="btn btn-primary add" data-dismiss="modal"><i class="fas fa-check"></i>اضافه الماموريه</button>
                         <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fas fa-ban"></i> الغاء</button>
+                        <label for="chk_btn" style="user-select: none;">ابقاء النافذه
+                            <input type="checkbox" onclick="show_box();"  id="chk_btn">
+                        </label>
                     </div>
                 </div>
             </div>
@@ -477,21 +506,117 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
         switch (office) {
             case "اجازه اعتياديه":
             case "اجازه عارضه":
-            case "بدل راحه":
-            case "اجازه رسميه":
-            case "اجازه مرضيه":
-            case "اجازه استثنائيه":
-                $("#misin_type").prop("selectedIndex", -1);
+                $("#misin_type_select").prop("selectedIndex", -1);
                 document.getElementById("start_time").value = '';
                 document.getElementById("end_time").value = '';
                 $("#misin_type").attr("disabled", "true");
                 $("#start_time").attr("disabled", "disabled");
                 $("#end_time").attr("disabled", "disabled");
+                document.getElementById('vaction_div').style.display = "block";
+                document.getElementById('misin_time').style.display = "none";
+                document.getElementById('misin_type').style.display = "none";
+                document.getElementById('misin_type_label').style.display = "none";
+                document.getElementById('vaction_div').style.display = "block";
+                document.getElementById('vaction_type').style.display = "block";
+                document.getElementById('vaction_type_label').style.display = "block";
+                document.getElementById('badal_type').style.display = "none";
+                document.getElementById('badal_type_label').style.display = "none";
+                document.getElementById('bdaal_div').style.display = "none";
+                document.getElementById('ill_type_label').style.display = "none";
+                document.getElementById('ill_type').style.display = "none";
+                document.getElementById('misin_cairo_type').style.display = "none";
+                document.getElementById('misin_cairo').value = "";
+                
+                break;
+            case "بدل راحه":
+                document.getElementById('misin_time').style.display = "none";
+                document.getElementById('misin_type').style.display = "none";
+                document.getElementById('misin_type_label').style.display = "none";
+                document.getElementById('vaction_div').style.display = "none";
+                document.getElementById('vaction_type').style.display = "none";
+                document.getElementById('vaction_type_label').style.display = "none";
+                document.getElementById('ill_type').style.display = "none";
+                document.getElementById('ill_type_label').style.display = "none";
+                document.getElementById('badal_type').style.display = "block";
+                document.getElementById('badal_type_label').style.display = "block";
+                document.getElementById('bdaal_div').style.display = "block";
+                document.getElementById('misin_cairo_type').style.display = "none";
+                document.getElementById('misin_cairo').value = "";
+                break;
+            case "اجازه مرضيه":
+                $("#misin_type_select").prop("selectedIndex", -1);
+                document.getElementById("start_time").value = '';
+                document.getElementById("end_time").value = '';
+                $("#start_time").attr("disabled", "disabled");
+                $("#end_time").attr("disabled", "disabled");
+                document.getElementById('vaction_div').style.display = "none";
+                document.getElementById('vaction_type').style.display = "none";
+                document.getElementById('vaction_type_label').style.display = "none";
+                document.getElementById('badal_type').style.display = "none";
+                document.getElementById('badal_type_label').style.display = "none";
+                document.getElementById('bdaal_div').style.display = "none";
+                document.getElementById('misin_time').style.display = "none";
+                document.getElementById('misin_type').style.display = "none";
+                document.getElementById('misin_type_label').style.display = "none";
+                document.getElementById('misin_cairo_type').style.display = "none";
+                document.getElementById('ill_type_label').style.display = "block";
+                document.getElementById('ill_type').style.display = "block";
+                document.getElementById('misin_cairo').value = "";
+                break;
+            case "اجازه رسميه":
+            case "اجازه استثنائيه":
+                $("#misin_type_select").prop("selectedIndex", -1);
+                document.getElementById("start_time").value = '';
+                document.getElementById("end_time").value = '';
+                $("#misin_type").attr("disabled", "true");
+                $("#start_time").attr("disabled", "disabled");
+                $("#end_time").attr("disabled", "disabled");
+                document.getElementById('vaction_div').style.display = "none";
+                document.getElementById('vaction_type').style.display = "none";
+                document.getElementById('vaction_type_label').style.display = "none";
+                document.getElementById('badal_type').style.display = "none";
+                document.getElementById('badal_type_label').style.display = "none";
+                document.getElementById('bdaal_div').style.display = "none";
+                document.getElementById('misin_cairo_type').style.display = "none";
+                document.getElementById('misin_type_label').style.display = "none";
+                document.getElementById('misin_time').style.display = "none";
+                document.getElementById('misin_type').style.display = "none";
+                document.getElementById('misin_cairo').value = "";
+                break;
+            case "ماموريه القاهره":
+                document.getElementById("start_time").value = '08:00:00';
+                document.getElementById("end_time").value = '15:00:00';
+                $("#misin_type_select").prop("selectedIndex", -1);
+                document.getElementById('misin_type').style.display = "none";
+                document.getElementById('misin_cairo_type').style.display = "block";
+                document.getElementById('misin_time').style.display = "flex";
+                document.getElementById('misin_type_label').style.display = "block";
+                document.getElementById('vaction_type').style.display = "none";
+                document.getElementById('vaction_type_label').style.display = "none";
+                document.getElementById('ill_type_label').style.display = "none";
+                document.getElementById('ill_type').style.display = "none";
+
                 break;
             case "المنطقه":
-
+                document.getElementById("misin_type").disabled = false;
+                document.getElementById("start_time").disabled = false;
+                document.getElementById("end_time").disabled = false;
+                document.getElementById('vaction_div').style.display = "none";
                 document.getElementById("start_time").value = '10:00:00';
                 document.getElementById("end_time").value = '17:00:00';
+                document.getElementById('misin_time').style.display = "flex";
+                document.getElementById('misin_type').style.display = "block";
+                document.getElementById('misin_type_label').style.display = "block";
+                document.getElementById('vaction_div').style.display = "none";
+                document.getElementById('vaction_type').style.display = "none";
+                document.getElementById('vaction_type_label').style.display = "none";
+                document.getElementById('badal_type').style.display = "none";
+                document.getElementById('badal_type_label').style.display = "none";
+                document.getElementById('bdaal_div').style.display = "none";
+                document.getElementById('ill_type_label').style.display = "none";
+                document.getElementById('ill_type').style.display = "none";
+                document.getElementById('misin_cairo_type').style.display = "none";
+                document.getElementById('misin_cairo').value = "";
                 break;
             default:
                 document.getElementById("start_time").value = '08:00:00';
@@ -499,6 +624,20 @@ $query_id_it = mysqli_query($conn, "SELECT * FROM tbl_user where job like 'اخ�
                 document.getElementById("misin_type").disabled = false;
                 document.getElementById("start_time").disabled = false;
                 document.getElementById("end_time").disabled = false;
+                document.getElementById('vaction_div').style.display = "none";
+                document.getElementById('misin_time').style.display = "flex";
+                document.getElementById('misin_type').style.display = "block";
+                document.getElementById('misin_type_label').style.display = "block";
+                document.getElementById('vaction_div').style.display = "none";
+                document.getElementById('vaction_type').style.display = "none";
+                document.getElementById('vaction_type_label').style.display = "none";
+                document.getElementById('badal_type').style.display = "none";
+                document.getElementById('badal_type_label').style.display = "none";
+                document.getElementById('bdaal_div').style.display = "none";
+                document.getElementById('ill_type_label').style.display = "none";
+                document.getElementById('ill_type').style.display = "none";
+                document.getElementById('misin_cairo_type').style.display = "none";
+                document.getElementById('misin_cairo').value = "";
         }
     }
 </script>

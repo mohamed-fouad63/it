@@ -79,9 +79,7 @@ from misin_it WHERE it_name LIKE '%$key%' and misin_date like '%{$day}%' ORDER  
 
             <?php } else {
             while ($row_pc = mysqli_fetch_assoc($query_missin_daye_result)) { ?>
-                <tr style="<?php if ($row_pc["misin_day"] == "السبت") {
-                                echo 'color:#27AE60';
-                            } ?>">
+                <tr style="<?php if ($row_pc["misin_day"] == "السبت") { echo 'color:#27AE60';} ?>">
                     <td><?php echo $row_pc["it_name"] ?></td>
                     <td><?php echo $row_pc["misin_day"] ?></td>
                     <td class="misin_date"><?php echo $row_pc["misin_date"] ?></td>

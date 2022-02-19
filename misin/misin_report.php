@@ -134,7 +134,7 @@ if ($nameOfDay == "الجمعه") {
         <div class="page">
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" name="misin_form_sub2" onclick="window.print();"> طباعه الماموريه </button>
-                <button type="button" class="btn btn-warning" onclick="window.location.href='my_misin.php'" data-dismiss="modal">تم</button>
+                <button type="button" class="btn btn-warning" onclick="window.close()" data-dismiss="modal">تم</button>
             </div>
             <form method="post">
                 <label class='username'>القائم بالمرور / <?php echo $_SESSION['user_name'];  ?></label>

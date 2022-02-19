@@ -218,8 +218,7 @@ while($row10 = $result10->fetch_assoc()) {?>
                                 </div>
                                 <label class="control-label col-sm-2" id="toggle_badal_raha_label">عن يوم السبت</label>
                                 <div class="col-sm-4" id="toggle_reson_of_vacance">
-                                    <input type"text" class="form-control list" name="reason_vacation"
-" value="ظروف طارئه">
+                                    <input type="text" class="form-control list" name="reason_vacation" value="ظروف طارئه">
                                 </div>
                                 <label class="control-label col-sm-2" id="toggle_reson_of_vacance_abel">و ذلك لـ
                                     </label>
@@ -697,7 +696,7 @@ while($row10 = $result10->fetch_assoc()) {?>
                             <i class="fas fa-check"></i>اضافه الماموريه
                         </button>
                         <button style="display:none;" type="hidden" class="btn btn-primary" id="second_form"
-                            formaction="vaction_form_sub1.php">
+                            formaction="vaction_form_sub.php">
                             <i class="fas fa-check"></i>اضافه الاجازه
                         </button>
                         <button style="display:none;" type="hidden" class="btn btn-primary" id="third_form"

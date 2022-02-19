@@ -5,9 +5,14 @@ date_default_timezone_set('Africa/Cairo');
 $it_name = $_POST['it_name'];
 $id = $_SESSION['id'];
 $office_name = $_POST['office_name'];
-$misin_type = $_POST['misin_type'];
 $misin_date = $_POST['misin_date'];
 $reason_vacation = $_POST['reason_vacation'];
+
+if(empty($_POST['no_insert'])){
+  $no_insert = "";
+} else {
+  $no_insert = $_POST['no_insert'];
+}
 $date = $misin_date;
 $nameOfDay = date('D', strtotime($date));
 $missin_day = date('d', strtotime($date));
@@ -39,27 +44,30 @@ switch ($nameOfDay) {
     break;
 }
 
-if ($nameOfDay == "الجمعه") {
-  echo '<script>alert("لا توجد ماموريات يوم الجمعه");</script>';
-} else if (empty($office_name)) {
-  echo '<script>alert(" قم بتحديد مكتب المرور ");</script>';
-} else {
-  $sql_insert_in_misin = "INSERT INTO misin_it_online (
-    id,
+$sql_insert_in_misin = "INSERT INTO misin_it_online (
+  id,
 misin_day,
 misin_date,
 it_name,
 office_name
 )
 VALUES (
-  '$id',
+'$id',
 '$nameOfDay',
 '$misin_date',
 '$it_name',
 '$office_name'
 
-)";
-  if ($conn->query($sql_insert_in_misin) === true) { ?>
+)"; 
+
+if ($nameOfDay == "الجمعه") {
+  echo '<script>alert("لا توجد ماموريات يوم الجمعه");</script>';
+} else if (empty($office_name)) {
+  echo '<script>alert(" قم بتحديد مكتب المرور ");</script>';
+} else {
+  if($no_insert != 'no_insert'){
+$conn->query($sql_insert_in_misin);
+ } ?>
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 
@@ -135,7 +143,7 @@ VALUES (
   <div class="page">
     <div class="btn">
       <button type="button" class="btn btn-primary" name="misin_form_sub2" onclick="window.print();"> طباعه </button>
-      <button type="button" class="btn btn-warning" onclick="window.location.href='my_misin.php'"
+      <button type="button" class="btn btn-warning" onclick="window.close();"
         data-dismiss="modal">تم</button>
     </div>
     <div>
@@ -180,5 +188,6 @@ VALUES (
 </html>
 <?php
 }
-}
+
+
 ?>
