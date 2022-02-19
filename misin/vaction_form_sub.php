@@ -176,10 +176,13 @@ $conn->query($sql_insert_in_misin);
         و لسيادتكم جزيل الشكر
       </h2>
     </div>
-    <div style="text-align: left;">
+    <div style="text-align: end;">
   <h2>
     مقدمه لسيادتكم /
   </h2>
+  <h3>
+<?php echo $it_name; ?>
+  </h3>
   </div>
   </div>
 
