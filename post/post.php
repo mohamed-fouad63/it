@@ -39,6 +39,12 @@ include '../connection.php';
             z-index: 1030;
             left: 20%;
         }
+        .print_grd {
+            position: fixed;
+            top: 2%;
+            z-index: 1030;
+            left: 25%;
+        }
           .toast{
       position: fixed;
       top: 66px;

@@ -20,14 +20,18 @@ while($row_query_office_group=mysqli_fetch_assoc($query_office_group)){
 <div class="input-group-prepend">
 <span class="input-group-text" id="basic-addon1"><?php echo $office_type ; ?></span>
 </div>
-    <label style="text-align:center;" class="form-control details-text"><?php echo $row_query_office_group["office_name"];?></label>
+    <label style="text-align:center;" class="form-control details-text">
+    <?php echo $row_query_office_group["office_name"];?>
+    <a calss="btn btn-outline-secondary" style="float:left" href="../../grd/?office_name=<?php echo $row_query_office_group["office_name"] ?>" target="balnk"><i class="fas fa-print"></i></a>
+    
+</label>
 
 </div>
 </div>
  <?php //  echo $row_query_office_group["office_name"];
  }
 ?>
-<form method="post" action="update_office_group.php">
+<!-- <form method="post" action="update_office_group.php">
 <div class="hg_it">
     <div class="col-md-6 mb-3 col-office">
 
@@ -41,4 +45,4 @@ while($row_query_office_group=mysqli_fetch_assoc($query_office_group)){
     <input type="text" name="post_group" value="<?php echo $post_group ;?>" hidden>
       <div class="col-md-6 mb-3 col-office">
           <input class="btn btn-primary" type="submit" value="تحديث البيانات"></div>
-</form>
+</form> -->

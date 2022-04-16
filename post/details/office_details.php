@@ -25,7 +25,12 @@ while($row_hg=mysqli_fetch_assoc($query_hg)){ echo $row_hg["first_name"];}
 ?>
                 </th>
                 <th><?php if ( $_SESSION['add_dvice'] == "1"){ ?>
-                    <button type='button' class='btn  btn-outline-secondary add_new_dvice' data-toggle='modal' data-placement="right" title="اضافه  الجهاز" data-target='#add_dvice' onclick='add_dvice()'><i class='fas fa-plus'></i></button><?php }?></th>
+                    <button type='button' class='btn  btn-outline-secondary add_new_dvice' data-toggle='modal' data-placement="right" title="اضافه  الجهاز" data-target='#add_dvice' onclick='add_dvice()'><i class='fas fa-plus'></i></button><?php }?>
+                    <a href='../../it/grd/?office_name=<?php echo $office_name ?>' target='blank' class='btn  btn-outline-secondary print_grd' title="طباعه نموذج الجرد"><i class="fas fa-print"></i></a>
+                </th>
+                <th>
+           
+                </th>
             </tr>
             <tr>
                 <th>الكود المالى</th>
